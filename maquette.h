@@ -2,6 +2,7 @@
 #define MAQUETTE_H
 
 #include <vector>
+#include <string>
 
 class ue;
 

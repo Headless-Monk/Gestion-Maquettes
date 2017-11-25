@@ -2,6 +2,7 @@
 #define FORMATION_H
 
 #include <vector>
+#include <string>
 
 class maquette;
 
@@ -13,7 +14,7 @@ public:
 
 
 private:
-  std::vector <maquette*> d_maquettes;
+  std::vector <maquette> d_maquettes;
 
   string d_libelle;
 

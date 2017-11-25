@@ -4,8 +4,6 @@
 #include <vector>
 #include <string>
 
-class ecue;
-
 class ue
 {
 public:
@@ -14,7 +12,6 @@ public:
 
 
 private:
-  std::vector <ecue*> d_ecues;
   string d_code;
   string d_intitule;
   unsigned int d_credits;
