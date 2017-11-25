@@ -15,6 +15,9 @@ public:
 private:
   std::vector <ue*> d_ues;
 
+  unsigned int d_num_semestre; //1 à 6 pour une licence
+  string d_libelle;
+
 };
 
 #endif
