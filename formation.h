@@ -16,7 +16,7 @@ public:
 private:
   std::vector <maquette> d_maquettes;
 
-  string d_libelle;
+  std::string d_libelle;
 
 };
 
