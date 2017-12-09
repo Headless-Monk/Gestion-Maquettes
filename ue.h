@@ -7,11 +7,13 @@ class ue
 {
 public:
   ue();
+  ue(std::string code, std::string intitule, unsigned int credits, unsigned int coefficient);
+  ue(ue &u);
   ~ue();
 
 private:
-  string d_code;
-  string d_intitule;
+  std::string d_code;
+  std::string d_intitule;
   unsigned int d_credits;
   unsigned int d_coefficient;
 };
