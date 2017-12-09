@@ -7,13 +7,15 @@ class ecue
 {
 public:
   ecue();
+  ecue(string d_code, string d_intitule, unsigned int cm, unsigned int td, unsigned int tp)
   ~ecue();
 
+  
 
 private:
   std::string d_code;
   std::string d_intitule;
-  unsigned int d_cours, d_TD, d_TP;
+  unsigned int d_cm, d_td, d_tp;
 };
 
 #endif
