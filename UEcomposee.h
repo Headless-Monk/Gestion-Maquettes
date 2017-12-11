@@ -14,7 +14,7 @@ public:
   UEcomposee(UEcomposee &UEc);
   virtual ~UEcomposee();
 
-  virtual void afficher(ostream &os) const;
+  virtual void afficher(ostream &os) const override;
   void ajouter_ecue(ecue *e);
   void supprimer_ecue(ecue *e);
   void echanger(ecue *e1, ecue *e2);
