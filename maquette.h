@@ -19,6 +19,7 @@ public:
 
 private:
   std::vector <ue*> d_ues;
+  std::vector <bool> d_ue_option;
 
   std::string d_domaine; //défaut = "SCIENCES ET TECHNOLOGIE, SANTE"
   std::string d_mention;
