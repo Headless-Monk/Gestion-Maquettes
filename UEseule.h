@@ -11,7 +11,7 @@ public:
   UEseule(UEseule &UEs);
   virtual ~UEseule();
 
-  virtual afficher(ostream &os) const;
+  virtual afficher(ostream &os) const override;
 
   /* set */
   void set_cm(unsigned int cm);
