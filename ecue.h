@@ -11,9 +11,8 @@ public:
   ecue(ecue &e);
   ~ecue();
 
-  void afficher(ostream &os) const; //par exemple : affichage en ligne, infos séparée par ; pour ensuite pouvoir copier coller dans excel
-  //menu de modification géré par l'interface
-
+  void afficher(ostream &os) const;
+  
   /* set */
   void set_code(std::string code);
   void set_intitule(std::string intitule);
