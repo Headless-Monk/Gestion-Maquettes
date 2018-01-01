@@ -10,12 +10,13 @@ class formation
 {
 public:
   formation();
-  formation(d_libelle);
-  formation(std::vector <maquette> &maquettes, std::string mention); //vraiment nécéssaire ?
+  formation(std::string mention);
+  formation(std::vector <maquette> &maquettes, std::string mention);
   formation(formation &f);
-
   ~formation();
 
+  //pour l'instant classe inutile
+  //elle sert à trier les maquettes
 
 private:
   std::vector <maquette> d_maquettes;
