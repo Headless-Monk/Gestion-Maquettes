@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+class ue;
 class UEchoix;
 
 class maquette
@@ -11,14 +12,19 @@ class maquette
 public:
     maquette();
     maquette(std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
-    maquette(std::vector <UEchoix*> &ues, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
+    maquette(std::vector <ue*> &ues, std::vector <UEchoix*> &ues_choix, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
     maquette(maquette &m);
     ~maquette();
 
     void afficher(std::ostream &os) const;
-    void ajouter_ue(UEchoix *u);
-    void supprimer_ue(UEchoix *u);
-    void echanger_position(UEchoix *u1, UEchoix *u2);
+    void ajouter_ue(ue *u);
+    void ajouter_ue(UEchoix *uc);
+    void supprimer_ue(ue *u);
+    void supprimer_ue(UEchoix *uc);
+    void monter_ue(ue *u); //déplace de 1 dans la liste
+    void monter_ue(UEchoix *uc);
+    void descendre_ue(ue *u);
+    void descendre_ue(UEchoix *uc);
 
 
     void domaine(std::string domaine);
@@ -35,7 +41,9 @@ public:
     unsigned int smestre() const;
 
 private:
-    std::vector <UEchoix*> d_ues;
+    std::vector <ue*> d_ues;
+    std::vector <UEchoix*> d_ues_choix;
+    unsigned int d_position_ue_choix_dans_ue;
 
     std::string d_domaine; //défaut = "SCIENCES ET TECHNOLOGIE, SANTE"
     std::string d_mention;
