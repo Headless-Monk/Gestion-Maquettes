@@ -10,7 +10,17 @@ ecue::ecue(ecue &e) :
 
 void ecue::afficher(std::ostream &os) const
 {
-    os << d_code << "   |   " << d_intitule << "    |   " << d_heures_cm << "   |   " << d_heures_td << "   |   " << d_heures_tp << "   |   " << d_heures_cm + d_heures_td + d_heures_tp << std::endl;
+    os <<   d_code << "   |   " <<
+            d_intitule << "    |   " <<
+            d_heures_cm << "   |   " <<
+            d_heures_td << "   |   " <<
+            d_heures_tp << "   |   " <<
+            duree_totale() << std::endl;
+}
+
+unsigned int ecue::duree_totale() const
+{
+    return d_heures_cm + d_heures_td + d_heures_tp;
 }
 
 void ecue::code(std::string code)
@@ -63,7 +73,8 @@ unsigned int ecue::heures_tp() const
     return d_heures_tp;
 }
 
-ecue& operator<< (std::ostream &os, const ecue &e)
+std::ostream& operator<<(std::ostream &os, const ecue &e)
 {
     e.afficher(os);
+    return os;
 }

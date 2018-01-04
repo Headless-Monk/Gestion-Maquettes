@@ -24,8 +24,9 @@ public:
   unsigned int coefficient() const override;
 
 protected:
-  ue();
-  ue(std::string code, std::string intitule, unsigned int credits, unsigned int coefficient);
+  ue() = delete;
+  ue(std::string code, std::string intitule,
+     unsigned int credits, unsigned int coefficient);
   ue(ue &u);
   virtual ~ue();
 
@@ -36,6 +37,6 @@ private:
   unsigned int d_coefficient;
 };
 
-ue& operator<<(std::ostream &os, const ue &u);
+std::ostream& operator<<(std::ostream &os, const ue &u);
 
 #endif
