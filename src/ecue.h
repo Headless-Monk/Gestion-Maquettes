@@ -11,6 +11,7 @@ public:
     ecue() = delete;
     ecue(std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp);
     ecue(ecue &e);
+    ~ecue();
 
     void afficher(std::ostream &os) const;
     unsigned int duree_totale() const;

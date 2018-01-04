@@ -5,8 +5,7 @@
 #include <ostream>
 
 #include "ue.h"
-
-class ecue;
+#include "ecue.h"
 
 class UEcomposee : public ue
 {

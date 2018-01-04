@@ -9,26 +9,28 @@
 class ue : public UEchoix
 {
 public:
-  virtual void afficher(std::ostream &os) const =0;
+    ue() = delete;
+    ue(std::string code, std::string intitule,
+    unsigned int credits, unsigned int coefficient);
+    ue(ue &u);
+    virtual ~ue();
+
+    virtual void afficher(std::ostream &os) const =0;
 
 
-  void code(std::string code) override;
-  void intitule(std::string intitule) override;
-  void credits(unsigned int credits) override;
-  void coefficient(unsigned int coefficient) override;
+    void code(std::string code) override;
+    void intitule(std::string intitule) override;
+    void credits(unsigned int credits) override;
+    void coefficient(unsigned int coefficient) override;
 
 
-  std::string code() const override;
-  std::string intitule() const override;
-  unsigned int credits() const override;
-  unsigned int coefficient() const override;
+    std::string code() const override;
+    std::string intitule() const override;
+    unsigned int credits() const override;
+    unsigned int coefficient() const override;
 
 protected:
-  ue() = delete;
-  ue(std::string code, std::string intitule,
-     unsigned int credits, unsigned int coefficient);
-  ue(ue &u);
-  virtual ~ue();
+
 
 private:
   std::string d_code;

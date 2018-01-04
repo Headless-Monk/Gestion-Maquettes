@@ -39,7 +39,7 @@ void UEcomposee::supprimer_ecue(ecue *e)
     unsigned int i = 0;
     while(e != d_ecues[i])
         i++;
-    //delete d_ecues[i];
+    delete d_ecues[i];
     for(; i<d_ecues.size()-1; i++)
         std::swap(d_ecues[i],d_ecues[i+1]);
     d_ecues.resize(d_ecues.size());

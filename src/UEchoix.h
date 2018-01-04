@@ -6,6 +6,9 @@
 class UEchoix
 {
     public:
+        UEchoix();
+        virtual ~UEchoix();
+
         virtual void afficher(std::ostream &os) const =0;
 
 
@@ -21,8 +24,7 @@ class UEchoix
         virtual unsigned int coefficient() const =0;
 
     protected:
-        UEchoix();
-        virtual ~UEchoix();
+
 
     private:
 };

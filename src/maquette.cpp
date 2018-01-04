@@ -70,7 +70,7 @@ void maquette::supprimer_ue(ue *u)
     unsigned int i = 0;
     while(u != d_ues[i])
         i++;
-    //delete d_ecues[i];
+    delete d_ues[i];
     for(; i<d_ues.size()-1; i++)
         std::swap(d_ues[i],d_ues[i+1]);
     d_ues.resize(d_ues.size()-1);

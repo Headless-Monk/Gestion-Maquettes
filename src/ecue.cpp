@@ -8,6 +8,9 @@ ecue::ecue(ecue &e) :
     d_code{e.d_code}, d_intitule{e.d_intitule}, d_heures_cm{e.d_heures_cm}, d_heures_td{e.d_heures_td}, d_heures_tp{e.d_heures_tp}
 {}
 
+ecue::~ecue()
+{}
+
 void ecue::afficher(std::ostream &os) const
 {
     os <<   d_code << "   |   " <<
