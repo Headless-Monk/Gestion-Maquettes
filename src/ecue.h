@@ -8,10 +8,9 @@
 class ecue
 {
 public:
-  ecue();
+  ecue() = delete;
   ecue(std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp);
   ecue(ecue &e);
-  ~ecue();
 
   void afficher(std::ostream &os) const;
 
@@ -25,9 +24,9 @@ public:
 
   std::string code() const;
   std::string intitule() const;
-  std::string heures_cm() const;
-  std::string heures_td() const;
-  std::string heures_tp() const;
+  unsigned int heures_cm() const;
+  unsigned int heures_td() const;
+  unsigned int heures_tp() const;
 
 private:
   std::string d_code;
