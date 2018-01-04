@@ -45,10 +45,10 @@ ue::ue(std::string code, std::string intitule, unsigned int credits, unsigned in
 
 ue::ue(ue &u) :
         UEchoix{},
-        d_code{code},
-        d_intitule{intitule},
-        d_credits{credits},
-        d_coefficient{coefficient}
+        d_code{u.code()},
+        d_intitule{u.intitule()},
+        d_credits{u.credits()},
+        d_coefficient{u.coefficient()}
 {}
 
 ue::~ue()

@@ -22,11 +22,11 @@ class UEchoix
 
     protected:
         UEchoix();
-        UEchoix(std::string code, std::string intitule, unsigned int credits, unsigned int coefficient);
-        UEchoix(UEchoix &u);
         virtual ~UEchoix();
 
     private:
 };
+
+std::ostream& operator<<(std::ostream &os, const UEchoix &u);
 
 #endif // UECHOIX_H

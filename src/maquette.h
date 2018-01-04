@@ -10,7 +10,7 @@ class UEchoix;
 class maquette
 {
 public:
-    maquette();
+    maquette() = delete;
     maquette(std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
     maquette(std::vector <ue*> &ues, std::vector <UEchoix*> &ues_choix, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
     maquette(maquette &m);
@@ -53,6 +53,6 @@ private:
 
 };
 
-maquette& operator<<(std::ostream &os, maquette &m);
+std::ostream& operator<<(std::ostream &os, maquette &m);
 
 #endif
