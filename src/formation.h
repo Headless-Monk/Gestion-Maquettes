@@ -4,15 +4,18 @@
 #include <vector>
 #include <string>
 
-class maquette;
+#include "maquette.h"
 
 class formation
 {
 public:
-  formation();
+  formation() = delete;
   formation(std::string mention);
+
+  /* à faire */
   formation(std::vector <maquette> &maquettes, std::string mention);
   formation(formation &f);
+  /* ------- */
   ~formation();
 
   //pour l'instant classe inutile

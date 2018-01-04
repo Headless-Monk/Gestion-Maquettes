@@ -3,9 +3,10 @@
 
 #include <vector>
 #include <string>
+#include <ostream>
 
-class ue;
-class UEchoix;
+#include "ue.h"
+#include "UEchoix.h"
 
 class maquette
 {
@@ -21,11 +22,13 @@ public:
     void ajouter_ue(UEchoix *uc);
     void supprimer_ue(ue *u);
     void supprimer_ue(UEchoix *uc);
+
+    /* à faire */
     void monter_ue(ue *u); //déplace de 1 dans la liste
     void monter_ue(UEchoix *uc);
     void descendre_ue(ue *u);
     void descendre_ue(UEchoix *uc);
-
+    /* ------- */
 
     void domaine(std::string domaine);
     void mention(std::string mention);
@@ -38,7 +41,7 @@ public:
     std::string mention() const;
     std::string parcours() const;
     unsigned int annee() const;
-    unsigned int smestre() const;
+    unsigned int semestre() const;
 
 private:
     std::vector <ue*> d_ues;

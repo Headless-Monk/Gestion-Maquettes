@@ -36,17 +36,13 @@ void UEcomposee::ajouter_ecue(ecue *e)
 
 void UEcomposee::supprimer_ecue(ecue *e)
 {
-    for(unsigned int i=0; i<d_ecues.size(); i++)
-    {
-        if(d_ecues[i] == e)
-        {
-            for(unsigned int j=i; j<d_ecues.size(); j++)
-            {
-                d_ecues[j] = d_ecues[j+1];
-            }
-            d_ecues.resize(d_ecues.size());
-        }
-    }
+    unsigned int i = 0;
+    while(e != d_ecues[i])
+        i++;
+    //delete d_ecues[i];
+    for(; i<d_ecues.size()-1; i++)
+        std::swap(d_ecues[i],d_ecues[i+1]);
+    d_ecues.resize(d_ecues.size());
 }
 
 void UEcomposee::monter_ecue(ecue *ec)
