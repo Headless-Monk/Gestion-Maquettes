@@ -1,34 +1,29 @@
 #ifndef UECHOIX_H
 #define UECHOIX_H
 
-#include <string>
+#include <vector>
+#include <ostream>
+
+//utiliser soit un soit l'autre, bug sans les deux
+#include "ue.h"
+class ue;
 
 class UEchoix
 {
     public:
         UEchoix();
-        virtual ~UEchoix();
+        UEchoix(std::vector <ue*> &ues);
+        ~UEchoix();
 
-        virtual void afficher(std::ostream &os) const =0;
-
-
-        virtual void code(std::string code) =0;
-        virtual void intitule(std::string intitule) =0;
-        virtual void credits(unsigned int credits) =0;
-        virtual void coefficient(unsigned int coefficient) =0;
-
-
-        virtual std::string code() const =0;
-        virtual std::string intitule() const =0;
-        virtual unsigned int credits() const =0;
-        virtual unsigned int coefficient() const =0;
+        void afficher(std::ostream &os) const;
+        void ajouter_ue(ue *u);
+        void supprimer_ue(ue *u);
 
     protected:
 
 
     private:
+        std::vector <ue*> d_liste_ue;
 };
-
-std::ostream& operator<<(std::ostream &os, const UEchoix &u);
 
 #endif // UECHOIX_H

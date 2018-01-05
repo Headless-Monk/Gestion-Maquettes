@@ -6,7 +6,7 @@
 
 #include "UEchoix.h"
 
-class ue : public UEchoix
+class ue
 {
 public:
     ue() = delete;
@@ -18,16 +18,16 @@ public:
     virtual void afficher(std::ostream &os) const =0;
 
 
-    void code(std::string code) override;
-    void intitule(std::string intitule) override;
-    void credits(unsigned int credits) override;
-    void coefficient(unsigned int coefficient) override;
+    void code(std::string code);
+    void intitule(std::string intitule);
+    void credits(unsigned int credits);
+    void coefficient(unsigned int coefficient);
 
 
-    std::string code() const override;
-    std::string intitule() const override;
-    unsigned int credits() const override;
-    unsigned int coefficient() const override;
+    std::string code() const;
+    std::string intitule() const;
+    unsigned int credits() const;
+    unsigned int coefficient() const;
 
 protected:
 
