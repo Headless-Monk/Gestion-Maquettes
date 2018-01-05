@@ -19,6 +19,7 @@ class UEchoix
         void ajouter_ue(ue *u);
         void supprimer_ue(ue *u);
 
+        std::vector<ue*> liste_ue() const;
     protected:
 
 

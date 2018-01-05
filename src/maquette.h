@@ -36,7 +36,9 @@ public:
     void annee(unsigned int annee);
     void semestre(unsigned int semestre);
 
-
+    std::vector <ue*> liste_ues() const;
+    std::vector <UEchoix*> liste_ues_choix() const;
+    unsigned int position_ue_choix_dans_ue() const;
     std::string domaine() const;
     std::string mention() const;
     std::string parcours() const;

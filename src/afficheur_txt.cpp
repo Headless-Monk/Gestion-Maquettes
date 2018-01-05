@@ -1,5 +1,8 @@
 #include "afficheur_txt.h"
 
+using std::cout;
+using std::endl;
+
 afficheur_txt::afficheur_txt()
 {}
 
@@ -10,20 +13,25 @@ void afficheur_txt::exporter_maquette(const maquette &m)
 {
     d_fichier.open(nom(m));
 
+    std::vector <ue*> ues{m.liste_ues()};
+    std::vector <UEchoix*> ues_choix{m.liste_ues_choix()};
+
     ecrire_details_maquette(m);
-    /*for(unsigned int cpt_ues=0, cpt_ecues=0; cpt_ecues<d_ues.size() + 1; cpt_ecues++)
+    for(unsigned int cpt_ue=0, cpt_ue_choix=0; cpt_ue_choix<ues.size()+1; cpt_ue_choix++)
     {
-        if(cpt_ecues+1 == d_position_ue_choix_dans_ue)
+        if(cpt_ue_choix == m.position_ue_choix_dans_ue())
         {
-            for(unsigned int i=0; i<d_ues_choix.size(); i++)
-                d_ues_choix[i]->afficher(os);
+            //affichage ue_choix
+            for(unsigned int i=0; i<ues_choix.size(); i++)
+                ecrire_ue_choix(ues_choix[i]);
         }
         else
         {
-            d_ues[cpt_ues]->afficher(os);
-            cpt_ues++;
+            //affichage ue_choix
+            ecrire_ue(ues[cpt_ue]);
+            cpt_ue++;
         }
-    }*/
+    }
 
     d_fichier.close();
 
@@ -55,17 +63,57 @@ void afficheur_txt::ecrire_details_maquette(const maquette &m)
     d_fichier << m.semestre() << std::endl;
 }
 
-void afficheur_txt::ecrire_UEseule(const UEseule &UEs)
+void afficheur_txt::ecrire_ue(ue *u)
 {
-
+    if(dynamic_cast<UEseule*>(u) != nullptr)
+    {
+        ecrire_ue_seule(dynamic_cast<UEseule*>(u));
+    }
+    else
+    {
+        ecrire_ue_composee(dynamic_cast<UEcomposee*>(u));
+    }
 }
 
-void afficheur_txt::ecrire_UEcomposee(const UEcomposee &UEc)
+void afficheur_txt::ecrire_ue_choix(const UEchoix *UEc)
 {
+    std::vector <ue*> liste_ue{UEc->liste_ue()};
+    for(unsigned int i=0; i<liste_ue.size(); i++)
+        ecrire_ue(liste_ue[i]);
+}
 
+void afficheur_txt::ecrire_ue_seule(const UEseule *UEs)
+{
+    d_fichier   << UEs->code() << ";"
+                << UEs->coefficient() << ";"
+                << UEs->credits() << ";"
+                << UEs->intitule() << ";"
+                << UEs->heures_cm() << ";"
+                << UEs->heures_td() << ";"
+                << UEs->heures_tp() << ";"
+                << UEs->duree_totale() << std::endl;
+}
+
+void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
+{
+    d_fichier   << UEc->code() << ";"
+                << UEc->coefficient() << ";"
+                << UEc->credits() << ";"
+                << UEc->intitule() << std::endl;
+
+    std::vector <ecue*> liste_ecue{UEc->liste_ecue()};
+    for(unsigned int i=0; i<liste_ecue.size(); i++)
+    {
+        ecrire_ecue(*liste_ecue[i]);
+    }
 }
 
 void afficheur_txt::ecrire_ecue(const ecue &ec)
 {
-
+    d_fichier   << ec.code() << ";"
+                << ec.intitule() << ";"
+                << ec.heures_cm() << ";"
+                << ec.heures_td() << ";"
+                << ec.heures_tp() << ";"
+                << ec.duree_totale() << std::endl;
 }

@@ -127,6 +127,20 @@ void maquette::semestre(unsigned int semestre)
     d_semestre = semestre;
 }
 
+std::vector <ue*> maquette::liste_ues() const
+{
+    return d_ues;
+}
+
+std::vector <UEchoix*> maquette::liste_ues_choix() const
+{
+    return d_ues_choix;
+}
+
+unsigned int maquette::position_ue_choix_dans_ue() const
+{
+    return d_position_ue_choix_dans_ue;
+}
 
 std::string maquette::domaine() const
 {

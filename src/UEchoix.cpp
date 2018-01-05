@@ -30,3 +30,8 @@ void UEchoix::supprimer_ue(ue *u)
         std::swap(d_liste_ue[i],d_liste_ue[i+1]);
     d_liste_ue.resize(d_liste_ue.size());
 }
+
+std::vector<ue*> UEchoix::liste_ue() const
+{
+    return d_liste_ue;
+}
