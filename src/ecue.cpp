@@ -1,11 +1,11 @@
 #include "ecue.h"
 
-ecue::ecue(std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp):
-    d_code{code}, d_intitule{intitule}, d_heures_cm{cm}, d_heures_td{td}, d_heures_tp{tp}
+ecue::ecue(unsigned int coeff, std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp):
+    d_coefficient{coeff}, d_code{code}, d_intitule{intitule}, d_heures_cm{cm}, d_heures_td{td}, d_heures_tp{tp}
 {}
 
 ecue::ecue(ecue &e) :
-    d_code{e.d_code}, d_intitule{e.d_intitule}, d_heures_cm{e.d_heures_cm}, d_heures_td{e.d_heures_td}, d_heures_tp{e.d_heures_tp}
+    d_coefficient{e.d_coefficient}, d_code{e.d_code}, d_intitule{e.d_intitule}, d_heures_cm{e.d_heures_cm}, d_heures_td{e.d_heures_td}, d_heures_tp{e.d_heures_tp}
 {}
 
 ecue::~ecue()
@@ -14,6 +14,7 @@ ecue::~ecue()
 void ecue::afficher(std::ostream &os) const
 {
     os <<   d_code << "   |   " <<
+            d_coefficient << "   |   " <<
             d_intitule << "    |   " <<
             d_heures_cm << "   |   " <<
             d_heures_td << "   |   " <<
@@ -24,6 +25,11 @@ void ecue::afficher(std::ostream &os) const
 unsigned int ecue::duree_totale() const
 {
     return d_heures_cm + d_heures_td + d_heures_tp;
+}
+
+void ecue::coefficent(unsigned int coeff)
+{
+    d_coefficient = coeff;
 }
 
 void ecue::code(std::string code)
@@ -49,6 +55,11 @@ void ecue::heures_td(unsigned int td)
 void ecue::heures_tp(unsigned int tp)
 {
     d_heures_tp = tp;
+}
+
+unsigned int ecue::coefficient() const
+{
+    return d_coefficient;
 }
 
 std::string ecue::code() const

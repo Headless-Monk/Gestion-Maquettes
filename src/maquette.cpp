@@ -127,6 +127,11 @@ void maquette::semestre(unsigned int semestre)
     d_semestre = semestre;
 }
 
+void maquette::position_ue_choix_dans_ue(unsigned int position)
+{
+    d_position_ue_choix_dans_ue = position;
+}
+
 std::vector <ue*> maquette::liste_ues() const
 {
     return d_ues;

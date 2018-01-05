@@ -19,7 +19,7 @@ void afficheur_txt::exporter_maquette(const maquette &m)
     ecrire_details_maquette(m);
     for(unsigned int cpt_ue=0, cpt_ue_choix=0; cpt_ue_choix<ues.size()+1; cpt_ue_choix++)
     {
-        if(cpt_ue_choix == m.position_ue_choix_dans_ue())
+        if(cpt_ue_choix == m.position_ue_choix_dans_ue()-1)
         {
             //affichage ue_choix
             for(unsigned int i=0; i<ues_choix.size(); i++)
@@ -56,11 +56,11 @@ std::string afficheur_txt::nom(const maquette &m)
 
 void afficheur_txt::ecrire_details_maquette(const maquette &m)
 {
-    d_fichier << m.domaine() << std::endl;
-    d_fichier << m.mention() << std::endl;
-    d_fichier << m.parcours() << std::endl;
-    d_fichier << m.annee() << std::endl;
-    d_fichier << m.semestre() << std::endl;
+    d_fichier << m.domaine() << ";" << std::endl;
+    d_fichier << m.mention() << ";" << std::endl;
+    d_fichier << m.parcours() << ";" << std::endl;
+    d_fichier << m.annee() << ";" << std::endl;
+    d_fichier << m.semestre() << ";" << std::endl;
 }
 
 void afficheur_txt::ecrire_ue(ue *u)
@@ -91,7 +91,7 @@ void afficheur_txt::ecrire_ue_seule(const UEseule *UEs)
                 << UEs->heures_cm() << ";"
                 << UEs->heures_td() << ";"
                 << UEs->heures_tp() << ";"
-                << UEs->duree_totale() << std::endl;
+                << UEs->duree_totale() << ";" << std::endl;
 }
 
 void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
@@ -99,7 +99,7 @@ void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
     d_fichier   << UEc->code() << ";"
                 << UEc->coefficient() << ";"
                 << UEc->credits() << ";"
-                << UEc->intitule() << std::endl;
+                << UEc->intitule() << ";" << std::endl;
 
     std::vector <ecue*> liste_ecue{UEc->liste_ecue()};
     for(unsigned int i=0; i<liste_ecue.size(); i++)
@@ -111,9 +111,10 @@ void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
 void afficheur_txt::ecrire_ecue(const ecue &ec)
 {
     d_fichier   << ec.code() << ";"
+                << ec.coefficient() << ";"
                 << ec.intitule() << ";"
                 << ec.heures_cm() << ";"
                 << ec.heures_td() << ";"
                 << ec.heures_tp() << ";"
-                << ec.duree_totale() << std::endl;
+                << ec.duree_totale() << ";" << std::endl;
 }
