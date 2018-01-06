@@ -27,8 +27,11 @@ public:
     //SYLVAIN
     void afficher_creer_maquette();
     void afficher_modifier_maquette();
+    void afficher_menu_modification_maquette(maquette *m);
     void afficher_supprimer_maquette();
     void afficher_liste_maquette();
+    void afficher_liste_maquette_entete();
+    void test(maquette *m); //besoin de la gestion d'ues
 
     //OLIVIER
     void afficher_creer_formation();

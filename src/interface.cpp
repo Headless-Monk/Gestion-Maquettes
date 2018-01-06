@@ -1,5 +1,9 @@
 #include "interface.h"
 
+using std::cout;
+using std::endl;
+using std::cin;
+
 interface::interface():d_maquette{}, d_formation{}, d_ue{}, d_ecue{}, d_UEchoix{}
 {
 
@@ -7,16 +11,22 @@ interface::interface():d_maquette{}, d_formation{}, d_ue{}, d_ecue{}, d_UEchoix{
 
 interface::~interface()
 {
-
+/*
+*
+*
+*   FUITESSSSSSSSSSSSSSSSSS DE MEMOIRE
+*
+*
+*
+*/
 }
 
 void interface::initialiser()
 {
     int choix = 0;
-    while(choix != 5)
+    while(choix != 6)
     {
         system("cls");
-        std::cout << std::endl;
 
         afficher_menu_principal();
 
@@ -36,7 +46,7 @@ void interface::initialiser()
             case 4:
                 afficher_menu_ECUEs();
                 break;
-            case 5:
+            case 6:
                 break;
             default:
                 break;
@@ -57,20 +67,22 @@ void interface::afficher_menu_principal()
 void interface::afficher_menu_maquettes()
 {
     int choix = 0;
-    while(choix != 4)
+    while(choix != 5)
     {
         system("cls");
-        std::cout << "1) Creer maquette" << std::endl;
-        std::cout << "2) Modifier maquette" << std::endl;
-        std::cout << "3) Supprimer maquette" << std::endl;
-        std::cout << "4) Retour" << std::endl;
+        cout << "1) Creer maquette" << endl;
+        cout << "2) Modifier maquette" << endl;
+        cout << "3) Supprimer maquette" << endl;
+        cout << "4) Afficher liste des maquettes" << endl;
+        cout << "5) Retour" << endl;
 
-        std::cin >> choix;
+        cin >> choix;
 
         switch (choix)
         {
             case 1:
                 afficher_creer_maquette();
+                system("pause");
                 break;
             case 2:
                 afficher_modifier_maquette();
@@ -79,6 +91,10 @@ void interface::afficher_menu_maquettes()
                 afficher_supprimer_maquette();
                 break;
             case 4:
+                afficher_liste_maquette();
+                system("pause");
+                break;
+            case 5:
                 break;
             default:
                 break;
@@ -191,28 +207,131 @@ void interface::afficher_menu_ECUEs()
 
 void interface::afficher_creer_maquette()
 {
-
+    system("cls");
+    d_maquette.push_back(new maquette{});
+    d_maquette[d_maquette.size()-1]->saisir_maquette(cout, cin);
+    cout << endl << "Maquette creee :" << endl;
+    d_maquette[d_maquette.size()-1]->afficher(cout);
+    cout << endl;
 }
 
 void interface::afficher_modifier_maquette()
 {
+    system("cls");
+    unsigned int maquette_a_modifier = 0;
+    afficher_liste_maquette_entete();
+    cout << "Saisir le numero de la maquette a modifier (0 pour annuler) :" << endl;
+    cin >> maquette_a_modifier;
 
+    if(maquette_a_modifier != 0)
+    {
+        maquette_a_modifier--;
+        afficher_menu_modification_maquette(d_maquette[maquette_a_modifier]);
+    }
+}
+
+void interface::afficher_menu_modification_maquette(maquette *m)
+{
+    int choix = 0;
+    while(choix != 7)
+    {
+        system("cls");
+        m->afficher(cout);
+        cout << endl;
+        cout << "1) Modifier l'entete" << endl;
+        cout << "2) Ajouter une UE a choix" << endl;
+        cout << "3) Ajouter une UE seule" << endl;
+        cout << "4) Ajouter une UE composee" << endl;
+        cout << "5) Deplacer une UE de 1 vers le haut" << endl;
+        cout << "6) Deplacer une UE de 1 vers le bas" << endl;
+        cout << "7) Retour" << endl;
+
+        cin >> choix;
+
+        switch (choix)
+        {
+            case 1:
+                m->saisir_maquette(cout, cin);
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+
+
+            test(m);
+
+
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void interface::test(maquette *m)
+{
+                  unsigned int ue_a_deplacer = 0;
+                cout << "Saisir le numero de l'ue a deplacer (0 pour annuler) :" << endl;
+                cin >> ue_a_deplacer;
+
+                if(ue_a_deplacer != 0)
+                {
+                    ue_a_deplacer--;
+                    m->monter_ue(ue_a_deplacer);
+                }
 }
 
 void interface::afficher_supprimer_maquette()
 {
+    system("cls");
+    unsigned int maquette_a_supprimer = 0;
+    afficher_liste_maquette_entete();
+    cout << "Saisir le numero de la maquette a supprimer (0 pour annuler) :" << endl;
+    cin >> maquette_a_supprimer;
 
+    if(maquette_a_supprimer != 0)
+    {
+        maquette_a_supprimer--;
+        delete d_maquette[maquette_a_supprimer];
+
+        for(; maquette_a_supprimer<d_maquette.size()-1; maquette_a_supprimer++)
+            std::swap(d_maquette[maquette_a_supprimer],d_maquette[maquette_a_supprimer+1]);
+        d_maquette.resize(d_maquette.size()-1);
+    }
 }
 
 void interface::afficher_liste_maquette()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
     {
-        std::cout << " " << i << "  |  ";
-        d_maquette[i]->afficher(std::cout);
-        std::cout << std::endl;
+        cout << " " << i+1 << "  |  " << endl;
+        d_maquette[i]->afficher(cout);
+        cout << endl;
     }
-    system("pause");
+}
+
+void interface::afficher_liste_maquette_entete()
+{
+    for(unsigned int i=0; i<d_maquette.size(); i++)
+    {
+        cout << " " << i+1 << "  |  " << endl;
+        d_maquette[i]->afficher_entete(cout);
+        cout << endl;
+    }
 }
 
 void interface::afficher_creer_formation()
