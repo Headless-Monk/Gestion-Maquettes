@@ -83,23 +83,40 @@ void maquette::supprimer_ue(UEchoix *uc)
 
 void maquette::monter_ue(ue *u) //déplace de 1 dans la liste
 {
-
+	int index = 0;
+	while (index < d_ues.size() && d_ues[index] != u)
+		index++;
+	if (index < d_ues.size() && index > 0)
+		swap(d_ues[index], d_ues[index - 1]);
 }
 
 void maquette::monter_ue(UEchoix *uc)
 {
-
+	int index = 0;
+	while (index < d_ues_choix.size() && d_ues_choix[index] != uc)
+		index++;
+	if (index < d_ues_choix.size() && index > 0)
+		swap(d_ues_choix[index], d_ues_choix[index - 1]);
 }
 
 void maquette::descendre_ue(ue *u)
 {
-
+	int index = 0;
+	while (index < d_ues.size() && d_ues[index] != u)
+		index++;
+	if (index < d_ues.size() - 1)
+		swap(d_ues[index], d_ues[index + 1]);
 }
 
 void maquette::descendre_ue(UEchoix *uc)
 {
-
+	int index = 0;
+	while (index < d_ues_choix.size() && d_ues_choix[index] != uc)
+		index++;
+	if (index < d_ues_choix.size() - 1)
+		swap(d_ues_choix[index], d_ues_choix[index + 1]);
 }
+
 
 
 void maquette::domaine(std::string domaine)
