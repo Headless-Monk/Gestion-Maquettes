@@ -386,7 +386,7 @@ void interface::afficher_supprimer_UEseule()
 {
     std::string intitule_recherche;
     std::cout << "Quelle UE voulez-vous supprimer ?" << std::endl;
-    for(int i = 0; i < d_UEseule.size(); i++)
+    for(unsigned int i = 0; i < d_UEseule.size(); i++)
     {
         d_UEseule[i]->afficher(std::cout);
         std::cout << std::endl;
