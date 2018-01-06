@@ -290,7 +290,7 @@ void interface::afficher_creer_UEcomposee()
 
     std::cout<<"Nombre d'ecue qui feront partie de cette UEcomposé : ";
     std::cin>>nbEcues;
-    std::vector<ecue*> liste_des_ecues();
+    std::vector<ecue*> liste_des_ecues{};
     for(int i = 0; i < nbEcues; i++)
     {
         std::cout<<"Intitulé ecue "<<i+1<<" : ";
@@ -298,7 +298,7 @@ void interface::afficher_creer_UEcomposee()
         int indexECUE = 0;
         while(d_ecue[indexECUE]->intitule() != intituleECUE)
                 indexECUE++;
-        liste_des_ecues.push_back(*d_ecue[indexECUE]);
+        liste_des_ecues.push_back(d_ecue[indexECUE]);
     }
     d_UEcomposee.push_back(new UEcomposee(liste_des_ecues, code, intitule, credits, coefficient));
 
