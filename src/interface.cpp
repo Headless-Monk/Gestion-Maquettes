@@ -274,8 +274,8 @@ void interface::afficher_liste_formation()
 void interface::afficher_creer_UEcomposee()
 {
     std::string code, intitule, intituleECUE;
-    unsigned int credits, coefficient, td, tp, cm;
-    int nbEcues;
+    unsigned int credits, coefficient, nbEcues;
+
     std::cout<<"Code UEcomposé : ";
     std::cin>>code;
 
@@ -291,7 +291,7 @@ void interface::afficher_creer_UEcomposee()
     std::cout<<"Nombre d'ecue qui feront partie de cette UEcomposé : ";
     std::cin>>nbEcues;
     std::vector<ecue*> liste_des_ecues{};
-    for(int i = 0; i < nbEcues; i++)
+    for(unsigned int i = 0; i < nbEcues; i++)
     {
         std::cout<<"Intitulé ecue "<<i+1<<" : ";
         std::cin>>intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
@@ -329,7 +329,7 @@ void interface::afficher_creer_UEseule()
     std::cout << "Heures cm : ";
     std::cin >> cm;
     d_UEseule.push_back(new UEseule(cm, td, tp, codeUE, intituleUE, creditsUE, coefficientUE));
-    for(int i = 0; i < d_UEseule.size(); i++)
+    for(unsigned int i = 0; i < d_UEseule.size(); i++)
     {
         d_UEseule[i]->afficher(std::cout);
         std::cout << std::endl;
