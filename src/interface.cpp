@@ -15,7 +15,7 @@ interface::~interface()
 void interface::initialiser()
 {
     int choix = 0;
-    while(choix != 5)
+    while(choix != 4)
     {
         std::cout << std::endl;
 
@@ -33,8 +33,6 @@ void interface::initialiser()
                 break;
             case 3:
                 afficher_menu_UEs();
-                break;
-            case 4:
                 break;
             default:
                 break;
@@ -74,8 +72,6 @@ void interface::afficher_menu_maquettes()
         case 3:
             afficher_supprimer_maquette();
             break;
-        case 4:
-            break;
         default:
             break;
     }
@@ -102,8 +98,6 @@ void interface::afficher_menu_formations()
             break;
         case 3:
             afficher_supprimer_formation();
-            break;
-        case 4:
             break;
         default:
             break;
@@ -132,8 +126,6 @@ void interface::afficher_menu_UEs()
         case 3:
             afficher_supprimer_UE();
             break;
-        case 4:
-            break;
         default:
             break;
     }
@@ -160,8 +152,6 @@ void interface::afficher_menu_ECUEs()
             break;
         case 3:
             afficher_supprimer_ECUE();
-            break;
-        case 4:
             break;
         default:
             break;
