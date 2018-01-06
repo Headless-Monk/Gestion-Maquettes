@@ -89,7 +89,7 @@ void interface::afficher_menu_maquettes()
 void interface::afficher_menu_formations()
 {
     int choix = 0;
-    while(choix != 4)
+    while(choix != 5)
     {
         system("cls");
         std::cout << "1) Creer maquette" << std::endl;
@@ -111,6 +111,9 @@ void interface::afficher_menu_formations()
                 afficher_supprimer_formation();
                 break;
             case 4:
+                afficher_liste_formation();
+                break;
+            case 5:
                 break;
             default:
                 break;
@@ -201,8 +204,24 @@ void interface::afficher_supprimer_maquette()
 
 }
 
+void interface::afficher_liste_maquette()
+{
+    for(unsigned int i=0; i<d_maquette.size(); i++)
+    {
+        std::cout << " " << i << "  |  ";
+        d_maquette[i]->afficher(std::cout);
+        std::cout << std::endl;
+    }
+    system("pause");
+}
+
 void interface::afficher_creer_formation()
 {
+    std::string mention;
+    std::cout << "Mention : ";
+    std::cin >> mention;
+    std::cout << "Selectionnez les maquettes que vous voulez inclure dans la formation : " << std::endl;
+    d_maquette.afficher_liste_maquette();
 
 }
 
@@ -212,6 +231,11 @@ void interface::afficher_modifier_formation()
 }
 
 void interface::afficher_supprimer_formation()
+{
+
+}
+
+void interface::afficher_liste_formation()
 {
 
 }
@@ -321,6 +345,7 @@ void interface::afficher_liste_ECUE()
 {
     for(unsigned int i=0; i<d_ecue.size(); i++)
     {
+        std::cout << " " << i << "  |  ";
         d_ecue[i]->afficher(std::cout);
         std::cout << std::endl;
     }
