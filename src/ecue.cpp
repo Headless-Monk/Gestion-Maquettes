@@ -1,5 +1,8 @@
 #include "ecue.h"
 
+ecue::ecue():d_coefficient{0}, d_code{""}, d_intitule{""}, d_heures_cm{0}, d_heures_td{0}, d_heures_tp{0}
+{}
+
 ecue::ecue(unsigned int coeff, std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp):
     d_coefficient{coeff}, d_code{code}, d_intitule{intitule}, d_heures_cm{cm}, d_heures_td{td}, d_heures_tp{tp}
 {}

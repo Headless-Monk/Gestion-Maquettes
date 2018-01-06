@@ -8,7 +8,7 @@
 class ecue
 {
 public:
-    ecue() = delete;
+    ecue();
     ecue(unsigned int coeff, std::string code, std::string intitule, unsigned int cm, unsigned int td, unsigned int tp);
     ecue(ecue &e);
     ~ecue();

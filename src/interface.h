@@ -39,14 +39,14 @@ public:
     void afficher_creer_ECUE();
     void afficher_modifier_ECUE();
     void afficher_supprimer_ECUE();
-
+    void afficher_liste_ECUE();
 
 private:
-    std::vector<maquette> d_maquette;
-    std::vector<formation> d_formation;
-    std::vector<ue> d_ue;
-    std::vector<ecue> d_ecue;
-    std::vector<UEchoix> d_UEchoix;
+    std::vector<maquette*> d_maquette;
+    std::vector<formation*> d_formation;
+    std::vector<ue*> d_ue;
+    std::vector<ecue*> d_ecue;
+    std::vector<UEchoix*> d_UEchoix;
 };
 
 #endif
