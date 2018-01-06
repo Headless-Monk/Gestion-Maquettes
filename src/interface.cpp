@@ -26,15 +26,12 @@ void interface::initialiser()
         switch (choix)
         {
             case 1:
-                system("cls");
                 afficher_menu_maquettes();
                 break;
             case 2:
-                system("cls");
                 afficher_menu_formations();
                 break;
             case 3:
-                system("cls");
                 afficher_menu_UEs();
                 break;
             case 4:
@@ -47,6 +44,7 @@ void interface::initialiser()
 
 void interface::afficher_menu_principal()
 {
+    system("cls");
     std::cout << "1) Gerer les maquettes" << std::endl;
     std::cout << "2) Gerer les formations" << std::endl;
     std::cout << "3) Gerer les UEs" << std::endl;
@@ -56,6 +54,7 @@ void interface::afficher_menu_principal()
 
 void interface::afficher_menu_maquettes()
 {
+    system("cls");
     std::cout << "1) Creer maquette" << std::endl;
     std::cout << "2) Modifier maquette" << std::endl;
     std::cout << "3) Supprimer maquette" << std::endl;
@@ -67,15 +66,12 @@ void interface::afficher_menu_maquettes()
     switch (choix)
     {
         case 1:
-            system("cls");
             afficher_creer_maquette();
             break;
         case 2:
-            system("cls");
             afficher_modifier_maquette();
             break;
         case 3:
-            system("cls");
             afficher_supprimer_maquette();
             break;
         case 4:
@@ -87,6 +83,7 @@ void interface::afficher_menu_maquettes()
 
 void interface::afficher_menu_formations()
 {
+    system("cls");
     std::cout << "1) Creer maquette" << std::endl;
     std::cout << "2) Modifier maquette" << std::endl;
     std::cout << "3) Supprimer maquette" << std::endl;
@@ -98,15 +95,12 @@ void interface::afficher_menu_formations()
     switch (choix)
     {
         case 1:
-            system("cls");
             afficher_creer_formation();
             break;
         case 2:
-            system("cls");
             afficher_modifier_formation();
             break;
         case 3:
-            system("cls");
             afficher_supprimer_formation();
             break;
         case 4:
@@ -118,6 +112,7 @@ void interface::afficher_menu_formations()
 
 void interface::afficher_menu_UEs()
 {
+    system("cls");
     std::cout << "1) Creer UE" << std::endl;
     std::cout << "2) Modifier UE" << std::endl;
     std::cout << "3) Supprimer UE" << std::endl;
@@ -129,15 +124,12 @@ void interface::afficher_menu_UEs()
     switch (choix)
     {
         case 1:
-            system("cls");
             afficher_creer_UE();
             break;
         case 2:
-            system("cls");
             afficher_modifier_UE();
             break;
         case 3:
-            system("cls");
             afficher_supprimer_UE();
             break;
         case 4:
@@ -149,6 +141,7 @@ void interface::afficher_menu_UEs()
 
 void interface::afficher_menu_ECUEs()
 {
+    system("cls");
     std::cout << "1) Creer ECUE" << std::endl;
     std::cout << "2) Modifier ECUE" << std::endl;
     std::cout << "3) Supprimer ECUE" << std::endl;
@@ -160,15 +153,12 @@ void interface::afficher_menu_ECUEs()
     switch (choix)
     {
         case 1:
-            system("cls");
             afficher_creer_ECUE();
             break;
         case 2:
-            system("cls");
             afficher_modifier_ECUE();
             break;
         case 3:
-            system("cls");
             afficher_supprimer_ECUE();
             break;
         case 4:
