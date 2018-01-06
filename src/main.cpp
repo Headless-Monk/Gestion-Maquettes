@@ -5,6 +5,7 @@
 #include "UEseule.h"
 #include "UEcomposee.h"
 #include "ecue.h"
+#include "interface.h"
 
 void test_afficheur()
 {
@@ -60,8 +61,16 @@ void test_afficheur()
     aff.exporter_maquette(m);
 }
 
+void test_interface()
+{
+    interface test{};
+    test.initialiser();
+
+}
+
 int main()
 {
-    test_afficheur();
+    //test_afficheur();
+    test_interface();
     return 0;
 }
