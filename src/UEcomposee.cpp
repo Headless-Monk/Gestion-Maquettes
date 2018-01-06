@@ -47,20 +47,20 @@ void UEcomposee::supprimer_ecue(ecue *e)
 
 void UEcomposee::monter_ecue(ecue *ec)
 {
-	int index = 0;
-	while (index < d_ecues.size() && d_ecues[index] != u)
+	unsigned int index = 0;
+	while (index < d_ecues.size() && d_ecues[index] != ec)
 		index++;
 	if (index < d_ecues.size() && index > 0)
-		swap(d_ecues[index], d_ecues[index - 1]);
+		std::swap(d_ecues[index], d_ecues[index - 1]);
 }
 
 void UEcomposee::descendre_ecue(ecue *ec)
 {
-	int index = 0;
-	while (index < d_ecues.size() && d_ecues[index] != u)
+	unsigned int index = 0;
+	while (index < d_ecues.size() && d_ecues[index] != ec)
 		index++;
 	if (index < d_ecues.size() - 1)
-		swap(d_ecues[index], d_ecues[index + 1]);
+		std::swap(d_ecues[index], d_ecues[index + 1]);
 }
 
 std::vector<ecue*> UEcomposee::liste_ecue() const
