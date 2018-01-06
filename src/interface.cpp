@@ -221,7 +221,7 @@ void interface::afficher_creer_formation()
     std::cout << "Mention : ";
     std::cin >> mention;
     std::cout << "Selectionnez les maquettes que vous voulez inclure dans la formation : " << std::endl;
-    d_maquette.afficher_liste_maquette();
+    //d_maquette.afficher_liste_maquette();
 
 }
 
