@@ -1,7 +1,15 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
+#include "maquette.h"
+#include "formation.h"
+#include "ue.h"
+#include "ecue.h"
+#include "UEchoix.h"
+
 #include <iostream>
+#include <vector>
+#include <cstdlib>
 
 class interface
 {
@@ -31,6 +39,14 @@ public:
     void afficher_creer_ECUE();
     void afficher_modifier_ECUE();
     void afficher_supprimer_ECUE();
+
+
+private:
+    std::vector<maquette> d_maquette;
+    std::vector<formation> d_formation;
+    std::vector<ue> d_ue;
+    std::vector<ecue> d_ecue;
+    std::vector<UEchoix> d_UEchoix;
 };
 
 #endif

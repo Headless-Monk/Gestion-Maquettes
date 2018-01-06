@@ -6,6 +6,7 @@
 #include "UEcomposee.h"
 #include "ecue.h"
 #include "interface.h"
+#include "ue.h"
 
 void test_afficheur()
 {

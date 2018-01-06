@@ -1,6 +1,4 @@
-#include <cstdlib>
 #include "interface.h"
-
 
 interface::interface()
 {
@@ -17,6 +15,7 @@ void interface::initialiser()
     int choix = 0;
     while(choix != 5)
     {
+        system("cls");
         std::cout << std::endl;
 
         afficher_menu_principal();
@@ -47,7 +46,6 @@ void interface::initialiser()
 
 void interface::afficher_menu_principal()
 {
-    system("cls");
     std::cout << "1) Gerer les maquettes" << std::endl;
     std::cout << "2) Gerer les formations" << std::endl;
     std::cout << "3) Gerer les UEs" << std::endl;
@@ -230,7 +228,11 @@ void interface::afficher_supprimer_UE()
 
 void interface::afficher_creer_ECUE()
 {
-
+    ecue test{2,"4564","ecuedemerde",7,5,6};
+    test.afficher(std::cout);
+    system("pause");
+    d_ecue.reserve(10);
+    //d_ecue.push_back(test);
 }
 
 void interface::afficher_modifier_ECUE()
