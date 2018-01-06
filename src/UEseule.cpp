@@ -45,6 +45,17 @@ void UEseule::heures_tp(unsigned int tp)
     d_heures_tp = tp;
 }
 
+void UEseule::modifier_completement_ue(unsigned int cm, unsigned int td, unsigned int tp, std::string codeUE, std::string intituleUE, unsigned int credit, unsigned int coeff)
+{
+    d_heures_cm = cm;
+    d_heures_td = td;
+    d_heures_tp = tp;
+    code(codeUE);
+    intitule(intituleUE);
+    credits(credit);
+    coefficient(coeff);
+
+}
 
 unsigned int UEseule::heures_cm() const
 {

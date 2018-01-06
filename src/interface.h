@@ -3,7 +3,8 @@
 
 #include "maquette.h"
 #include "formation.h"
-#include "ue.h"
+#include "UEseule.h"
+#include "UEcomposee.h"
 #include "ecue.h"
 #include "UEchoix.h"
 
@@ -21,7 +22,8 @@ public:
     void afficher_menu_principal();
     void afficher_menu_maquettes();
     void afficher_menu_formations();
-    void afficher_menu_UEs();
+    void afficher_menu_UEseuls();
+    void afficher_menu_UEcomposees();
     void afficher_menu_ECUEs();
 
     //SYLVAIN
@@ -37,10 +39,16 @@ public:
     void afficher_liste_formation();
 
     //TAREK
-    void afficher_creer_UE();
-    void afficher_modifier_UE();
-    void afficher_supprimer_UE();
-    void afficher_liste_UE();
+    void afficher_creer_UEcomposee();
+    void afficher_modifier_UEcomposee();
+    void afficher_supprimer_UEcomposee();
+    void afficher_liste_UEcomposee();
+
+    //TAREK
+    void afficher_creer_UEseule();
+    void afficher_modifier_UEseule();
+    void afficher_supprimer_UEseule();
+    void afficher_liste_UEseule();
 
     //OLIVIER
     void afficher_creer_ECUE();
@@ -57,7 +65,8 @@ public:
 private:
     std::vector<maquette*> d_maquette;
     std::vector<formation*> d_formation;
-    std::vector<ue*> d_ue;
+    std::vector<UEseule*> d_UEseule;
+    std::vector<UEcomposee*> d_UEcomposee;
     std::vector<ecue*> d_ecue;
     std::vector<UEchoix*> d_UEchoix;
 };
