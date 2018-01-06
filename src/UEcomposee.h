@@ -20,10 +20,8 @@ public:
     void ajouter_ecue(ecue *e);
     void supprimer_ecue(ecue *e);
 
-    /* a faire */
     void monter_ecue(ecue *ec); //déplace de 1 dans la liste
     void descendre_ecue(ecue *ec);
-    /* ------- */
 
     std::vector<ecue*> liste_ecue() const;
 
