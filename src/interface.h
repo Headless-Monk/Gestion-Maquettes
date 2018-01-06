@@ -27,19 +27,27 @@ public:
     void afficher_creer_maquette();
     void afficher_modifier_maquette();
     void afficher_supprimer_maquette();
+    void afficher_liste_maquette();
 
     void afficher_creer_formation();
     void afficher_modifier_formation();
     void afficher_supprimer_formation();
+    void afficher_liste_formation();
 
     void afficher_creer_UE();
     void afficher_modifier_UE();
     void afficher_supprimer_UE();
+    void afficher_liste_UE();
 
     void afficher_creer_ECUE();
     void afficher_modifier_ECUE();
     void afficher_supprimer_ECUE();
     void afficher_liste_ECUE();
+
+    void afficher_creer_UE_choix();
+    void afficher_modifier_UE_choix();
+    void afficher_supprimer_UE_choix();
+    void afficher_liste_UE_choix();
 
 private:
     std::vector<maquette*> d_maquette;

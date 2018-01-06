@@ -50,7 +50,8 @@ void interface::afficher_menu_principal()
     std::cout << "2) Gerer les formations" << std::endl;
     std::cout << "3) Gerer les UEs" << std::endl;
     std::cout << "4) Gerer les ECUEs" << std::endl;
-    std::cout << "5) Quitter" << std::endl;
+    std::cout << "5) Gerer les UEs a choix" << std::endl;
+    std::cout << "6) Quitter" << std::endl;
 }
 
 void interface::afficher_menu_maquettes()
@@ -305,7 +306,7 @@ void interface::afficher_supprimer_ECUE()
     std::cout << "Quelle ECUE voulez-vous supprimer ?" << std::endl;
     std::cin >> intitule_recherche;
 
-    int i = 0;
+    unsigned int i = 0;
     while(d_ecue[i]->intitule() != intitule_recherche)
         i++;
 
@@ -324,4 +325,24 @@ void interface::afficher_liste_ECUE()
         std::cout << std::endl;
     }
     system("pause");
+}
+
+void interface::afficher_creer_UE_choix()
+{
+
+}
+
+void interface::afficher_modifier_UE_choix()
+{
+
+}
+
+void interface::afficher_supprimer_UE_choix()
+{
+
+}
+
+void interface::afficher_liste_UE_choix()
+{
+
 }
