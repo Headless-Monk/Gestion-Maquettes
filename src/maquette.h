@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <ostream>
+#include <iostream>
 
 #include "ue.h"
 #include "UEchoix.h"
@@ -11,22 +12,26 @@
 class maquette
 {
 public:
-    maquette() = delete;
+    maquette();
     maquette(std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
     maquette(std::vector <ue*> &ues, std::vector <UEchoix*> &ues_choix, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre);
     maquette(maquette &m);
     ~maquette();
 
     void afficher(std::ostream &os) const;
+    void afficher_entete(std::ostream &os) const;
     void ajouter_ue(ue *u);
     void ajouter_ue(UEchoix *uc);
     void supprimer_ue(ue *u);
     void supprimer_ue(UEchoix *uc);
+    void saisir_maquette(std::ostream &os, std::istream &is);
 
     void monter_ue(ue *u); //déplace de 1 dans la liste
     void monter_ue(UEchoix *uc);
+    void monter_ue(std::string libelle_ue);
     void descendre_ue(ue *u);
     void descendre_ue(UEchoix *uc);
+    void descendre_ue(std::string libelle_ue);
 
     void domaine(std::string domaine);
     void mention(std::string mention);

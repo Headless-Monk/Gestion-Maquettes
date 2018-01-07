@@ -1,5 +1,14 @@
 #include "maquette.h"
 
+maquette::maquette() :
+            d_ues{}, d_ues_choix{}, d_position_ue_choix_dans_ue{0},
+            d_domaine{"SCIENCE ET TECHNOLOGIE"},
+            d_mention{""},
+            d_parcours{""},
+            d_annee{0},
+            d_semestre{0}
+{}
+
 maquette::maquette(std::string mention, std::string parcours, unsigned int annee, unsigned int semestre) :
             d_ues{}, d_ues_choix{}, d_position_ue_choix_dans_ue{d_ues.size()},
             d_domaine{"SCIENCE ET TECHNOLOGIE"},
@@ -36,23 +45,33 @@ void maquette::afficher(std::ostream &os) const
     os << "Domaine : " << d_domaine << std::endl;
     os << "Mention : " << d_mention << std::endl;
     os << "Parcours : " << d_parcours << std::endl;
-    os << "Année : " << d_annee << std::endl;
+    os << "Annee : " << d_annee << std::endl;
     os << "Semestre : " << d_semestre << std::endl;
 
-    for(unsigned int cpt_ues=0, cpt_ecues=0; cpt_ecues<d_ues.size() + 1; cpt_ecues++)
+    int ajout_ues_choix = d_ues_choix.size()>0 ? 1:0;
+    for(unsigned int cpt_ues=0, cpt_ues_choix=0; cpt_ues_choix<d_ues.size() + ajout_ues_choix; cpt_ues_choix++)
     {
-        if(cpt_ecues+1 == d_position_ue_choix_dans_ue)
+        std::cout << " " << cpt_ues_choix+1 << "  |  " << std::endl;
+        if(cpt_ues_choix+1 == d_position_ue_choix_dans_ue)
         {
             for(unsigned int i=0; i<d_ues_choix.size(); i++)
                 d_ues_choix[i]->afficher(os);
         }
-        else
+        else if(d_ues.size() > 0)
         {
             d_ues[cpt_ues]->afficher(os);
             cpt_ues++;
         }
     }
+}
 
+void maquette::afficher_entete(std::ostream &os) const
+{
+    os << "Domaine : " << d_domaine << std::endl;
+    os << "Mention : " << d_mention << std::endl;
+    os << "Parcours : " << d_parcours << std::endl;
+    os << "Annee : " << d_annee << std::endl;
+    os << "Semestre : " << d_semestre << std::endl;
 }
 
 void maquette::ajouter_ue(ue *u)
@@ -78,7 +97,28 @@ void maquette::supprimer_ue(ue *u)
 
 void maquette::supprimer_ue(UEchoix *uc)
 {
+    unsigned int i = 0;
+    while(uc != d_ues_choix[i])
+        i++;
+    delete d_ues_choix[i];
+    for(; i<d_ues_choix.size()-1; i++)
+        std::swap(d_ues_choix[i],d_ues_choix[i+1]);
+    d_ues_choix.resize(d_ues_choix.size()-1);
+}
 
+void maquette::saisir_maquette(std::ostream &os, std::istream &is)
+{
+    os << "mention : ";
+    is >> d_mention;
+
+    os << "parcours : ";
+    is >> d_parcours;
+
+    os << "annee : ";
+    is >> d_annee;
+
+    os << "semestre : ";
+    is >> d_semestre;
 }
 
 void maquette::monter_ue(ue *u) //déplace de 1 dans la liste
@@ -92,11 +132,33 @@ void maquette::monter_ue(ue *u) //déplace de 1 dans la liste
 
 void maquette::monter_ue(UEchoix *uc)
 {
-	unsigned int index = 0;
-	while (index < d_ues_choix.size() && d_ues_choix[index] != uc)
-		index++;
-	if (index < d_ues_choix.size() && index > 0)
-		std::swap(d_ues_choix[index], d_ues_choix[index - 1]);
+    if(d_position_ue_choix_dans_ue > 1)
+        d_position_ue_choix_dans_ue--;
+}
+
+void maquette::monter_ue(std::string libelle_ue)
+{
+    for(unsigned int i=0; i<d_ues.size(); i++)
+    {
+        if(d_ues[i]->intitule() == libelle_ue)
+        {
+                monter_ue(d_ues[i]);
+                return;
+        }
+    }
+
+    for(unsigned int i=0; i<d_ues_choix.size(); i++)
+    {
+        std::vector <ue*> liste{d_ues_choix[i]->liste_ue()};
+        for(unsigned int j=0; j<liste.size(); j++)
+        {
+            if(liste[j]->intitule() == libelle_ue)
+            {
+                monter_ue(d_ues_choix[i]);
+                return;
+            }
+        }
+    }
 }
 
 void maquette::descendre_ue(ue *u)
@@ -110,14 +172,34 @@ void maquette::descendre_ue(ue *u)
 
 void maquette::descendre_ue(UEchoix *uc)
 {
-	unsigned int index = 0;
-	while (index < d_ues_choix.size() && d_ues_choix[index] != uc)
-		index++;
-	if (index < d_ues_choix.size() - 1)
-		std::swap(d_ues_choix[index], d_ues_choix[index + 1]);
+   if(d_position_ue_choix_dans_ue < (d_ues.size() + d_ues_choix.size()) )
+        d_position_ue_choix_dans_ue++;
 }
 
+void maquette::descendre_ue(std::string libelle_ue)
+{
+    for(unsigned int i=0; i<d_ues.size(); i++)
+    {
+        if(d_ues[i]->intitule() == libelle_ue)
+        {
+                descendre_ue(d_ues[i]);
+                return;
+        }
+    }
 
+    for(unsigned int i=0; i<d_ues_choix.size(); i++)
+    {
+        std::vector <ue*> liste{d_ues_choix[i]->liste_ue()};
+        for(unsigned int j=0; j<liste.size(); j++)
+        {
+            if(liste[j]->intitule() == libelle_ue)
+            {
+                descendre_ue(d_ues_choix[i]);
+                return;
+            }
+        }
+    }
+}
 
 void maquette::domaine(std::string domaine)
 {

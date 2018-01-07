@@ -3,9 +3,13 @@
 
 #include "maquette.h"
 #include "formation.h"
-#include "ue.h"
+#include "UEseule.h"
+#include "UEcomposee.h"
 #include "ecue.h"
 #include "UEchoix.h"
+#include "UEseule.h"
+#include "UEcomposee.h"
+#include "afficheur_txt.h"
 
 #include <iostream>
 #include <vector>
@@ -17,19 +21,25 @@ public:
     interface();
     virtual ~interface();
 
+    void temporaire_ecrit_maquette();
+
     void initialiser();
     void afficher_menu_principal();
     void afficher_menu_maquettes();
     void afficher_menu_formations();
-    void afficher_menu_UEs();
+    void afficher_menu_UEseuls();
+    void afficher_menu_UEcomposees();
     void afficher_menu_ECUEs();
     void afficher_menu_UEchoix();
 
     //SYLVAIN
     void afficher_creer_maquette();
     void afficher_modifier_maquette();
+    void afficher_menu_modification_maquette(maquette *m);
     void afficher_supprimer_maquette();
     void afficher_liste_maquette();
+    void afficher_liste_maquette_entete();
+    void afficher_export_maquette();
 
     //OLIVIER
     void afficher_creer_formation();
@@ -38,10 +48,16 @@ public:
     void afficher_liste_formation();
 
     //TAREK
-    void afficher_creer_UE();
-    void afficher_modifier_UE();
-    void afficher_supprimer_UE();
-    void afficher_liste_UE();
+    void afficher_creer_UEcomposee();
+    void afficher_modifier_UEcomposee();
+    void afficher_supprimer_UEcomposee();
+    void afficher_liste_UEcomposee();
+
+    //TAREK
+    void afficher_creer_UEseule();
+    void afficher_modifier_UEseule();
+    void afficher_supprimer_UEseule();
+    void afficher_liste_UEseule();
 
     //OLIVIER
     void afficher_creer_ECUE();
@@ -56,11 +72,14 @@ public:
     void afficher_liste_UE_choix();
 
 private:
-    std::vector<maquette*> d_maquette;
     std::vector<formation*> d_formation;
-    std::vector<ue*> d_ue;
-    std::vector<ecue*> d_ecue;
+    std::vector<maquette*> d_maquette;
+
     std::vector<UEchoix*> d_UEchoix;
+    std::vector<UEseule*> d_UEseule;
+    std::vector<UEcomposee*> d_UEcomposee;
+
+    std::vector<ecue*> d_ecue;
 };
 
 #endif

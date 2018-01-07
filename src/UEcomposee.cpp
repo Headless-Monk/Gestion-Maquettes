@@ -25,7 +25,7 @@ void UEcomposee::afficher(std::ostream &os) const
 
     for(unsigned int i=0; i<d_ecues.size(); i++)
     {
-        os << d_ecues[i];
+        os << *d_ecues[i];
     }
 }
 
