@@ -1,5 +1,6 @@
 #include "interface.h"
 
+
 using std::cout;
 using std::endl;
 using std::cin;
@@ -91,7 +92,7 @@ void interface::initialiser()
 
         afficher_menu_principal();
 
-        std::cin >> choix;
+        cin >> choix;
 
         switch (choix)
         {
@@ -102,12 +103,17 @@ void interface::initialiser()
                 afficher_menu_formations();
                 break;
             case 3:
-                afficher_menu_UEs();
+                afficher_menu_UEseuls();
                 break;
             case 4:
+                afficher_menu_UEcomposees();
+            case 5:
                 afficher_menu_ECUEs();
                 break;
             case 6:
+                //a()
+                break;
+            case 7:
                 break;
             default:
                 break;
@@ -117,12 +123,13 @@ void interface::initialiser()
 
 void interface::afficher_menu_principal()
 {
-    std::cout << "1) Gerer les maquettes" << std::endl;
-    std::cout << "2) Gerer les formations" << std::endl;
-    std::cout << "3) Gerer les UEs" << std::endl;
-    std::cout << "4) Gerer les ECUEs" << std::endl;
-    std::cout << "5) Gerer les UEs a choix" << std::endl;
-    std::cout << "6) Quitter" << std::endl;
+    cout << "1) Gerer les maquettes" << endl;
+    cout << "2) Gerer les formations" << endl;
+    cout << "3) Gerer les UEseuls" << endl;
+    cout << "4) Gerer les UEcomposees" << endl;
+    cout << "5) Gerer les ECUEs" << endl;
+    cout << "6) Gerer les UEs a choix" << endl;
+    cout << "7) Quitter" << endl;
 }
 
 void interface::afficher_menu_maquettes()
@@ -174,12 +181,12 @@ void interface::afficher_menu_formations()
     while(choix != 5)
     {
         system("cls");
-        std::cout << "1) Creer maquette" << std::endl;
-        std::cout << "2) Modifier maquette" << std::endl;
-        std::cout << "3) Supprimer maquette" << std::endl;
-        std::cout << "4) Retour" << std::endl;
+        cout << "1) Creer maquette" << endl;
+        cout << "2) Modifier maquette" << endl;
+        cout << "3) Supprimer maquette" << endl;
+        cout << "4) Retour" << endl;
 
-        std::cin >> choix;
+        cin >> choix;
 
         switch (choix)
         {
@@ -203,29 +210,66 @@ void interface::afficher_menu_formations()
     }
 }
 
-void interface::afficher_menu_UEs()
+void interface::afficher_menu_UEseuls()
+{
+    int choix = 0;
+    while(choix != 5)
+    {
+        system("cls");
+        cout << "1) Creer UE seule" << endl;
+        cout << "2) Modifier UE seule" << endl;
+        cout << "3) Supprimer UE seule" << endl;
+        cout << "4) Afficher la liste des UE seules" << endl;
+        cout << "5) Retour" << endl;
+
+        cin >> choix;
+
+        switch (choix)
+        {
+            case 1:
+                afficher_creer_UEseule();
+                break;
+            case 2:
+                afficher_modifier_UEseule();
+                break;
+            case 3:
+                afficher_supprimer_UEseule();
+                break;
+            case 4:
+                afficher_liste_UEseule();
+                system("pause");
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void interface::afficher_menu_UEcomposees()
 {
     int choix = 0;
     while(choix != 4)
     {
         system("cls");
-        std::cout << "1) Creer UE" << std::endl;
-        std::cout << "2) Modifier UE" << std::endl;
-        std::cout << "3) Supprimer UE" << std::endl;
-        std::cout << "4) Retour" << std::endl;
+        cout << "1) Creer UE composee" << endl;
+        cout << "2) Modifier UE composee" << endl;
+        cout << "3) Supprimer UE composee" << endl;
+        cout << "4) Retour" << endl;
 
-        std::cin >> choix;
+        cin >> choix;
 
         switch (choix)
         {
             case 1:
-                afficher_creer_UE();
+                afficher_creer_UEcomposee();
                 break;
             case 2:
-                afficher_modifier_UE();
+                afficher_modifier_UEcomposee();
                 break;
             case 3:
-                afficher_supprimer_UE();
+                //afficher_supprimer_UEcomposee();
                 break;
             case 4:
                 break;
@@ -234,20 +278,19 @@ void interface::afficher_menu_UEs()
         }
     }
 }
-
 void interface::afficher_menu_ECUEs()
 {
     int choix = 0;
     while(choix != 5)
     {
         system("cls");
-        std::cout << "1) Creer ECUE" << std::endl;
-        std::cout << "2) Modifier ECUE" << std::endl;
-        std::cout << "3) Supprimer ECUE" << std::endl;
-        std::cout << "4) Afficher toutes les ECUEs" << std::endl;
-        std::cout << "5) Retour" << std::endl;
+        cout << "1) Creer ECUE" << endl;
+        cout << "2) Modifier ECUE" << endl;
+        cout << "3) Supprimer ECUE" << endl;
+        cout << "4) Afficher toutes les ECUEs" << endl;
+        cout << "5) Retour" << endl;
 
-        std::cin >> choix;
+        cin >> choix;
 
         switch (choix)
         {
@@ -394,9 +437,9 @@ void interface::afficher_export_maquette()
 void interface::afficher_creer_formation()
 {
     std::string mention;
-    std::cout << "Mention : ";
-    std::cin >> mention;
-    std::cout << "Selectionnez les maquettes que vous voulez inclure dans la formation : " << std::endl;
+    cout << "Mention : ";
+    cin >> mention;
+    cout << "Selectionnez les maquettes que vous voulez inclure dans la formation : " << endl;
     //d_maquette.afficher_liste_maquette();
 
 }
@@ -416,19 +459,207 @@ void interface::afficher_liste_formation()
 
 }
 
-void interface::afficher_creer_UE()
+void interface::afficher_creer_UEcomposee()
 {
+    std::string code, intitule, intituleECUE;
+    unsigned int credits, coefficient, nbEcues;
+
+    cout << "Code UEcompose : ";
+    cin >> code;
+
+    cout<<"Intitule UEcompose : ";
+    cin>>intitule;
+
+    cout << "Nombre de credits UEcompose : ";
+    cin >> credits;
+
+    cout << "Coefficient UEcompose : ";
+    cin >> coefficient;
+
+    cout << "Nombre d'ecue qui feront partie de cette UEcompose : ";
+    cin >> nbEcues;
+    std::vector<ecue*> liste_des_ecues{};
+    for(unsigned int i = 0; i < nbEcues; i++)
+    {
+        cout << "Intitule ecue "<<i+1<<" : ";
+        cin >> intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
+        int indexECUE = 0;
+        while(d_ecue[indexECUE]->intitule() != intituleECUE)
+                indexECUE++;
+        liste_des_ecues.push_back(d_ecue[indexECUE]);
+    }
+    d_UEcomposee.push_back(new UEcomposee(liste_des_ecues, code, intitule, credits, coefficient));
 
 }
 
-void interface::afficher_modifier_UE()
+void interface::afficher_modifier_UEcomposee()
 {
+    unsigned int coeff,credits;
+    std::string code, intitule, intitule_recherche;
+    cout << "Quelle UEcomposé voulez-vous modifier ?" << endl;
+    cin >> intitule_recherche;
+    int i = 0;
+    while(d_UEcomposee[i]->intitule() != intitule_recherche)
+        i++;
+
+    cout << "Code : ";
+    cin >> code;
+
+    cout << "Intitule : ";
+    cin >> intitule;
+
+    cout<<"Nombre de credits UE : ";
+    cin>>credits;
+
+    cout << "Coefficient : ";
+    cin >> coeff;
+
+    unsigned int nbTOTEcue_a_supprimer;
+    cout<<"Combien d'ECUE voulez-vous supprimer?";
+    cin>>nbTOTEcue_a_supprimer;
+
+    cout<<"ECUEs de "<<intitule<<endl;
+
+    std::vector <ecue*> liste{d_UEcomposee[i]->liste_ecue()};
+    for(unsigned int index = 0; index < liste.size(); index++)
+    {
+        cout<<index+1<<" |"<<endl;
+        liste[index]->afficher(cout);
+        cout << endl;
+    }
+
+    unsigned int index_ecue_a_supprimer;
+    for(unsigned int index_suppr = 0; index_suppr<nbTOTEcue_a_supprimer; index_suppr++)
+    {
+        cout << "Nombre de l'ecue a supprimer : ";
+        cin >> index_ecue_a_supprimer;
+        d_UEcomposee[i]->supprimer_ecue(liste[index_ecue_a_supprimer-1]);
+    }
+
+    unsigned int nbTOTEcue_a_ajouter;
+    cout<<"Combien d'ECUE voulez-vous ajouter?";
+    cin>>nbTOTEcue_a_ajouter;
+
+    afficher_liste_ECUE();
+    cout<<nbTOTEcue_a_ajouter;
+   /* unsigned int index_ecue_a_ajouter;
+    for(unsigned int index_ajout = 0; index_ajout<nbTOTEcue_a_ajouter; index_ajout++)
+    {
+        cout << "Nombre de l'ecue a ajouter : ";
+        cin >> index_ecue_a_ajouter;
+        d_UEcomposee[i]->ajouter_ecue(d_ecue[index_ecue_a_ajouter-1]);
+    }
+
+    d_UEcomposee[i]->afficher(cout);
+    cout << endl;
+    d_UEseule[0]->afficher(cout);
+    cout << endl;
+    cout << "UE correctement cree";
+    cout << endl;*/
+    system("pause");
+}
+
+void interface::afficher_creer_UEseule()
+{
+    std::string codeUE, intituleUE;
+    unsigned int creditsUE, coefficientUE, td, tp, cm;
+    cout << endl << "Code UE : ";
+    cin >> codeUE;
+
+    cout << "Intitule UE : ";
+    cin >> intituleUE;
+
+    cout << "Nombre de credits UE : ";
+    cin >> creditsUE;
+
+    cout << "Coefficient UE : ";
+    cin >> coefficientUE;
+
+    cout << "Heures td : ";
+    cin >> td;
+
+    cout << "Heures tp : ";
+    cin >> tp;
+
+    cout << "Heures cm : ";
+    cin >> cm;
+    d_UEseule.push_back(new UEseule(cm, td, tp, codeUE, intituleUE, creditsUE, coefficientUE));
+
+    cout << endl;
+    d_UEseule[d_UEseule.size()-1]->afficher(cout);
+    cout << endl;
+
+    cout << "UE correctement cree";
+    cout << endl << endl;
+    system("pause");
 
 }
 
-void interface::afficher_supprimer_UE()
+void interface::afficher_modifier_UEseule()//il y a du copy pasta : peut etre "afficher_modifier_matiere(vectUE/ECUE)" ?
 {
+    unsigned int coeff, td, tp, cm, credits, entier_recherche;
+    std::string code, intitule;
+    afficher_liste_UEseule();
+    cout << "Saisir le numero de l'UE a modifier :" << endl;
+    cin >> entier_recherche;
 
+    cout << "Code : ";
+    cin >> code;
+
+    cout << "Intitule : ";
+    cin >> intitule;
+
+    cout<<"Nombre de credits UE : ";
+    cin>>credits;
+
+    cout << "Coefficient : ";
+    cin >> coeff;
+
+    cout << "Heures td : ";
+    cin >> td;
+
+    cout << "Heures tp : ";
+    cin >> tp;
+
+    cout << "Heures cm : ";
+    cin >> cm;
+
+    d_UEseule[entier_recherche-1]->modifier_completement_ue(cm, td, tp, code, intitule, credits, coeff);
+
+    cout << endl;
+    d_UEseule[entier_recherche-1]->afficher(cout);
+    cout << endl;
+    cout << "UE correctement cree";
+    cout << endl;
+    system("pause");
+}
+
+void interface::afficher_supprimer_UEseule()
+{
+    std::string intitule_recherche;
+    afficher_liste_UEseule();
+    cout << "Saisir le libelle de l'UE a supprimer :" << endl;
+    cin >> intitule_recherche;
+
+    unsigned int i = 0;
+    while(d_UEseule[i]->intitule() != intitule_recherche)
+        i++;
+
+    delete d_UEseule[i];
+
+    for(; i<d_ecue.size()-1; i++)
+        std::swap(d_UEseule[i],d_UEseule[i+1]);
+    d_UEseule.resize(d_UEseule.size()-1);
+}
+
+void interface::afficher_liste_UEseule()
+{
+    for(unsigned int i=0; i<d_UEseule.size(); i++)
+    {
+        cout << " " << i+1 << "  |  " << endl;
+        d_UEseule[i]->afficher(cout);
+        cout << endl;
+    }
 }
 
 void interface::afficher_creer_ECUE()
@@ -436,30 +667,31 @@ void interface::afficher_creer_ECUE()
     unsigned int coeff, td, tp, cm;
     std::string code, intitule;
 
-    std::cout << "intitule : ";
-    std::cin >> intitule;
+    cout << "intitule : ";
+    cin >> intitule;
 
-    std::cout << "code : ";
-    std::cin >> code;
+    cout << "code : ";
+    cin >> code;
 
-    std::cout << "coefficient : ";
-    std::cin >> coeff;
+    cout << "coefficient : ";
+    cin >> coeff;
 
-    std::cout << "heures td : ";
-    std::cin >> td;
+    cout << "heures td : ";
+    cin >> td;
 
-    std::cout << "heures tp : ";
-    std::cin >> tp;
+    cout << "heures tp : ";
+    cin >> tp;
 
-    std::cout << "heures cm : ";
-    std::cin >> cm;
-    std::cout << std::endl;
+    cout << "heures cm : ";
+    cin >> cm;
+    cout << endl;
 
     d_ecue.push_back(new ecue{coeff,code,intitule,cm,td,tp});
-    d_ecue[0]->afficher(std::cout);
-    std::cout << std::endl;
-    std::cout << "ECUE correctement creee";
-    std::cout << std::endl;
+
+    d_ecue[0]->afficher(cout);
+    cout << endl;
+    cout << "ECUE correctement creee";
+    cout << endl;
     system("pause");
 }
 
@@ -467,44 +699,44 @@ void interface::afficher_modifier_ECUE()
 {
     unsigned int coeff, td, tp, cm;
     std::string code, intitule, intitule_recherche;
-    std::cout << "Quelle ECUE voulez-vous modifier ?" << std::endl;
-    std::cin >> intitule_recherche;
+    cout << "Quelle ECUE voulez-vous modifier ?" << endl;
+    cin >> intitule_recherche;
     int i = 0;
     while(d_ecue[i]->intitule() != intitule_recherche)
         i++;
 
-    std::cout << "intitule : ";
-    std::cin >> intitule;
+    cout << "intitule : ";
+    cin >> intitule;
     d_ecue[i]->intitule(intitule);
 
-    std::cout << "code : ";
-    std::cin >> code;
+    cout << "code : ";
+    cin >> code;
     d_ecue[i]->code(code);
 
-    std::cout << "coefficient : ";
-    std::cin >> coeff;
+    cout << "coefficient : ";
+    cin >> coeff;
     d_ecue[i]->coefficent(coeff);
 
-    std::cout << "heures td : ";
-    std::cin >> td;
+    cout << "heures td : ";
+    cin >> td;
     d_ecue[i]->heures_td(td);
 
-    std::cout << "heures tp : ";
-    std::cin >> tp;
+    cout << "heures tp : ";
+    cin >> tp;
     d_ecue[i]->heures_tp(tp);
 
-    std::cout << "heures cm : ";
-    std::cin >> cm;
+    cout << "heures cm : ";
+    cin >> cm;
     d_ecue[i]->heures_cm(cm);
 
-    std::cout << std::endl;
+    cout << endl;
 }
 
 void interface::afficher_supprimer_ECUE()
 {
     std::string intitule_recherche;
-    std::cout << "Quelle ECUE voulez-vous supprimer ?" << std::endl;
-    std::cin >> intitule_recherche;
+    cout << "Quelle ECUE voulez-vous supprimer ?" << endl;
+    cin >> intitule_recherche;
 
     unsigned int i = 0;
     while(d_ecue[i]->intitule() != intitule_recherche)
@@ -521,9 +753,9 @@ void interface::afficher_liste_ECUE()
 {
     for(unsigned int i=0; i<d_ecue.size(); i++)
     {
-        std::cout << " " << i << "  |  ";
-        d_ecue[i]->afficher(std::cout);
-        std::cout << std::endl;
+        cout << " " << i << "  |  ";
+        d_ecue[i]->afficher(cout);
+        cout << endl;
     }
     system("pause");
 }

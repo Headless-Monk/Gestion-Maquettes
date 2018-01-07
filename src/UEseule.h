@@ -20,13 +20,15 @@ public:
     void heures_td(unsigned int td);
     void heures_tp(unsigned int tp);
 
+    void modifier_completement_ue(unsigned int cm, unsigned int td, unsigned int tp, std::string code, std::string intitule, unsigned int credits, unsigned int coefficient);
+
 
     unsigned int heures_cm() const;
     unsigned int heures_td() const;
     unsigned int heures_tp() const;
 
 private:
-  unsigned int d_heures_cm, d_heures_td, d_heures_tp;
+    unsigned int d_heures_cm, d_heures_td, d_heures_tp;
 };
 
 std::ostream& operator<<(std::ostream &os, const UEseule &UEs);
