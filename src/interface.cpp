@@ -331,10 +331,12 @@ void interface::afficher_modifier_UEcomposee()
     std::cin>>nbTOTEcue_a_supprimer;
 
     std::cout<<"ECUEs de "<<intitule<<std::endl;
-    for(unsigned int index = 0; index < d_UEcomposee[i]->liste_ecue().size(); index++)
+
+    std::vector <ecue*> liste{d_UEcomposee[i]->liste_ecue()};
+    for(unsigned int index = 0; index < liste.size(); index++)
     {
-        std::cout<<index+1<<" |"<<std::cout;
-        std::cout<<d_UEcomposee[i]->liste_ecue();
+        std::cout<<index+1<<" |"<<std::endl;
+        liste[i]->afficher(std::cout);
         //d_UEcomposee[i]->liste_ecue()[index].afficher(std::cout);
 
         std::cout << std::endl;
