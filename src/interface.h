@@ -39,6 +39,8 @@ public:
     void afficher_liste_maquette();
     void afficher_liste_maquette_entete();
     void afficher_export_maquette();
+    void afficher_monter_ue(maquette *m);
+    void afficher_descendre_ue(maquette *m);
 
     //OLIVIER
     void afficher_creer_formation();

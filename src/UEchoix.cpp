@@ -35,3 +35,7 @@ std::vector<ue*> UEchoix::liste_ue() const
 {
     return d_liste_ue;
 }
+unsigned int UEchoix::nombre_ue_choix() const
+{
+    return d_liste_ue.size();
+}
