@@ -23,6 +23,7 @@ public:
     void afficher_menu_formations();
     void afficher_menu_UEs();
     void afficher_menu_ECUEs();
+    void afficher_menu_UEchoix();
 
     //SYLVAIN
     void afficher_creer_maquette();
