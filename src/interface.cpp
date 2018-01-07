@@ -288,7 +288,39 @@ void interface::afficher_creer_formation()
 
 void interface::afficher_modifier_formation()
 {
+    unsigned int i;
+    std::vector<int> numero_maquette;
+    std::vector<maquette*> maquette;
+    int taille;
+    std::string mention;
+    afficher_liste_formation();
+    std::cout << "Quelle formation voulez-vous modifier : ";
+    std::cin >> i;
+    std::cout << std::endl;
 
+    std::cout << "Nouvelle mention : ";
+    std::cin >> mention;
+
+    std::cout << "Combien de maquettes voulez-vous inserer dans la formation : ";
+    std::cin >> taille;
+
+    numero_maquette.resize(taille);
+
+    std::cout << "Selectionnez les maquettes que vous voulez inclure dans la formation : " << std::endl;
+    afficher_liste_maquette();
+    for(unsigned int i = 0; i < numero_maquette.size(); i++)
+    {
+        std::cout << "maquette " << i << " : ";
+        std::cin >> numero_maquette[i];
+        std::cout << std::endl;
+    }
+    for(unsigned int i=0; i<numero_maquette.size(); i++)
+        maquette.push_back(d_maquette[numero_maquette[i]]);
+
+    d_formation[i]->modifier_maquette(maquette);
+
+    std::cout << "Formation correctement créée" << std::endl;
+    system("pause");
 }
 
 void interface::afficher_supprimer_formation()

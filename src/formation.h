@@ -17,6 +17,7 @@ public:
   formation(std::vector <maquette*> &maquettes, std::string mention);
   formation(formation &f);
   void afficher(std::ostream &os) const;
+  void modifier_maquette(std::vector<maquette*> maq);
   /* ------- */
   ~formation();
 

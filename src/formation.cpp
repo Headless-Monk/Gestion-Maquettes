@@ -24,3 +24,10 @@ void formation::afficher(std::ostream &os)const
                   << d_maquettes[i]->mention() << " | "
                   << d_maquettes[i]->parcours() << std::endl;
 }
+
+void formation::modifier_maquette(std::vector<maquette*> maq)
+{
+    d_maquettes.resize(maq.size());
+    for(unsigned int i = 0; i < maq.size(); i++)
+        d_maquettes[i] = maq[i];
+}
