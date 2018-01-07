@@ -35,3 +35,11 @@ std::vector<ue*> UEchoix::liste_ue() const
 {
     return d_liste_ue;
 }
+
+void UEchoix::modifier_ue(std::vector <ue*> ue)
+{
+    d_liste_ue.clear();
+    d_liste_ue.resize(ue.size());
+    for(unsigned int i = 0; i < ue.size(); i++)
+        d_liste_ue[i] = ue[i];
+}

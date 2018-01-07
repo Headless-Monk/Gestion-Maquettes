@@ -18,6 +18,7 @@ class UEchoix
         void afficher(std::ostream &os) const;
         void ajouter_ue(ue *u);
         void supprimer_ue(ue *u);
+        void modifier_ue(std::vector <ue*> ue);
 
         std::vector<ue*> liste_ue() const;
     protected:

@@ -915,6 +915,46 @@ void interface::afficher_creer_UE_choix()
 
 void interface::afficher_modifier_UE_choix()
 {
+    unsigned int numero_UE_choix_a_modifier;
+    afficher_liste_UE_choix();
+    std::cout << "Quelle UE à choix voulez vous modifier : ";
+    std::cin >> numero_UE_choix_a_modifier;
+
+    unsigned int nbr_UE_composee, nbr_UE_seul;
+    std::vector<int> selection_UE_composee;
+    std::vector<int> selection_UE_seul;
+    std::vector<ue*> ue;
+
+    for(unsigned int i = 0; i < d_UEcomposee.size(); i++)
+        d_UEcomposee[i]->afficher(std::cout);
+
+    std::cout << "Combien d'UEs composées voulez vous ajouter : ";
+    std::cin >> nbr_UE_composee;
+    std::cout << "Quelle UEs composées voulez vous ajouter : ";
+    for(unsigned int i = 0; i < nbr_UE_composee; i++)
+    {
+        std::cout << "UE composée " << i << " : ";
+        std::cin >> selection_UE_composee[i];
+        ue.resize(selection_UE_composee.size()+1);
+        ue.push_back(d_UEcomposee[selection_UE_composee[i]]);
+    }
+
+    for(unsigned int i = 0; i < d_UEseule.size(); i++)
+        d_UEseule[i]->afficher(std::cout);
+
+    std::cout << "Combien d'UEs seules voulez vous ajouter : ";
+    std::cin >> nbr_UE_seul;
+    std::cout << "Quelle UEs seules voulez vous ajouter : ";
+
+    for(unsigned int i = 0; i < nbr_UE_seul; i++)
+    {
+        std::cout << "UE seule " << i << " : ";
+        std::cin >> selection_UE_seul[i];
+        ue.resize(selection_UE_seul.size()+1);
+        ue.push_back(d_UEseule[selection_UE_seul[i]]);
+    }
+
+    d_UEchoix[numero_UE_choix_a_modifier]->modifier_ue(ue);
 
 }
 
