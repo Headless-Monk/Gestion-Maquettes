@@ -276,25 +276,25 @@ void interface::afficher_creer_UEcomposee()
     std::string code, intitule, intituleECUE;
     unsigned int credits, coefficient, nbEcues;
 
-    std::cout<<"Code UEcomposé : ";
-    std::cin>>code;
+    std::cout << "Code UEcomposé : ";
+    std::cin >> code;
 
     std::cout<<"Intitule UEcomposé : ";
     std::cin>>intitule;
 
-    std::cout<<"Nombre de credits UEcomposé : ";
-    std::cin>>credits;
+    std::cout << "Nombre de credits UEcomposé : ";
+    std::cin >> credits;
 
-    std::cout<<"Coefficient UEcomposé : ";
-    std::cin>>coefficient;
+    std::cout << "Coefficient UEcomposé : ";
+    std::cin >> coefficient;
 
-    std::cout<<"Nombre d'ecue qui feront partie de cette UEcomposé : ";
-    std::cin>>nbEcues;
+    std::cout << "Nombre d'ecue qui feront partie de cette UEcomposé : ";
+    std::cin >> nbEcues;
     std::vector<ecue*> liste_des_ecues{};
     for(unsigned int i = 0; i < nbEcues; i++)
     {
-        std::cout<<"Intitulé ecue "<<i+1<<" : ";
-        std::cin>>intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
+        std::cout << "Intitulé ecue "<<i+1<<" : ";
+        std::cin >> intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
         int indexECUE = 0;
         while(d_ecue[indexECUE]->intitule() != intituleECUE)
                 indexECUE++;
@@ -304,21 +304,91 @@ void interface::afficher_creer_UEcomposee()
 
 }
 
+void interface::afficher_modifier_UEcomposee()
+{
+    unsigned int coeff,credits;
+    std::string code, intitule, intitule_recherche;
+    std::cout << "Quelle UEcomposé voulez-vous modifier ?" << std::endl;
+    std::cin >> intitule_recherche;
+    int i = 0;
+    while(d_UEcomposee[i]->intitule() != intitule_recherche)
+        i++;
+
+    std::cout << "Code : ";
+    std::cin >> code;
+
+    std::cout << "Intitule : ";
+    std::cin >> intitule;
+
+    std::cout<<"Nombre de credits UE : ";
+    std::cin>>credits;
+
+    std::cout << "Coefficient : ";
+    std::cin >> coeff;
+
+    unsigned int nbTOTEcue_a_supprimer;
+    std::cout<<"Combien d'ECUE voulez-vous supprimer?";
+    std::cin>>nbTOTEcue_a_supprimer;
+
+    std::cout<<"ECUEs de "<<intitule<<std::endl;
+    for(unsigned int index = 0; index < d_UEcomposee[i]->liste_ecue().size(); index++)
+    {
+        std::cout<<index+1<<" |"<<std::cout;
+        std::cout<<d_UEcomposee[i]->liste_ecue();
+        //d_UEcomposee[i]->liste_ecue()[index].afficher(std::cout);
+
+        std::cout << std::endl;
+    }
+
+    unsigned int index_ecue_a_supprimer;
+    for(unsigned int index_suppr = 0; index_suppr<nbTOTEcue_a_supprimer; index_suppr++)
+    {
+        std::cout << "Nombre de l'ecue à supprimer : ";
+        std::cin >> index_ecue_a_supprimer;
+        d_UEcomposee[i]->supprimer_ecue(d_UEcomposee[i]->d_ecues[index_ecue_a_supprimer-1]);
+    }
+
+    unsigned int nbTOTEcue_a_ajouter;
+    std::cout<<"Combien d'ECUE voulez-vous ajouter?";
+    std::cin>>nbTOTEcue_a_ajouter;
+    for(unsigned int i = 0; i < d_ecue.size(); i++)
+    {
+        d_ecue[i]->afficher(std::cout);
+        std::cout << std::endl;
+    }
+
+    unsigned int index_ecue_a_ajouter;
+    for(unsigned int index_ajout = 0; index_ajout<nbTOTEcue_a_ajouter; index_ajout++)
+    {
+        std::cout << "Nombre de l'ecue à ajouter : ";
+        std::cin >> index_ecue_a_ajouter;
+        d_UEcomposee[i]->ajouter_ecue(d_ecue[index_ecue_a_ajouter-1]);
+    }
+
+    d_UEcomposee[i]->afficher(std::cout);
+    std::cout << std::endl;
+    d_UEseule[0]->afficher(std::cout);
+    std::cout << std::endl;
+    std::cout << "UE correctement cree";
+    std::cout << std::endl;
+    system("pause");
+}
+
 void interface::afficher_creer_UEseule()
 {
     std::string codeUE, intituleUE;
     unsigned int creditsUE, coefficientUE, td, tp, cm;
-    std::cout<<"Code UE : ";
-    std::cin>>codeUE;
+    std::cout << "Code UE : ";
+    std::cin >> codeUE;
 
-    std::cout<<"Intitule UE : ";
-    std::cin>>intituleUE;
+    std::cout << "Intitule UE : ";
+    std::cin >> intituleUE;
 
-    std::cout<<"Nombre de credits UE : ";
-    std::cin>>creditsUE;
+    std::cout << "Nombre de credits UE : ";
+    std::cin >> creditsUE;
 
-    std::cout<<"Coefficient UE : ";
-    std::cin>>coefficientUE;
+    std::cout << "Coefficient UE : ";
+    std::cin >> coefficientUE;
 
     std::cout << "Heures td : ";
     std::cin >> td;
