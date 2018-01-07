@@ -305,6 +305,7 @@ void interface::afficher_menu_ECUEs()
                 break;
             case 4:
                 afficher_liste_ECUE();
+                system("pause");
                 break;
             case 5:
                 break;
@@ -688,76 +689,80 @@ void interface::afficher_creer_ECUE()
 
     d_ecue.push_back(new ecue{coeff,code,intitule,cm,td,tp});
 
-    d_ecue[0]->afficher(cout);
     cout << endl;
+    d_ecue[d_ecue.size()-1]->afficher(cout);
+    cout << endl;
+
     cout << "ECUE correctement creee";
-    cout << endl;
+    cout << endl << endl;
     system("pause");
 }
 
 void interface::afficher_modifier_ECUE()
 {
-    unsigned int coeff, td, tp, cm;
-    std::string code, intitule, intitule_recherche;
-    cout << "Quelle ECUE voulez-vous modifier ?" << endl;
-    cin >> intitule_recherche;
-    int i = 0;
-    while(d_ecue[i]->intitule() != intitule_recherche)
-        i++;
+    unsigned int coeff, td, tp, cm, entier_recherche;
+    std::string code, intitule;
+    afficher_liste_ECUE();
+    cout << "Saisir le numero de l'ECUE a modifier" << endl;
+    cin >> entier_recherche;
+    entier_recherche--;
 
     cout << "intitule : ";
     cin >> intitule;
-    d_ecue[i]->intitule(intitule);
+    d_ecue[entier_recherche]->intitule(intitule);
 
     cout << "code : ";
     cin >> code;
-    d_ecue[i]->code(code);
+    d_ecue[entier_recherche]->code(code);
 
     cout << "coefficient : ";
     cin >> coeff;
-    d_ecue[i]->coefficent(coeff);
+    d_ecue[entier_recherche]->coefficent(coeff);
 
     cout << "heures td : ";
     cin >> td;
-    d_ecue[i]->heures_td(td);
+    d_ecue[entier_recherche]->heures_td(td);
 
     cout << "heures tp : ";
     cin >> tp;
-    d_ecue[i]->heures_tp(tp);
+    d_ecue[entier_recherche]->heures_tp(tp);
 
     cout << "heures cm : ";
     cin >> cm;
-    d_ecue[i]->heures_cm(cm);
+    d_ecue[entier_recherche]->heures_cm(cm);
 
     cout << endl;
+    cout << "ECUE modifiee :";
+    cout << endl;
+    d_ecue[entier_recherche]->afficher(cout);
+    cout << endl << endl;
+    system("pause");
 }
 
 void interface::afficher_supprimer_ECUE()
 {
-    std::string intitule_recherche;
-    cout << "Quelle ECUE voulez-vous supprimer ?" << endl;
-    cin >> intitule_recherche;
+    unsigned int entier_recherche;
+    afficher_liste_ECUE();
+    cout << "saisir le numéro de l'ECUE a supprimer ?" << endl;
+    cin >> entier_recherche;
+    entier_recherche--;
 
-    unsigned int i = 0;
-    while(d_ecue[i]->intitule() != intitule_recherche)
-        i++;
+    delete d_ecue[entier_recherche];
 
-    delete d_ecue[i];
-
-    for(; i<d_ecue.size()-1; i++)
-        std::swap(d_ecue[i],d_ecue[i+1]);
+    for(; entier_recherche<d_ecue.size()-1; entier_recherche++)
+        std::swap(d_ecue[entier_recherche],d_ecue[entier_recherche+1]);
     d_ecue.resize(d_ecue.size()-1);
 }
 
 void interface::afficher_liste_ECUE()
 {
+    cout << endl;
     for(unsigned int i=0; i<d_ecue.size(); i++)
     {
-        cout << " " << i << "  |  ";
+        cout << " " << i+1 << "  |  ";
         d_ecue[i]->afficher(cout);
         cout << endl;
     }
-    system("pause");
 }
 
 void interface::afficher_creer_UE_choix()
