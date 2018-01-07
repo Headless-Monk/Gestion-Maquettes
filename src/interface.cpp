@@ -432,16 +432,16 @@ void interface::afficher_menu_modification_maquette(maquette *m)
 
 void interface::afficher_monter_ue(maquette *m)
 {
-    std::string ue_a_monter;
-    cout << "Saisir le libelle de l'UE a monter :" << endl;
+    unsigned int ue_a_monter;
+    cout << "Saisir le numero de l'UE a monter :" << endl;
     cin >> ue_a_monter;
     m->monter_ue(ue_a_monter);
 }
 
 void interface::afficher_descendre_ue(maquette *m)
 {
-    std::string ue_a_descendre;
-    cout << "Saisir le libelle de l'UE a descendre :" << endl;
+    unsigned int ue_a_descendre;
+    cout << "Saisir le numero de l'UE a descendre :" << endl;
     cin >> ue_a_descendre;
     m->descendre_ue(ue_a_descendre);
 }

@@ -141,30 +141,22 @@ void maquette::monter_ue(UEchoix *uc)
         d_position_ue_choix_dans_ue--;
 }
 
-void maquette::monter_ue(std::string libelle_ue)
+void maquette::monter_ue(unsigned int numero_ue)
 {
-    for(unsigned int i=0; i<d_ues.size(); i++)
+    numero_ue--;
+    if(d_ues.size() == 0)
+        monter_ue(d_ues_choix[numero_ue]);
+    else if(d_ues_choix.size() == 0)
+        monter_ue(d_ues[numero_ue]);
+    else
     {
-        if(d_ues[i]->intitule() == libelle_ue)
-        {
-                monter_ue(d_ues[i]);
-                return;
-        }
-    }
-
-    for(unsigned int i=0; i<d_ues_choix.size(); i++)
-    {
-        std::vector <ue*> liste{d_ues_choix[i]->liste_ue()};
-        for(unsigned int j=0; j<liste.size(); j++)
-        {
-            if(liste[j]->intitule() == libelle_ue)
-            {
-                monter_ue(d_ues_choix[i]);
-                return;
-            }
-        }
+        if( (numero_ue < d_position_ue_choix_dans_ue) || (numero_ue >= (d_position_ue_choix_dans_ue+d_ues_choix.size()-1)) )
+            monter_ue(d_ues[numero_ue]);
+        else
+            monter_ue(d_ues_choix[numero_ue]);
     }
 }
+
 
 void maquette::descendre_ue(ue *u)
 {
@@ -181,28 +173,19 @@ void maquette::descendre_ue(UEchoix *uc)
         d_position_ue_choix_dans_ue++;
 }
 
-void maquette::descendre_ue(std::string libelle_ue)
+void maquette::descendre_ue(unsigned int numero_ue)
 {
-    for(unsigned int i=0; i<d_ues.size(); i++)
+    numero_ue--;
+    if(d_ues.size() == 0)
+        descendre_ue(d_ues_choix[numero_ue]);
+    else if(d_ues_choix.size() == 0)
+        descendre_ue(d_ues[numero_ue]);
+    else
     {
-        if(d_ues[i]->intitule() == libelle_ue)
-        {
-                descendre_ue(d_ues[i]);
-                return;
-        }
-    }
-
-    for(unsigned int i=0; i<d_ues_choix.size(); i++)
-    {
-        std::vector <ue*> liste{d_ues_choix[i]->liste_ue()};
-        for(unsigned int j=0; j<liste.size(); j++)
-        {
-            if(liste[j]->intitule() == libelle_ue)
-            {
-                descendre_ue(d_ues_choix[i]);
-                return;
-            }
-        }
+        if( (numero_ue < d_position_ue_choix_dans_ue) || (numero_ue >= (d_position_ue_choix_dans_ue+d_ues_choix.size())) )
+            descendre_ue(d_ues[numero_ue]);
+        else
+            descendre_ue(d_ues_choix[numero_ue]);
     }
 }
 
