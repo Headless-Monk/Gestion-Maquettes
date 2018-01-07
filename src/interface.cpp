@@ -388,7 +388,7 @@ void interface::afficher_modifier_maquette()
 void interface::afficher_menu_modification_maquette(maquette *m)
 {
    int choix = 0;
-    while(choix != 8)
+    while(choix != 5)
     {
         system("cls");
         m->afficher(cout);
@@ -397,10 +397,7 @@ void interface::afficher_menu_modification_maquette(maquette *m)
         cout << "2) Ajouter une UE a choix" << endl;
         cout << "3) Ajouter une UE seule" << endl;
         cout << "4) Ajouter une UE composee" << endl;
-        cout << "5) Supprimer une UE a choix" << endl;
-        cout << "6) Supprimer une UE seule" << endl;
-        cout << "7) Supprimer une UE composee" << endl;
-        cout << "8) Retour" << endl;
+        cout << "5) Retour" << endl;
 
         cin >> choix;
 
@@ -434,12 +431,6 @@ void interface::afficher_menu_modification_maquette(maquette *m)
                 m->ajouter_ue(d_UEcomposee[ue_composee_ajouter]);
                 break;
             case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
                 break;
             default:
                 break;
