@@ -469,7 +469,7 @@ void interface::afficher_liste_maquette()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_maquette[i]->afficher(cout);
         cout << endl;
     }
@@ -479,7 +479,7 @@ void interface::afficher_liste_maquette_entete()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_maquette[i]->afficher_entete(cout);
         cout << endl;
     }
@@ -711,7 +711,7 @@ void interface::afficher_liste_UEcomposee()
 {
     for(unsigned int i=0; i<d_UEcomposee.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEcomposee[i]->afficher(cout);
         cout << endl;
     }
@@ -814,7 +814,7 @@ void interface::afficher_liste_UEseule()
 {
     for(unsigned int i=0; i<d_UEseule.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEseule[i]->afficher(cout);
         cout << endl;
     }
@@ -916,7 +916,7 @@ void interface::afficher_liste_ECUE()
     cout << endl;
     for(unsigned int i=0; i<d_ecue.size(); i++)
     {
-        cout << " " << i << "  |  ";
+        cout << " " << i+1 << "  |  ";
         d_ecue[i]->afficher(cout);
         cout << endl;
     }
@@ -1023,7 +1023,7 @@ void interface::afficher_liste_UE_choix()
 {
     for(unsigned int i=0; i<d_UEchoix.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEchoix[i]->afficher(cout);
         cout << endl;
     }
