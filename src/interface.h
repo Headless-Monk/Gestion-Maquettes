@@ -74,11 +74,9 @@ public:
 private:
     std::vector<formation*> d_formation;
     std::vector<maquette*> d_maquette;
-
     std::vector<UEchoix*> d_UEchoix;
     std::vector<UEseule*> d_UEseule;
     std::vector<UEcomposee*> d_UEcomposee;
-
     std::vector<ecue*> d_ecue;
 };
 

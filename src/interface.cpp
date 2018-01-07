@@ -86,7 +86,7 @@ void interface::temporaire_ecrit_maquette()
 void interface::initialiser()
 {
     int choix = 0;
-    while(choix != 6)
+    while(choix != 7)
     {
         system("cls");
 
@@ -107,13 +107,14 @@ void interface::initialiser()
                 break;
             case 4:
                 afficher_menu_UEcomposees();
+                break;
             case 5:
                 afficher_menu_ECUEs();
                 break;
-            case 5:
+            case 6:
                 afficher_menu_UEchoix();
                 break;
-            case 6:
+            case 7:
                 break;
             default:
                 break;
@@ -877,7 +878,39 @@ void interface::afficher_liste_ECUE()
 
 void interface::afficher_creer_UE_choix()
 {
+    unsigned int nbr_UE_composee, nbr_UE_seul;
+    std::vector<int> selection_UE_composee;
+    std::vector<int> selection_UE_seul;
+    std::vector<UEcomposee*> UEcomposee;
+    std::vector<UEseule*> UEseule;
 
+    for(unsigned int i = 0; i < d_UEcomposee.size(); i++)
+        d_UEcomposee[i]->afficher(std::cout);
+
+    std::cout << "Combien d'UEs composées voulez vous ajouter : ";
+    std::cin >> nbr_UE_composee;
+    std::cout << "Quelle UEs composées voulez vous ajouter : ";
+    for(unsigned int i = 0; i < nbr_UE_composee; i++)
+    {
+        std::cout << "UE composée " << i << " : ";
+        std::cin >> selection_UE_composee[i];
+        UEcomposee.resize(selection_UE_composee.size()+1);
+        UEcomposee.push_back(d_UEcomposee[selection_UE_composee[i]]);
+    }
+
+    for(unsigned int i = 0; i < d_UEseule.size(); i++)
+        d_UEseule[i]->afficher(std::cout);
+
+    std::cout << "Combien d'UEs seules voulez vous ajouter : ";
+    std::cin >> nbr_UE_seul;
+    std::cout << "Quelle UEs seules voulez vous ajouter : ";
+    for(unsigned int i = 0; i < nbr_UE_seul; i++)
+    {
+        std::cout << "UE seule " << i << " : ";
+        std::cin >> selection_UE_seul[i];
+        UEseule.resize(selection_UE_seul.size()+1);
+        UEseule.push_back(d_UEseule[selection_UE_seul[i]]);
+    }
 }
 
 void interface::afficher_modifier_UE_choix()
@@ -887,10 +920,26 @@ void interface::afficher_modifier_UE_choix()
 
 void interface::afficher_supprimer_UE_choix()
 {
+    unsigned int numero_UE_choix_a_supprimer;
+    afficher_liste_UE_choix();
+    std::cout << "Quelle UE à choix voulez vous supprimer : ";
+    std::cin >> numero_UE_choix_a_supprimer;
 
+    delete d_UEchoix[numero_UE_choix_a_supprimer];
+
+    for(; numero_UE_choix_a_supprimer<d_UEchoix.size(); numero_UE_choix_a_supprimer++)
+        std::swap(d_UEchoix[numero_UE_choix_a_supprimer],d_UEchoix[numero_UE_choix_a_supprimer]);
+
+    d_UEchoix.resize(d_UEchoix.size()-1);
 }
 
 void interface::afficher_liste_UE_choix()
 {
-
+    for(unsigned int i=0; i<d_UEchoix.size(); i++)
+    {
+        cout << " " << i+1 << "  |  " << endl;
+        d_UEchoix[i]->afficher(cout);
+        cout << endl;
+    }
+    system("pause");
 }
