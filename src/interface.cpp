@@ -350,6 +350,7 @@ void interface::afficher_menu_UEchoix()
                 break;
             case 4:
                 afficher_liste_UE_choix();
+                system("pause");
                 break;
             case 5:
                 break;
@@ -387,7 +388,7 @@ void interface::afficher_modifier_maquette()
 void interface::afficher_menu_modification_maquette(maquette *m)
 {
     int choix = 0;
-    while(choix != 7)
+    while(choix != 8)
     {
         system("cls");
         m->afficher(cout);
@@ -396,9 +397,10 @@ void interface::afficher_menu_modification_maquette(maquette *m)
         cout << "2) Ajouter une UE a choix" << endl;
         cout << "3) Ajouter une UE seule" << endl;
         cout << "4) Ajouter une UE composee" << endl;
-        cout << "5) Deplacer une UE de 1 vers le haut" << endl;
-        cout << "6) Deplacer une UE de 1 vers le bas" << endl;
-        cout << "7) Retour" << endl;
+        cout << "5) Supprimer une UE a choix" << endl;
+        cout << "6) Supprimer une UE seule" << endl;
+        cout << "7) Supprimer une UE composee" << endl;
+        cout << "8) Retour" << endl;
 
         cin >> choix;
 
@@ -408,21 +410,36 @@ void interface::afficher_menu_modification_maquette(maquette *m)
                 m->saisir_maquette(cout, cin);
                 break;
             case 2:
-
+                unsigned int ue_choix_ajouter;
+                afficher_liste_UE_choix();
+                cout << "Saisir le numero de l'UE a choix a ajouter :" << endl;
+                cin >> ue_choix_ajouter;
+                ue_choix_ajouter--;
+                m->ajouter_ue(d_UEchoix[ue_choix_ajouter]);
                 break;
             case 3:
-
+                unsigned int ue_seule_ajouter;
+                afficher_liste_UEseule();
+                cout << "Saisir le numero de l'UE seule a ajouter :" << endl;
+                cin >> ue_seule_ajouter;
+                ue_seule_ajouter--;
+                m->ajouter_ue(d_UEseule[ue_seule_ajouter]);
                 break;
             case 4:
-
+                unsigned int ue_composee_ajouter;
+                afficher_liste_UEcomposee();
+                cout << "Saisir le numero de l'UE composee a ajouter :" << endl;
+                cin >> ue_composee_ajouter;
+                ue_composee_ajouter--;
+                m->ajouter_ue(d_UEcomposee[ue_composee_ajouter]);
                 break;
             case 5:
-                afficher_monter_ue(m);
                 break;
             case 6:
-                afficher_descendre_ue(m);
                 break;
             case 7:
+                break;
+            case 8:
                 break;
             default:
                 break;
@@ -469,7 +486,7 @@ void interface::afficher_liste_maquette()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_maquette[i]->afficher(cout);
         cout << endl;
     }
@@ -479,7 +496,7 @@ void interface::afficher_liste_maquette_entete()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_maquette[i]->afficher_entete(cout);
         cout << endl;
     }
@@ -711,7 +728,7 @@ void interface::afficher_liste_UEcomposee()
 {
     for(unsigned int i=0; i<d_UEcomposee.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEcomposee[i]->afficher(cout);
         cout << endl;
     }
@@ -814,7 +831,7 @@ void interface::afficher_liste_UEseule()
 {
     for(unsigned int i=0; i<d_UEseule.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEseule[i]->afficher(cout);
         cout << endl;
     }
@@ -916,7 +933,7 @@ void interface::afficher_liste_ECUE()
     cout << endl;
     for(unsigned int i=0; i<d_ecue.size(); i++)
     {
-        cout << " " << i << "  |  ";
+        cout << " " << i+1 << "  |  ";
         d_ecue[i]->afficher(cout);
         cout << endl;
     }
@@ -1023,9 +1040,8 @@ void interface::afficher_liste_UE_choix()
 {
     for(unsigned int i=0; i<d_UEchoix.size(); i++)
     {
-        cout << " " << i << "  |  " << endl;
+        cout << " " << i+1 << "  |  " << endl;
         d_UEchoix[i]->afficher(cout);
         cout << endl;
     }
-    system("pause");
 }
