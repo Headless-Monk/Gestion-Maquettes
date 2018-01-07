@@ -28,9 +28,10 @@ public:
 
     void monter_ue(ue *u); //déplace de 1 dans la liste
     void monter_ue(UEchoix *uc);
-    void monter_ue(unsigned int numero_ue);
+    void monter_ue(std::string libelle_ue);
     void descendre_ue(ue *u);
     void descendre_ue(UEchoix *uc);
+    void descendre_ue(std::string libelle_ue);
 
     void domaine(std::string domaine);
     void mention(std::string mention);

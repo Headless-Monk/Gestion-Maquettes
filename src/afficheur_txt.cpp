@@ -9,17 +9,17 @@ afficheur_txt::afficheur_txt()
 afficheur_txt::~afficheur_txt()
 {}
 
-void afficheur_txt::exporter_maquette(const maquette &m)
+void afficheur_txt::exporter_maquette(const maquette *m)
 {
     d_fichier.open(nom(m));
 
-    std::vector <ue*> ues{m.liste_ues()};
-    std::vector <UEchoix*> ues_choix{m.liste_ues_choix()};
+    std::vector <ue*> ues{m->liste_ues()};
+    std::vector <UEchoix*> ues_choix{m->liste_ues_choix()};
 
     ecrire_details_maquette(m);
     for(unsigned int cpt_ue=0, cpt_ue_choix=0; cpt_ue_choix<ues.size()+1; cpt_ue_choix++)
     {
-        if(cpt_ue_choix == m.position_ue_choix_dans_ue()-1)
+        if(cpt_ue_choix == m->position_ue_choix_dans_ue()-1)
         {
             //affichage ue_choix
             for(unsigned int i=0; i<ues_choix.size(); i++)
@@ -37,14 +37,14 @@ void afficheur_txt::exporter_maquette(const maquette &m)
 
 }
 
-std::string afficheur_txt::nom(const maquette &m)
+std::string afficheur_txt::nom(const maquette *m)
 {
     std::string nom_fichier;
-    nom_fichier += m.mention() + "_";
-    nom_fichier += static_cast<std::ostringstream*>( &(std::ostringstream() << m.annee()) )->str() + "_";
-    nom_fichier += m.parcours() + "_s";
+    nom_fichier += m->mention() + "_";
+    nom_fichier += static_cast<std::ostringstream*>( &(std::ostringstream() << m->annee()) )->str() + "_";
+    nom_fichier += m->parcours() + "_s";
 
-    nom_fichier += static_cast<std::ostringstream*>( &(std::ostringstream() << m.semestre()) )->str() + ".txt";
+    nom_fichier += static_cast<std::ostringstream*>( &(std::ostringstream() << m->semestre()) )->str() + ".txt";
 
 
     for(unsigned int i=0; i<nom_fichier.length(); i++)
@@ -54,13 +54,13 @@ std::string afficheur_txt::nom(const maquette &m)
     return nom_fichier;
 }
 
-void afficheur_txt::ecrire_details_maquette(const maquette &m)
+void afficheur_txt::ecrire_details_maquette(const maquette *m)
 {
-    d_fichier << m.domaine() << ";" << std::endl;
-    d_fichier << m.mention() << ";" << std::endl;
-    d_fichier << m.parcours() << ";" << std::endl;
-    d_fichier << m.annee() << ";" << std::endl;
-    d_fichier << m.semestre() << ";" << std::endl;
+    d_fichier << m->domaine() << ";" << std::endl;
+    d_fichier << m->mention() << ";" << std::endl;
+    d_fichier << m->parcours() << ";" << std::endl;
+    d_fichier << m->annee() << ";" << std::endl;
+    d_fichier << m->semestre() << ";" << std::endl;
 }
 
 void afficheur_txt::ecrire_ue(ue *u)
@@ -104,17 +104,17 @@ void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
     std::vector <ecue*> liste_ecue{UEc->liste_ecue()};
     for(unsigned int i=0; i<liste_ecue.size(); i++)
     {
-        ecrire_ecue(*liste_ecue[i]);
+        ecrire_ecue(liste_ecue[i]);
     }
 }
 
-void afficheur_txt::ecrire_ecue(const ecue &ec)
+void afficheur_txt::ecrire_ecue(const ecue *ec)
 {
-    d_fichier   << ec.code() << ";"
-                << ec.coefficient() << ";"
-                << ec.intitule() << ";"
-                << ec.heures_cm() << ";"
-                << ec.heures_td() << ";"
-                << ec.heures_tp() << ";"
-                << ec.duree_totale() << ";" << std::endl;
+    d_fichier   << ec->code() << ";"
+                << ec->coefficient() << ";"
+                << ec->intitule() << ";"
+                << ec->heures_cm() << ";"
+                << ec->heures_td() << ";"
+                << ec->heures_tp() << ";"
+                << ec->duree_totale() << ";" << std::endl;
 }

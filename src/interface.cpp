@@ -11,14 +11,23 @@ interface::interface(): d_formation{}, d_maquette{}, d_UEchoix{}, d_UEseule{}, d
 
 interface::~interface()
 {
-/*
-*
-*
-*   FUITESSSSSSSSSSSSSSSSSS DE MEMOIRE
-*
-*
-*
-*/
+    for(unsigned int i=0; i<d_ecue.size(); i++)
+        delete d_ecue[i];
+
+    for(unsigned int i=0; i<d_UEcomposee.size(); i++)
+        delete d_UEcomposee[i];
+
+    for(unsigned int i=0; i<d_UEseule.size(); i++)
+        delete d_UEseule[i];
+
+    for(unsigned int i=0; i<d_UEchoix.size(); i++)
+        delete d_UEchoix[i];
+
+    for(unsigned int i=0; i<d_maquette.size(); i++)
+        delete d_maquette[i];
+
+    for(unsigned int i=0; i<d_formation.size(); i++)
+        delete d_formation[i];
 }
 
 void interface::temporaire_ecrit_maquette()
@@ -119,14 +128,15 @@ void interface::afficher_menu_principal()
 void interface::afficher_menu_maquettes()
 {
     int choix = 0;
-    while(choix != 5)
+    while(choix != 6)
     {
         system("cls");
         cout << "1) Creer maquette" << endl;
         cout << "2) Modifier maquette" << endl;
         cout << "3) Supprimer maquette" << endl;
         cout << "4) Afficher liste des maquettes" << endl;
-        cout << "5) Retour" << endl;
+        cout << "5) Exporter les maquettes" << endl;
+        cout << "6) Retour" << endl;
 
         cin >> choix;
 
@@ -147,6 +157,10 @@ void interface::afficher_menu_maquettes()
                 system("pause");
                 break;
             case 5:
+                afficher_export_maquette();
+                system("pause");
+                break;
+            case 6:
                 break;
             default:
                 break;
@@ -316,12 +330,6 @@ void interface::afficher_menu_modification_maquette(maquette *m)
                 break;
             case 5:
 
-
-
-            test(m);
-
-
-
                 break;
             case 6:
 
@@ -332,19 +340,6 @@ void interface::afficher_menu_modification_maquette(maquette *m)
                 break;
         }
     }
-}
-
-void interface::test(maquette *m)
-{
-                  unsigned int ue_a_deplacer = 0;
-                cout << "Saisir le numero de l'ue a deplacer (0 pour annuler) :" << endl;
-                cin >> ue_a_deplacer;
-
-                if(ue_a_deplacer != 0)
-                {
-                    ue_a_deplacer--;
-                    m->monter_ue(ue_a_deplacer);
-                }
 }
 
 void interface::afficher_supprimer_maquette()
@@ -384,6 +379,16 @@ void interface::afficher_liste_maquette_entete()
         d_maquette[i]->afficher_entete(cout);
         cout << endl;
     }
+}
+
+void interface::afficher_export_maquette()
+{
+    afficheur_txt aff{};
+    for(unsigned int i=0; i<d_maquette.size(); i++)
+    {
+        aff.exporter_maquette(d_maquette[i]);
+    }
+    cout << endl << "Les maquettes ont ete exportees correctement" << endl << endl;
 }
 
 void interface::afficher_creer_formation()

@@ -8,6 +8,7 @@
 #include "UEchoix.h"
 #include "UEseule.h"
 #include "UEcomposee.h"
+#include "afficheur_txt.h"
 
 #include <iostream>
 #include <vector>
@@ -35,7 +36,7 @@ public:
     void afficher_supprimer_maquette();
     void afficher_liste_maquette();
     void afficher_liste_maquette_entete();
-    void test(maquette *m); //besoin de la gestion d'ues
+    void afficher_export_maquette();
 
     //OLIVIER
     void afficher_creer_formation();

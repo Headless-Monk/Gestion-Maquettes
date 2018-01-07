@@ -59,7 +59,7 @@ void test_afficheur()
     m.ajouter_ue(&u8);
 
     afficheur_txt aff{};
-    aff.exporter_maquette(m);
+    aff.exporter_maquette(&m);
 }
 
 void test_interface()
