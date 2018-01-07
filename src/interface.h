@@ -40,6 +40,8 @@ public:
     void afficher_liste_maquette();
     void afficher_liste_maquette_entete();
     void afficher_export_maquette();
+    void afficher_monter_ue(maquette *m);
+    void afficher_descendre_ue(maquette *m);
 
     //OLIVIER
     void afficher_creer_formation();
@@ -50,6 +52,7 @@ public:
     //TAREK
     void afficher_creer_UEcomposee();
     void afficher_modifier_UEcomposee();
+    void afficher_menu_modification_UEcomposee(UEcomposee *UEc);
     void afficher_supprimer_UEcomposee();
     void afficher_liste_UEcomposee();
 

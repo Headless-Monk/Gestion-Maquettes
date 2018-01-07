@@ -21,6 +21,7 @@ class UEchoix
         void modifier_ue(std::vector <ue*> ue);
 
         std::vector<ue*> liste_ue() const;
+        unsigned int nombre_ue_choix() const;
     protected:
 
 

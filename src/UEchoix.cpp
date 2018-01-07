@@ -42,4 +42,8 @@ void UEchoix::modifier_ue(std::vector <ue*> ue)
     d_liste_ue.resize(ue.size());
     for(unsigned int i = 0; i < ue.size(); i++)
         d_liste_ue[i] = ue[i];
+
+unsigned int UEchoix::nombre_ue_choix() const
+{
+    return d_liste_ue.size();
 }

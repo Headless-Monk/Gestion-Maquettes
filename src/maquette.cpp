@@ -49,16 +49,21 @@ void maquette::afficher(std::ostream &os) const
     os << "Semestre : " << d_semestre << std::endl;
 
     int ajout_ues_choix = d_ues_choix.size()>0 ? 1:0;
-    for(unsigned int cpt_ues=0, cpt_ues_choix=0; cpt_ues_choix<d_ues.size() + ajout_ues_choix; cpt_ues_choix++)
+    for(unsigned int cpt_ues=0, cpt_ues_choix=0, cpt_affichage=1; cpt_ues_choix<d_ues.size() + ajout_ues_choix; cpt_ues_choix++)
     {
-        std::cout << " " << cpt_ues_choix+1 << "  |  " << std::endl;
         if(cpt_ues_choix+1 == d_position_ue_choix_dans_ue)
         {
             for(unsigned int i=0; i<d_ues_choix.size(); i++)
+            {
+                std::cout << " " << cpt_affichage << "  |  " << std::endl;
+                cpt_affichage += d_ues_choix[i]->nombre_ue_choix();
                 d_ues_choix[i]->afficher(os);
+            }
         }
         else if(d_ues.size() > 0)
         {
+            std::cout << " " << cpt_affichage << "  |  " << std::endl;
+            cpt_affichage++;
             d_ues[cpt_ues]->afficher(os);
             cpt_ues++;
         }
@@ -270,6 +275,12 @@ unsigned int maquette::semestre() const
 {
     return d_semestre;
 }
+
+unsigned int maquette::nombre_ue_choix() const
+{
+    return d_ues_choix.size();
+}
+
 
 std::ostream& operator<<(std::ostream &os, maquette &m)
 {

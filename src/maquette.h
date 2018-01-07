@@ -48,6 +48,7 @@ public:
     std::string parcours() const;
     unsigned int annee() const;
     unsigned int semestre() const;
+    unsigned int nombre_ue_choix() const;
 
 private:
     std::vector <ue*> d_ues;

@@ -18,10 +18,11 @@ public:
 
     virtual void afficher(std::ostream &os) const override;
     void ajouter_ecue(ecue *e);
-    void supprimer_ecue(ecue *e);
+    void supprimer_ecue(unsigned int ecue_a_supprimer);
+    void modifier_entete(std::ostream &os, std::istream &is);
 
-    void monter_ecue(ecue *ec); //déplace de 1 dans la liste
-    void descendre_ecue(ecue *ec);
+    void monter_ecue(unsigned int ecue_a_monter); //déplace de 1 dans la liste
+    void descendre_ecue(unsigned int ecue_a_descendre);
 
     std::vector<ecue*> liste_ecue() const;
 
