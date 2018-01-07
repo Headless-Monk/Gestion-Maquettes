@@ -34,33 +34,45 @@ void UEcomposee::ajouter_ecue(ecue *e)
     d_ecues.push_back(e);
 }
 
-void UEcomposee::supprimer_ecue(ecue *e)
+void UEcomposee::supprimer_ecue(unsigned int ecue_a_supprimer)
 {
-    unsigned int i = 0;
-    while(e != d_ecues[i])
-        i++;
-    delete d_ecues[i];
-    for(; i<d_ecues.size()-1; i++)
-        std::swap(d_ecues[i],d_ecues[i+1]);
-    d_ecues.resize(d_ecues.size());
+    for(; ecue_a_supprimer<d_ecues.size()-1; ecue_a_supprimer++)
+        std::swap(d_ecues[ecue_a_supprimer],d_ecues[ecue_a_supprimer+1]);
+    d_ecues.resize(d_ecues.size()-1);
 }
 
-void UEcomposee::monter_ecue(ecue *ec)
+void UEcomposee::modifier_entete(std::ostream &os, std::istream &is)
 {
-	unsigned int index = 0;
-	while (index < d_ecues.size() && d_ecues[index] != ec)
-		index++;
-	if (index < d_ecues.size() && index > 0)
-		std::swap(d_ecues[index], d_ecues[index - 1]);
+    std::string nouveau_code, nouveau_intitule;
+    unsigned int nouveau_credits, nouveau_coefficient;
+
+    os << "code : ";
+    is >> nouveau_code;
+    code(nouveau_code);
+
+    os << "intitule : ";
+    is >> nouveau_intitule;
+    intitule(nouveau_intitule);
+
+    os << "credits : ";
+    is >> nouveau_credits;
+    credits(nouveau_credits);
+
+    os << "coefficient : ";
+    is >> nouveau_coefficient;
+    coefficient(nouveau_coefficient);
 }
 
-void UEcomposee::descendre_ecue(ecue *ec)
+void UEcomposee::monter_ecue(unsigned int ecue_a_monter)
 {
-	unsigned int index = 0;
-	while (index < d_ecues.size() && d_ecues[index] != ec)
-		index++;
-	if (index < d_ecues.size() - 1)
-		std::swap(d_ecues[index], d_ecues[index + 1]);
+	if (ecue_a_monter > 0)
+		std::swap(d_ecues[ecue_a_monter], d_ecues[ecue_a_monter - 1]);
+}
+
+void UEcomposee::descendre_ecue(unsigned int ecue_a_descendre)
+{
+	if (ecue_a_descendre < d_ecues.size() - 1)
+		std::swap(d_ecues[ecue_a_descendre], d_ecues[ecue_a_descendre + 1]);
 }
 
 std::vector<ecue*> UEcomposee::liste_ecue() const

@@ -107,6 +107,7 @@ void interface::initialiser()
                 break;
             case 4:
                 afficher_menu_UEcomposees();
+                break;
             case 5:
                 afficher_menu_ECUEs();
                 break;
@@ -250,13 +251,14 @@ void interface::afficher_menu_UEseuls()
 void interface::afficher_menu_UEcomposees()
 {
     int choix = 0;
-    while(choix != 4)
+    while(choix != 5)
     {
         system("cls");
         cout << "1) Creer UE composee" << endl;
         cout << "2) Modifier UE composee" << endl;
         cout << "3) Supprimer UE composee" << endl;
-        cout << "4) Retour" << endl;
+        cout << "4) Afficher la liste des UEs composees" << endl;
+        cout << "5) Retour" << endl;
 
         cin >> choix;
 
@@ -269,15 +271,20 @@ void interface::afficher_menu_UEcomposees()
                 afficher_modifier_UEcomposee();
                 break;
             case 3:
-                //afficher_supprimer_UEcomposee();
+                afficher_supprimer_UEcomposee();
                 break;
             case 4:
+                afficher_liste_UEcomposee();
+                system("pause");
+                break;
+            case 5:
                 break;
             default:
                 break;
         }
     }
 }
+
 void interface::afficher_menu_ECUEs()
 {
     int choix = 0;
@@ -462,8 +469,8 @@ void interface::afficher_liste_formation()
 
 void interface::afficher_creer_UEcomposee()
 {
-    std::string code, intitule, intituleECUE;
-    unsigned int credits, coefficient, nbEcues;
+    std::string code, intitule;
+    unsigned int credits, coefficient;
 
     cout << "Code UEcompose : ";
     cin >> code;
@@ -477,87 +484,111 @@ void interface::afficher_creer_UEcomposee()
     cout << "Coefficient UEcompose : ";
     cin >> coefficient;
 
-    cout << "Nombre d'ecue qui feront partie de cette UEcompose : ";
-    cin >> nbEcues;
-    std::vector<ecue*> liste_des_ecues{};
-    for(unsigned int i = 0; i < nbEcues; i++)
-    {
-        cout << "Intitule ecue "<<i+1<<" : ";
-        cin >> intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
-        int indexECUE = 0;
-        while(d_ecue[indexECUE]->intitule() != intituleECUE)
-                indexECUE++;
-        liste_des_ecues.push_back(d_ecue[indexECUE]);
-    }
-    d_UEcomposee.push_back(new UEcomposee(liste_des_ecues, code, intitule, credits, coefficient));
+    d_UEcomposee.push_back(new UEcomposee(code, intitule, credits, coefficient));
 
+    cout << endl << "UE composee creee :" << endl;
+    d_UEcomposee[d_UEcomposee.size()-1]->afficher(cout);
+    cout << endl;
 }
 
 void interface::afficher_modifier_UEcomposee()
 {
-    unsigned int coeff,credits;
-    std::string code, intitule, intitule_recherche;
-    cout << "Quelle UEcomposé voulez-vous modifier ?" << endl;
-    cin >> intitule_recherche;
-    int i = 0;
-    while(d_UEcomposee[i]->intitule() != intitule_recherche)
-        i++;
+    unsigned int entier_recherche;
 
-    cout << "Code : ";
-    cin >> code;
+    afficher_liste_UEcomposee();
+    cout << "Saisir le numero de l'UE a modifier (0 pour annuler) :" << endl;
+    cin >> entier_recherche;
 
-    cout << "Intitule : ";
-    cin >> intitule;
-
-    cout<<"Nombre de credits UE : ";
-    cin>>credits;
-
-    cout << "Coefficient : ";
-    cin >> coeff;
-
-    unsigned int nbTOTEcue_a_supprimer;
-    cout<<"Combien d'ECUE voulez-vous supprimer?";
-    cin>>nbTOTEcue_a_supprimer;
-
-    cout<<"ECUEs de "<<intitule<<endl;
-
-    std::vector <ecue*> liste{d_UEcomposee[i]->liste_ecue()};
-    for(unsigned int index = 0; index < liste.size(); index++)
+    if(entier_recherche > 0)
     {
-        cout<<index+1<<" |"<<endl;
-        liste[index]->afficher(cout);
+        entier_recherche--;
+        afficher_menu_modification_UEcomposee(d_UEcomposee[entier_recherche]);
+    }
+}
+
+void interface::afficher_menu_modification_UEcomposee(UEcomposee *UEc)
+{
+    int choix = 0;
+    while(choix != 6)
+    {
+        system("cls");
+        UEc->afficher(cout);
+        cout << endl;
+        cout << "1) Modifier l'entete" << endl;
+        cout << "2) Ajouter une ECUE" << endl;
+        cout << "3) Supprimer une ECUE" << endl;
+        cout << "4) Deplacer une ECUE de 1 vers le haut" << endl;
+        cout << "5) Deplacer une ECUE de 1 vers le bas" << endl;
+        cout << "6) Retour" << endl;
+
+        cin >> choix;
+
+        switch (choix)
+        {
+            case 1:
+                UEc->modifier_entete(cout, cin);
+                break;
+            case 2:
+                unsigned int ecue_a_ajouter;
+                afficher_liste_ECUE();
+                cout << "saisir le numéro de l'ECUE a ajouter :" << endl;
+                cin >> ecue_a_ajouter;
+                UEc->ajouter_ecue(d_ecue[ecue_a_ajouter-1]);
+                break;
+            case 3:
+                unsigned int ecue_a_supprimer;
+                cout << "saisir le numéro de l'ECUE a supprimer :" << endl;
+                cin >> ecue_a_supprimer;
+                UEc->supprimer_ecue(ecue_a_supprimer-1);
+                break;
+            case 4:
+                unsigned int ecue_a_monter;
+                cout << "saisir le numéro de l'ECUE a monter :" << endl;
+                cin >> ecue_a_monter;
+                UEc->monter_ecue(ecue_a_monter-1);
+                break;
+            case 5:
+                unsigned int ecue_a_descendre;
+                cout << "saisir le numéro de l'ECUE a descendre :" << endl;
+                cin >> ecue_a_descendre;
+                UEc->descendre_ecue(ecue_a_descendre-1);
+                break;
+            case 6:
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void interface::afficher_supprimer_UEcomposee()
+{
+    system("cls");
+    unsigned int ue_a_supprimer = 0;
+    afficher_liste_UEcomposee();
+
+    cout << "Saisir le numero de l'ue a supprimer (0 pour annuler) :" << endl;
+    cin >> ue_a_supprimer;
+
+    if(ue_a_supprimer != 0)
+    {
+        ue_a_supprimer--;
+        //delete d_UEcomposee[ue_a_supprimer];
+
+        for(; ue_a_supprimer<d_UEcomposee.size()-1; ue_a_supprimer++)
+            std::swap(d_UEcomposee[ue_a_supprimer],d_UEcomposee[ue_a_supprimer+1]);
+        d_UEcomposee.resize(d_UEcomposee.size()-1);
+    }
+}
+
+void interface::afficher_liste_UEcomposee()
+{
+    for(unsigned int i=0; i<d_UEcomposee.size(); i++)
+    {
+        cout << " " << i+1 << "  |  " << endl;
+        d_UEcomposee[i]->afficher(cout);
         cout << endl;
     }
-
-    unsigned int index_ecue_a_supprimer;
-    for(unsigned int index_suppr = 0; index_suppr<nbTOTEcue_a_supprimer; index_suppr++)
-    {
-        cout << "Nombre de l'ecue a supprimer : ";
-        cin >> index_ecue_a_supprimer;
-        d_UEcomposee[i]->supprimer_ecue(liste[index_ecue_a_supprimer-1]);
-    }
-
-    unsigned int nbTOTEcue_a_ajouter;
-    cout<<"Combien d'ECUE voulez-vous ajouter?";
-    cin>>nbTOTEcue_a_ajouter;
-
-    afficher_liste_ECUE();
-    cout<<nbTOTEcue_a_ajouter;
-   /* unsigned int index_ecue_a_ajouter;
-    for(unsigned int index_ajout = 0; index_ajout<nbTOTEcue_a_ajouter; index_ajout++)
-    {
-        cout << "Nombre de l'ecue a ajouter : ";
-        cin >> index_ecue_a_ajouter;
-        d_UEcomposee[i]->ajouter_ecue(d_ecue[index_ecue_a_ajouter-1]);
-    }
-
-    d_UEcomposee[i]->afficher(cout);
-    cout << endl;
-    d_UEseule[0]->afficher(cout);
-    cout << endl;
-    cout << "UE correctement cree";
-    cout << endl;*/
-    system("pause");
 }
 
 void interface::afficher_creer_UEseule()
@@ -646,7 +677,7 @@ void interface::afficher_supprimer_UEseule()
     while(d_UEseule[i]->intitule() != intitule_recherche)
         i++;
 
-    delete d_UEseule[i];
+    //delete d_UEseule[i];
 
     for(; i<d_ecue.size()-1; i++)
         std::swap(d_UEseule[i],d_UEseule[i+1]);
@@ -747,7 +778,7 @@ void interface::afficher_supprimer_ECUE()
     cin >> entier_recherche;
     entier_recherche--;
 
-    delete d_ecue[entier_recherche];
+    //delete d_ecue[entier_recherche];
 
     for(; entier_recherche<d_ecue.size()-1; entier_recherche++)
         std::swap(d_ecue[entier_recherche],d_ecue[entier_recherche+1]);

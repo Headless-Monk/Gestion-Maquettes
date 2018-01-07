@@ -49,6 +49,7 @@ public:
     //TAREK
     void afficher_creer_UEcomposee();
     void afficher_modifier_UEcomposee();
+    void afficher_menu_modification_UEcomposee(UEcomposee *UEc);
     void afficher_supprimer_UEcomposee();
     void afficher_liste_UEcomposee();
 
