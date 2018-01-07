@@ -314,6 +314,7 @@ void interface::afficher_modifier_formation()
         std::cin >> numero_maquette[i];
         std::cout << std::endl;
     }
+
     for(unsigned int i=0; i<numero_maquette.size(); i++)
         maquette.push_back(d_maquette[numero_maquette[i]]);
 
