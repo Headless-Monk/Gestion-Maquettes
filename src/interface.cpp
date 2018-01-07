@@ -175,7 +175,7 @@ void interface::afficher_menu_UEcomposees()
                 afficher_modifier_UEcomposee();
                 break;
             case 3:
-                afficher_supprimer_UEcomposee();
+                //afficher_supprimer_UEcomposee();
                 break;
             case 4:
                 break;
@@ -337,6 +337,7 @@ void interface::afficher_modifier_UEcomposee()
     {
         std::cout<<index+1<<" |"<<std::endl;
         liste[i]->afficher(std::cout);
+
         //d_UEcomposee[i]->liste_ecue()[index].afficher(std::cout);
 
         std::cout << std::endl;
@@ -347,7 +348,7 @@ void interface::afficher_modifier_UEcomposee()
     {
         std::cout << "Nombre de l'ecue à supprimer : ";
         std::cin >> index_ecue_a_supprimer;
-        d_UEcomposee[i]->supprimer_ecue(d_UEcomposee[i]->d_ecues[index_ecue_a_supprimer-1]);
+        d_UEcomposee[i]->supprimer_ecue(liste[i-1]);
     }
 
     unsigned int nbTOTEcue_a_ajouter;
