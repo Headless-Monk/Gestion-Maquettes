@@ -4,9 +4,9 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-interface::interface():d_maquette{}, d_formation{}, d_ue{}, d_ecue{}, d_UEchoix{}
+interface::interface(): d_formation{}, d_maquette{}, d_UEchoix{}, d_UEseule{}, d_UEcomposee{}, d_ecue{}
 {
-
+    temporaire_ecrit_maquette();
 }
 
 interface::~interface()
@@ -19,6 +19,58 @@ interface::~interface()
 *
 *
 */
+}
+
+void interface::temporaire_ecrit_maquette()
+{
+    d_maquette.push_back(new maquette{"Licence Informatique", "MIAGE", 3, 5});
+
+    d_UEcomposee.push_back(new UEcomposee{"13GUPRG5", "UE DE L'ETUDE DE CAS A LA PROGRAMMATION", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEcomposee[d_UEcomposee.size()-1]);
+    d_ecue.push_back(new ecue{3, "13GPQUA5", "ECUE qualite de programmation", 12, 6, 6});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+    d_ecue.push_back(new ecue{1, "13GPETC5", "ECUE Etudes de cas", 0, 16, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+
+
+    d_UEseule.push_back(new UEseule{14, 20, 0, "13GUPOO5", "PROGRAMMATION ORIENTEE OBJET", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+
+    d_UEseule.push_back(new UEseule{14, 22, 0, "13GUALGO", "ALGORITHMIQUE", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+
+    d_UEseule.push_back(new UEseule{14, 26, 0, "13GUCSI5", "CONCEPTION DE SYTEMES D'INFORMATION", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+
+    d_UEseule.push_back(new UEseule{18, 10, 0, "13GUINR5", "INTRODUCTION AUX RESEAUX", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+
+     /* IA et RO ues à choix */
+    d_UEchoix.push_back(new UEchoix{});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEchoix[d_UEchoix.size()-1]);
+    d_UEseule.push_back(new UEseule{15, 15, 0, "13GUIAR5", "INTELLIGENCE ARTIFICIELLE", 3, 1});
+    d_UEchoix[d_UEchoix.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+    d_UEseule.push_back(new UEseule{15, 20, 0, "13GUREO5", "RECHERCHE OPERATIONNELLE", 3, 1});
+    d_UEchoix[d_UEchoix.size()-1]->ajouter_ue(d_UEseule[d_UEseule.size()-1]);
+    d_maquette[d_maquette.size()-1]->position_ue_choix_dans_ue(6);
+
+    d_UEcomposee.push_back(new UEcomposee{"13GUECOG", "ECONOMIE ET GESTION 1", 6, 2});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEcomposee[d_UEcomposee.size()-1]);
+    d_ecue.push_back(new ecue{2, "13GPECEN", "ECUE Economie d'entreprise", 20, 0, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+    d_ecue.push_back(new ecue{1, "13GPCOMP", "ECUE Modele comtpable d'entreprise", 10, 0, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+    d_ecue.push_back(new ecue{3, "13GPMICR", "ECUE Micro-Macroeconomie", 26, 10, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+
+    d_UEcomposee.push_back(new UEcomposee{"13GUTEXT", "TECHNIQUES D'EXPRESSION", 3, 1});
+    d_maquette[d_maquette.size()-1]->ajouter_ue(d_UEcomposee[d_UEcomposee.size()-1]);
+    d_ecue.push_back(new ecue{2, "13GPANCO", "ECUE Anglais computing 1", 0, 20, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+    d_ecue.push_back(new ecue{2, "13GPALL5", "ECUE Allemand", 0, 20, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
+    d_ecue.push_back(new ecue{1, "13GPSTAG", "ECUE Techniques de recherche de stage", 0, 10, 0});
+    d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
 }
 
 void interface::initialiser()

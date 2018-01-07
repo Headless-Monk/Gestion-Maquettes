@@ -48,10 +48,11 @@ void maquette::afficher(std::ostream &os) const
     os << "Annee : " << d_annee << std::endl;
     os << "Semestre : " << d_semestre << std::endl;
 
-    for(unsigned int cpt_ues=0, cpt_ecues=0; cpt_ecues<d_ues.size() + 1; cpt_ecues++)
+    int ajout_ues_choix = d_ues_choix.size()>0 ? 1:0;
+    for(unsigned int cpt_ues=0, cpt_ues_choix=0; cpt_ues_choix<d_ues.size() + ajout_ues_choix; cpt_ues_choix++)
     {
-        std::cout << " " << cpt_ecues+1 << "  |  " << std::endl;
-        if(cpt_ecues+1 == d_position_ue_choix_dans_ue)
+        std::cout << " " << cpt_ues_choix+1 << "  |  " << std::endl;
+        if(cpt_ues_choix+1 == d_position_ue_choix_dans_ue)
         {
             for(unsigned int i=0; i<d_ues_choix.size(); i++)
                 d_ues_choix[i]->afficher(os);

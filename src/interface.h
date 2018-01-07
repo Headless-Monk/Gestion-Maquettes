@@ -6,6 +6,8 @@
 #include "ue.h"
 #include "ecue.h"
 #include "UEchoix.h"
+#include "UEseule.h"
+#include "UEcomposee.h"
 
 #include <iostream>
 #include <vector>
@@ -16,6 +18,8 @@ class interface
 public:
     interface();
     virtual ~interface();
+
+    void temporaire_ecrit_maquette();
 
     void initialiser();
     void afficher_menu_principal();
@@ -58,11 +62,14 @@ public:
     void afficher_liste_UE_choix();
 
 private:
-    std::vector<maquette*> d_maquette;
     std::vector<formation*> d_formation;
-    std::vector<ue*> d_ue;
-    std::vector<ecue*> d_ecue;
+    std::vector<maquette*> d_maquette;
+
     std::vector<UEchoix*> d_UEchoix;
+    std::vector<UEseule*> d_UEseule;
+    std::vector<UEcomposee*> d_UEcomposee;
+
+    std::vector<ecue*> d_ecue;
 };
 
 #endif
