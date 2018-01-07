@@ -13,7 +13,7 @@ interface::~interface()
 void interface::initialiser()
 {
     int choix = 0;
-    while(choix != 5)
+    while(choix != 6)
     {
         system("cls");
         std::cout << std::endl;
@@ -34,9 +34,11 @@ void interface::initialiser()
                 afficher_menu_UEseuls();
                 break;
             case 4:
+                afficher_menu_UEcomposees();
+            case 5:
                 afficher_menu_ECUEs();
                 break;
-            case 5:
+            case 6:
                 break;
             default:
                 break;
@@ -48,10 +50,11 @@ void interface::afficher_menu_principal()
 {
     std::cout << "1) Gerer les maquettes" << std::endl;
     std::cout << "2) Gerer les formations" << std::endl;
-    std::cout << "3) Gerer les UEs" << std::endl;
-    std::cout << "4) Gerer les ECUEs" << std::endl;
-    std::cout << "5) Gerer les UEs a choix" << std::endl;
-    std::cout << "6) Quitter" << std::endl;
+    std::cout << "3) Gerer les UEseuls" << std::endl;
+    std::cout << "4) Gerer les UEcomposees" << std::endl;
+    std::cout << "5) Gerer les ECUEs" << std::endl;
+    std::cout << "6) Gerer les UEs a choix" << std::endl;
+    std::cout << "7) Quitter" << std::endl;
 }
 
 void interface::afficher_menu_maquettes()
@@ -159,9 +162,9 @@ void interface::afficher_menu_UEcomposees()
     while(choix != 4)
     {
         system("cls");
-        std::cout << "1) Creer UE composée" << std::endl;
-        std::cout << "2) Modifier UE composée" << std::endl;
-        std::cout << "3) Supprimer UE composée" << std::endl;
+        std::cout << "1) Creer UE composee" << std::endl;
+        std::cout << "2) Modifier UE composee" << std::endl;
+        std::cout << "3) Supprimer UE composee" << std::endl;
         std::cout << "4) Retour" << std::endl;
 
         std::cin >> choix;
@@ -276,24 +279,24 @@ void interface::afficher_creer_UEcomposee()
     std::string code, intitule, intituleECUE;
     unsigned int credits, coefficient, nbEcues;
 
-    std::cout << "Code UEcomposé : ";
+    std::cout << "Code UEcompose : ";
     std::cin >> code;
 
-    std::cout<<"Intitule UEcomposé : ";
+    std::cout<<"Intitule UEcompose : ";
     std::cin>>intitule;
 
-    std::cout << "Nombre de credits UEcomposé : ";
+    std::cout << "Nombre de credits UEcompose : ";
     std::cin >> credits;
 
-    std::cout << "Coefficient UEcomposé : ";
+    std::cout << "Coefficient UEcompose : ";
     std::cin >> coefficient;
 
-    std::cout << "Nombre d'ecue qui feront partie de cette UEcomposé : ";
+    std::cout << "Nombre d'ecue qui feront partie de cette UEcompose : ";
     std::cin >> nbEcues;
     std::vector<ecue*> liste_des_ecues{};
     for(unsigned int i = 0; i < nbEcues; i++)
     {
-        std::cout << "Intitulé ecue "<<i+1<<" : ";
+        std::cout << "Intitule ecue "<<i+1<<" : ";
         std::cin >> intituleECUE;//je suppose riviere clever boy et input que des intitulés qui existent
         int indexECUE = 0;
         while(d_ecue[indexECUE]->intitule() != intituleECUE)
@@ -336,34 +339,28 @@ void interface::afficher_modifier_UEcomposee()
     for(unsigned int index = 0; index < liste.size(); index++)
     {
         std::cout<<index+1<<" |"<<std::endl;
-        liste[i]->afficher(std::cout);
-
-        //d_UEcomposee[i]->liste_ecue()[index].afficher(std::cout);
-
+        liste[index]->afficher(std::cout);
         std::cout << std::endl;
     }
 
     unsigned int index_ecue_a_supprimer;
     for(unsigned int index_suppr = 0; index_suppr<nbTOTEcue_a_supprimer; index_suppr++)
     {
-        std::cout << "Nombre de l'ecue à supprimer : ";
+        std::cout << "Nombre de l'ecue a supprimer : ";
         std::cin >> index_ecue_a_supprimer;
-        d_UEcomposee[i]->supprimer_ecue(liste[i-1]);
+        d_UEcomposee[i]->supprimer_ecue(liste[index_ecue_a_supprimer-1]);
     }
 
     unsigned int nbTOTEcue_a_ajouter;
     std::cout<<"Combien d'ECUE voulez-vous ajouter?";
     std::cin>>nbTOTEcue_a_ajouter;
-    for(unsigned int i = 0; i < d_ecue.size(); i++)
-    {
-        d_ecue[i]->afficher(std::cout);
-        std::cout << std::endl;
-    }
 
-    unsigned int index_ecue_a_ajouter;
+    afficher_liste_ECUE();
+    std::cout<<nbTOTEcue_a_ajouter;
+   /* unsigned int index_ecue_a_ajouter;
     for(unsigned int index_ajout = 0; index_ajout<nbTOTEcue_a_ajouter; index_ajout++)
     {
-        std::cout << "Nombre de l'ecue à ajouter : ";
+        std::cout << "Nombre de l'ecue a ajouter : ";
         std::cin >> index_ecue_a_ajouter;
         d_UEcomposee[i]->ajouter_ecue(d_ecue[index_ecue_a_ajouter-1]);
     }
@@ -373,7 +370,7 @@ void interface::afficher_modifier_UEcomposee()
     d_UEseule[0]->afficher(std::cout);
     std::cout << std::endl;
     std::cout << "UE correctement cree";
-    std::cout << std::endl;
+    std::cout << std::endl;*/
     system("pause");
 }
 
