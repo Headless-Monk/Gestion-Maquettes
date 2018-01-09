@@ -26,6 +26,8 @@ public:
 
     std::vector<ecue*> liste_ecue() const;
 
+    void sauvegarde_Json(std::ofstream &os);
+
 private:
   std::vector <ecue*> d_ecues;
 };

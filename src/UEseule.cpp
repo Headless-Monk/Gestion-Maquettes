@@ -70,6 +70,11 @@ unsigned int UEseule::heures_tp() const
     return d_heures_tp;
 }
 
+void UEseule::sauvegarde_Json(std::ofstream &os)
+{
+
+}
+
 std::ostream& operator<<(std::ostream &os, const UEseule &UEs)
 {
     UEs.afficher(os);

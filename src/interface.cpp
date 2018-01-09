@@ -1036,3 +1036,13 @@ void interface::afficher_liste_UE_choix()
         cout << endl;
     }
 }
+
+void interface::afficher_exporter_donnees()
+{
+    sauvegarde_json json;
+    json.sauvegarder_maquette(d_maquette);
+    json.sauvegarder_UESeule(d_UEseule);
+    json.sauvegarder_UEComposee(d_UEcomposee);
+    json.sauvegarder_ECUE(d_ecue);
+    json.sauvegarder_UEChoix(d_UEchoix);
+}

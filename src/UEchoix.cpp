@@ -48,3 +48,8 @@ unsigned int UEchoix::nombre_ue_choix() const
 {
     return d_liste_ue.size();
 }
+
+void UEchoix::sauvegarde_Json(std::ofstream &os)
+{
+
+}

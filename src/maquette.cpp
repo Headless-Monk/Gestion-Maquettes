@@ -264,6 +264,11 @@ unsigned int maquette::nombre_ue_choix() const
     return d_ues_choix.size();
 }
 
+void maquette::sauvegarde_Json(std::ofstream &os)
+{
+
+}
+
 
 std::ostream& operator<<(std::ostream &os, maquette &m)
 {

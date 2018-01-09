@@ -27,6 +27,8 @@ public:
     unsigned int heures_td() const;
     unsigned int heures_tp() const;
 
+    void sauvegarde_Json(std::ofstream &os);
+
 private:
     unsigned int d_heures_cm, d_heures_td, d_heures_tp;
 };

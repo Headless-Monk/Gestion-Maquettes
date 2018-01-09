@@ -80,6 +80,11 @@ std::vector<ecue*> UEcomposee::liste_ecue() const
     return d_ecues;
 }
 
+void UEcomposee::sauvegarde_Json(std::ofstream &os)
+{
+
+}
+
 std::ostream& operator<<(std::ostream &os, UEcomposee &UEc)
 {
     UEc.afficher(os);

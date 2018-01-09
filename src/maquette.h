@@ -50,6 +50,8 @@ public:
     unsigned int semestre() const;
     unsigned int nombre_ue_choix() const;
 
+    void sauvegarde_Json(std::ofstream &os);
+
 private:
     std::vector <ue*> d_ues;
     std::vector <UEchoix*> d_ues_choix;

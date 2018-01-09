@@ -90,6 +90,13 @@ unsigned int ecue::heures_tp() const
     return d_heures_tp;
 }
 
+void ecue::sauvegarde_Json(std::ofstream &os)
+{
+    os << '{';
+    os << "\"Coefficient\" : \"" << d_coefficient << "\"";
+    os << "\"Code\" : \"" << d_code << "\"";
+}
+
 std::ostream& operator<<(std::ostream &os, const ecue &e)
 {
     e.afficher(os);
