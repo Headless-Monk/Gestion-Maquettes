@@ -90,11 +90,15 @@ unsigned int ecue::heures_tp() const
     return d_heures_tp;
 }
 
-void ecue::sauvegarde_Json(std::ofstream &os)
+void ecue::sauvegarde_Json(std::ofstream &ofs)
 {
-    os << '{';
-    os << "\"Coefficient\" : \"" << d_coefficient << "\"";
-    os << "\"Code\" : \"" << d_code << "\"";
+    ofs << "\"Code\" : \"" << code() << "\"," << std::endl;
+    ofs << "\"Intitule\" : \"" << intitule() << "\"," << std::endl;
+    ofs << "\"Coefficient\" : " << coefficient() << "," << std::endl;
+    ofs << "\"Heures CM\" : " << heures_cm() << "," << std::endl;
+    ofs << "\"Heures TD\" : " << heures_td() << "," << std::endl;
+    ofs << "\"Heures TP\" : " << heures_tp() << "," << std::endl;
+    ofs << "\"Heures totales\" : " << heures_cm() + heures_td() + heures_tp() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &os, const ecue &e)

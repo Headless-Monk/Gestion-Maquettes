@@ -29,7 +29,7 @@ public:
     void sauvegarde_Json(std::ofstream &os);
 
 private:
-  std::vector <ecue*> d_ecues;
+    std::vector <ecue*> d_ecues;
 };
 
 std::ostream& operator<<(std::ostream &os, UEcomposee &UEc);

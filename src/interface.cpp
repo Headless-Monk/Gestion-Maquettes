@@ -86,7 +86,7 @@ void interface::temporaire_ecrit_maquette()
 void interface::initialiser()
 {
     int choix = 0;
-    while(choix != 7)
+    while(choix != 9)
     {
         system("cls");
 
@@ -115,6 +115,12 @@ void interface::initialiser()
                 afficher_menu_UEchoix();
                 break;
             case 7:
+                afficher_exporter_donnees();
+                break;
+            case 8:
+                afficher_importer_donnees();
+                break;
+            case 9:
                 break;
             default:
                 break;
@@ -130,7 +136,9 @@ void interface::afficher_menu_principal()
     cout << "4) Gerer les UEcomposees" << endl;
     cout << "5) Gerer les ECUEs" << endl;
     cout << "6) Gerer les UEs a choix" << endl;
-    cout << "7) Quitter" << endl;
+    cout << "7) Exporter les donnees" << endl;
+    cout << "8) Importer les donnees" << endl;
+    cout << "9) Quitter" << endl;
 }
 
 void interface::afficher_menu_maquettes()
@@ -1039,10 +1047,34 @@ void interface::afficher_liste_UE_choix()
 
 void interface::afficher_exporter_donnees()
 {
-    sauvegarde_json json;
-    json.sauvegarder_maquette(d_maquette);
-    json.sauvegarder_UESeule(d_UEseule);
-    json.sauvegarder_UEComposee(d_UEcomposee);
-    json.sauvegarder_ECUE(d_ecue);
-    json.sauvegarder_UEChoix(d_UEchoix);
+    std::string str;
+
+    str = "maquettes.json";
+    sauvegarde_json json_Maquette(str);
+    json_Maquette.sauvegarder_maquette(d_maquette);
+
+    str = "UESeule.json";
+    sauvegarde_json json_UESeule(str);
+    json_UESeule.sauvegarder_UESeule(d_UEseule);
+
+    str = "UEComposee.json";
+    sauvegarde_json json_UEComposee(str);
+    json_UEComposee.sauvegarder_UEComposee(d_UEcomposee);
+
+    str = "ECUE.json";
+    sauvegarde_json json_ECUE(str);
+    json_ECUE.sauvegarder_ECUE(d_ecue);
+
+    str = "UEChoix.json";
+    sauvegarde_json json_UEChoix(str);
+    json_UEChoix.sauvegarder_UEChoix(d_UEchoix);
+
+    str = "Formation.json";
+    sauvegarde_json json_Formation(str);
+    json_Formation.sauvegarder_Formation(d_formation);
+}
+
+void interface::afficher_importer_donnees()
+{
+
 }

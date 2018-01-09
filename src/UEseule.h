@@ -2,6 +2,7 @@
 #define UESEULE_H
 
 #include <ostream>
+#include <fstream>
 
 #include "ue.h"
 

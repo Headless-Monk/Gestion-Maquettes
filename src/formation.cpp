@@ -31,3 +31,25 @@ void formation::modifier_maquette(std::vector<maquette*> maq)
     for(unsigned int i = 0; i < maq.size(); i++)
         d_maquettes[i] = maq[i];
 }
+
+void formation::sauvegarde_Json(std::ofstream &os)
+{
+    os << "\"Mention\" : \"" << d_mention << "\"," << std::endl;
+    os << '{' << std::endl;
+    os << "\"Maquettes\" :" << std::endl;
+    os << '[' << std::endl;
+
+    for(int i = 0; i < d_maquettes.size()-1; i++)
+    {
+        os << '{' << std::endl;
+        d_maquettes[i]->sauvegarde_Json(os);
+        os << "}," << std::endl;
+    }
+
+    os << '{' << std::endl;
+    d_maquettes[d_maquettes.size()-1]->sauvegarde_Json(os);
+    os << '}' << std::endl;
+
+    os << ']' << std::endl;
+    os << '}' << std::endl;
+}

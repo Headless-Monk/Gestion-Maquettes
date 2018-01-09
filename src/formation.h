@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include "maquette.h"
 
@@ -23,6 +24,8 @@ public:
 
   //pour l'instant classe inutile
   //elle sert à trier les maquettes
+
+  void sauvegarde_Json(std::ofstream &os);
 
 private:
   std::vector <maquette*> d_maquettes;
