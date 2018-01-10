@@ -28,7 +28,8 @@ public:
     unsigned int heures_td() const;
     unsigned int heures_tp() const;
 
-    void sauvegarde_Json(std::ofstream &os);
+    virtual void sauvegarde_json(std::ofstream &os) const override;
+    virtual void entete_json(std::ofstream &os) const override;
 
 private:
     unsigned int d_heures_cm, d_heures_td, d_heures_tp;

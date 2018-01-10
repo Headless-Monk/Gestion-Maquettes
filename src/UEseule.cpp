@@ -70,7 +70,7 @@ unsigned int UEseule::heures_tp() const
     return d_heures_tp;
 }
 
-void UEseule::sauvegarde_Json(std::ofstream &os)
+void UEseule::sauvegarde_json(std::ofstream &os) const
 {
     os << "\"Code\" : \"" << code() << "\"," << std::endl;
     os << "\"Intitule\" : \"" << intitule() << "\"," << std::endl;
@@ -80,6 +80,11 @@ void UEseule::sauvegarde_Json(std::ofstream &os)
     os << "\"Heures TD\" : " << heures_td() << "," << std::endl;
     os << "\"Heures TP\" : " << heures_tp() << "," << std::endl;
     os << "\"Heures totale\" : " << heures_cm() + heures_td() + heures_tp() << std::endl;
+}
+
+void UEseule::entete_json(std::ofstream &os) const
+{
+    os << "\"UESeule\":";
 }
 
 std::ostream& operator<<(std::ostream &os, const UEseule &UEs)

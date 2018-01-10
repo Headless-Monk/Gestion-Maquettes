@@ -25,7 +25,7 @@ public:
   //pour l'instant classe inutile
   //elle sert à trier les maquettes
 
-  void sauvegarde_Json(std::ofstream &os);
+  void sauvegarde_json(std::ofstream &os);
 
 private:
   std::vector <maquette*> d_maquettes;

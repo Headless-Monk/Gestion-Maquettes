@@ -26,7 +26,8 @@ public:
 
     std::vector<ecue*> liste_ecue() const;
 
-    void sauvegarde_Json(std::ofstream &os);
+    virtual void sauvegarde_json(std::ofstream &os) const override;
+    virtual void entete_json(std::ofstream &os) const override;
 
 private:
     std::vector <ecue*> d_ecues;

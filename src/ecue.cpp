@@ -90,7 +90,7 @@ unsigned int ecue::heures_tp() const
     return d_heures_tp;
 }
 
-void ecue::sauvegarde_Json(std::ofstream &ofs)
+void ecue::sauvegarde_json(std::ofstream &ofs)
 {
     ofs << "\"Code\" : \"" << code() << "\"," << std::endl;
     ofs << "\"Intitule\" : \"" << intitule() << "\"," << std::endl;

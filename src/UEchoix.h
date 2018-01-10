@@ -23,7 +23,8 @@ class UEchoix
         std::vector<ue*> liste_ue() const;
         unsigned int nombre_ue_choix() const;
 
-        void sauvegarde_Json(std::ofstream &os);
+        void sauvegarde_json(std::ofstream &os) const;
+        void entete_json(std::ofstream &os) const;
     protected:
 
 

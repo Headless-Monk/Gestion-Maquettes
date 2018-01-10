@@ -31,7 +31,7 @@ public:
     unsigned int heures_td() const;
     unsigned int heures_tp() const;
 
-    void sauvegarde_Json(std::ofstream &os);
+    void sauvegarde_json(std::ofstream &os);
 
 private:
     unsigned int d_coefficient;
