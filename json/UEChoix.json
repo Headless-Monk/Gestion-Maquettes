@@ -1,0 +1,23 @@
+"UEChoix":
+[
+[
+"Code" : "13GUIAR5",
+"Intitule" : "INTELLIGENCE ARTIFICIELLE",
+"Credit" : 3,
+"Coefficient" : 1,
+"Heures CM" : 15,
+"Heures TD" : 15,
+"Heures TP" : 0,
+"Heures totale" : 30
+],
+[
+"Code" : "13GUREO5",
+"Intitule" : "RECHERCHE OPERATIONNELLE",
+"Credit" : 3,
+"Coefficient" : 1,
+"Heures CM" : 15,
+"Heures TD" : 20,
+"Heures TP" : 0,
+"Heures totale" : 35
+]
+]
