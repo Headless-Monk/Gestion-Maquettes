@@ -1049,29 +1049,38 @@ void interface::afficher_exporter_donnees()
 {
     std::string str;
 
-    str = "maquettes.json";
+    str = "json/maquettes.json";
     sauvegarde_json json_Maquette(str);
-    json_Maquette.sauvegarder_maquette(d_maquette);
+    if(d_maquette.size() != 0)
+        json_Maquette.sauvegarder_maquette(d_maquette);
 
-    str = "UESeule.json";
+    str = "json/UESeule.json";
     sauvegarde_json json_UESeule(str);
-    json_UESeule.sauvegarder_UESeule(d_UEseule);
+    if(d_UEseule.size() != 0)
+        json_UESeule.sauvegarder_UESeule(d_UEseule);
 
-    str = "UEComposee.json";
+    str = "json/UEComposee.json";
     sauvegarde_json json_UEComposee(str);
-    json_UEComposee.sauvegarder_UEComposee(d_UEcomposee);
+    if(d_UEcomposee.size() != 0)
+        json_UEComposee.sauvegarder_UEComposee(d_UEcomposee);
 
-    str = "ECUE.json";
+    str = "json/ECUE.json";
     sauvegarde_json json_ECUE(str);
-    json_ECUE.sauvegarder_ECUE(d_ecue);
+    if(d_ecue.size() != 0)
+        json_ECUE.sauvegarder_ECUE(d_ecue);
 
-    str = "UEChoix.json";
+    str = "json/UEChoix.json";
     sauvegarde_json json_UEChoix(str);
-    json_UEChoix.sauvegarder_UEChoix(d_UEchoix);
+    if(d_UEchoix.size() != 0)
+        json_UEChoix.sauvegarder_UEChoix(d_UEchoix);
 
-    str = "Formation.json";
+    str = "json/Formation.json";
     sauvegarde_json json_Formation(str);
-    json_Formation.sauvegarder_Formation(d_formation);
+    if(d_formation.size() != 0)
+        json_Formation.sauvegarder_Formation(d_formation);
+
+    std::cout << "L'exportation des donnees a correctement ete effectue" << std::endl;
+    system("pause");
 }
 
 void interface::afficher_importer_donnees()
