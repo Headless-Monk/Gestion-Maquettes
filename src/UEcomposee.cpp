@@ -87,7 +87,7 @@ void UEcomposee::sauvegarde_json(std::ofstream &os) const
     os << "\"Intitule\" : \"" << intitule() << "\"," << std::endl;
     os << "\"Credits\" : " << credits() << "," << std::endl;
     os << "\"Coefficient\" : " << coefficient() << "," << std::endl;
-
+    os << "\"ECUE\" : " << std::endl;
     for(int i = 0; i < d_ecues.size()-1; i++)
     {
         os << "[" << std::endl;

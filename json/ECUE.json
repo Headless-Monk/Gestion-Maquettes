@@ -1,7 +1,4 @@
 {
-"ECUE" :
-[
-{
 "Code" : "13GPQUA5",
 "Intitule" : "ECUE qualite de programmation",
 "Coefficient" : 3,
@@ -72,6 +69,4 @@
 "Heures TD" : 10,
 "Heures TP" : 0,
 "Heures totales" : 10
-}
-]
 }

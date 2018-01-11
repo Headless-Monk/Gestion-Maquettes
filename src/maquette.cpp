@@ -275,6 +275,7 @@ void maquette::sauvegarde_json(std::ofstream &os)
 
     for(int i = 0; i < d_ues.size(); i++)
     {
+        d_ues[i]->entete_json(os);
         os << "[" << std::endl;
         d_ues[i]->sauvegarde_json(os);
         os << "]," << std::endl;
@@ -282,13 +283,17 @@ void maquette::sauvegarde_json(std::ofstream &os)
 
     for(int i = 0; i < d_ues_choix.size()-1; i++)
     {
+        d_ues_choix[i]->entete_json(os);
         os << "[" << std::endl;
         d_ues_choix[i]->sauvegarde_json(os);
         os << "]," << std::endl;
     }
-        os << "[" << std::endl;
-        d_ues_choix[d_ues_choix.size()-1]->sauvegarde_json(os);
-        os << "]" << std::endl;
+    if(d_ues_choix.size() == 1)
+        d_ues_choix[0]->entete_json(os);
+
+    os << "[" << std::endl;
+    d_ues_choix[d_ues_choix.size()-1]->sauvegarde_json(os);
+    os << "]" << std::endl;
 
 }
 

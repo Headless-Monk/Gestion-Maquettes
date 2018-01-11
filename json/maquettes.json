@@ -4,11 +4,13 @@
 "Parcours" : MIAGE,
 "Annees" : 3,
 "Semestres" : 5,
+"UEComposee":
 [
 "Code" : "13GUPRG5",
 "Intitule" : "UE DE L'ETUDE DE CAS A LA PROGRAMMATION",
 "Credits" : 3,
 "Coefficient" : 1,
+"ECUE" : 
 [
 "Code" : "13GPQUA5",
 "Intitule" : "ECUE qualite de programmation",
@@ -28,6 +30,7 @@
 "Heures totales" : 16
 ]
 ],
+"UESeule":
 [
 "Code" : "13GUPOO5",
 "Intitule" : "PROGRAMMATION ORIENTEE OBJET",
@@ -38,6 +41,7 @@
 "Heures TP" : 0,
 "Heures totale" : 34
 ],
+"UESeule":
 [
 "Code" : "13GUALGO",
 "Intitule" : "ALGORITHMIQUE",
@@ -48,6 +52,7 @@
 "Heures TP" : 0,
 "Heures totale" : 36
 ],
+"UESeule":
 [
 "Code" : "13GUCSI5",
 "Intitule" : "CONCEPTION DE SYTEMES D'INFORMATION",
@@ -58,6 +63,7 @@
 "Heures TP" : 0,
 "Heures totale" : 40
 ],
+"UESeule":
 [
 "Code" : "13GUINR5",
 "Intitule" : "INTRODUCTION AUX RESEAUX",
@@ -68,11 +74,13 @@
 "Heures TP" : 0,
 "Heures totale" : 28
 ],
+"UEComposee":
 [
 "Code" : "13GUECOG",
 "Intitule" : "ECONOMIE ET GESTION 1",
 "Credits" : 6,
 "Coefficient" : 2,
+"ECUE" : 
 [
 "Code" : "13GPECEN",
 "Intitule" : "ECUE Economie d'entreprise",
@@ -101,11 +109,13 @@
 "Heures totales" : 36
 ]
 ],
+"UEComposee":
 [
 "Code" : "13GUTEXT",
 "Intitule" : "TECHNIQUES D'EXPRESSION",
 "Credits" : 3,
 "Coefficient" : 1,
+"ECUE" : 
 [
 "Code" : "13GPANCO",
 "Intitule" : "ECUE Anglais computing 1",
@@ -134,6 +144,7 @@
 "Heures totales" : 10
 ]
 ],
+"UEChoix":
 [
 [
 "Code" : "13GUIAR5",

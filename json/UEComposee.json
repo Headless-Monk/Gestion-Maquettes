@@ -1,9 +1,9 @@
-"UEComposee":
-[
+{
 "Code" : "13GUPRG5",
 "Intitule" : "UE DE L'ETUDE DE CAS A LA PROGRAMMATION",
 "Credits" : 3,
 "Coefficient" : 1,
+"ECUE" : 
 [
 "Code" : "13GPQUA5",
 "Intitule" : "ECUE qualite de programmation",
@@ -22,13 +22,13 @@
 "Heures TP" : 0,
 "Heures totales" : 16
 ]
-],
-"UEComposee":
-[
+},
+{
 "Code" : "13GUECOG",
 "Intitule" : "ECONOMIE ET GESTION 1",
 "Credits" : 6,
 "Coefficient" : 2,
+"ECUE" : 
 [
 "Code" : "13GPECEN",
 "Intitule" : "ECUE Economie d'entreprise",
@@ -56,13 +56,13 @@
 "Heures TP" : 0,
 "Heures totales" : 36
 ]
-],
-"UEComposee":
-[
+},
+{
 "Code" : "13GUTEXT",
 "Intitule" : "TECHNIQUES D'EXPRESSION",
 "Credits" : 3,
 "Coefficient" : 1,
+"ECUE" : 
 [
 "Code" : "13GPANCO",
 "Intitule" : "ECUE Anglais computing 1",
@@ -90,4 +90,4 @@
 "Heures TP" : 0,
 "Heures totales" : 10
 ]
-]
+}

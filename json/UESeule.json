@@ -1,7 +1,4 @@
 {
-"UESeule" :
-[
-{
 "Code" : "13GUPOO5",
 "Intitule" : "PROGRAMMATION ORIENTEE OBJET",
 "Credit" : 3,
@@ -60,6 +57,4 @@
 "Heures TD" : 20,
 "Heures TP" : 0,
 "Heures totale" : 35
-},
-]
 }

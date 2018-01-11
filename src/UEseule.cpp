@@ -84,7 +84,7 @@ void UEseule::sauvegarde_json(std::ofstream &os) const
 
 void UEseule::entete_json(std::ofstream &os) const
 {
-    os << "\"UESeule\":";
+    os << "\"UESeule\":" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &os, const UEseule &UEs)
