@@ -49,6 +49,7 @@ public:
     unsigned int annee() const;
     unsigned int semestre() const;
     unsigned int nombre_ue_choix() const;
+    unsigned int nombre_ue() const;
 
 private:
     std::vector <ue*> d_ues;

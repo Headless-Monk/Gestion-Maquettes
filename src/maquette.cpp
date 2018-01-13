@@ -20,7 +20,7 @@ maquette::maquette(std::string mention, std::string parcours, unsigned int annee
 
 maquette::maquette(std::vector <ue*> &ues, std::vector <UEchoix*> &ues_choix,
          std::string mention, std::string parcours, unsigned int annee, unsigned int semestre) :
-            d_ues{ues}, d_ues_choix{ues_choix}, d_position_ue_choix_dans_ue{0},
+            d_ues{ues}, d_ues_choix{ues_choix}, d_position_ue_choix_dans_ue{d_ues.size()},
             d_domaine{"SCIENCE ET TECHNOLOGIE"},
             d_mention{mention},
             d_parcours{parcours},
@@ -264,6 +264,10 @@ unsigned int maquette::nombre_ue_choix() const
     return d_ues_choix.size();
 }
 
+unsigned int maquette::nombre_ue() const
+{
+    return d_ues.size();
+}
 
 std::ostream& operator<<(std::ostream &os, maquette &m)
 {
