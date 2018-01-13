@@ -34,7 +34,7 @@ void formation::modifier_maquette(std::vector<maquette*> maq)
 
 void formation::sauvegarde_json(std::ofstream &os)
 {
-    os << "\"Mention\" : \"" << d_mention << "\"," << std::endl;
+    os << "\"Mention\" : " << d_mention << " ," << std::endl;
     os << "{" << std::endl;
     os << "\"Maquettes\" :" << std::endl;
     os << "[" << std::endl;
