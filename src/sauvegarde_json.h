@@ -33,6 +33,13 @@ class sauvegarde_json
         void sauvegarder_UEChoix(const std::vector <UEchoix*> &v_uech);
         void sauvegarder_Formation(const std::vector <formation*> &v_form);
 
+        void recuperer_maquette(std::vector <maquette*> &v_m);
+        void recuperer_UESeule(std::vector <UEseule*> &v_ueS);
+        void recuperer_UEComposee(std::vector <UEcomposee*> &v_ueC);
+        void recuperer_ECUE(std::vector <ecue*> &v_ec);
+        void recuperer_UEChoix(std::vector <UEchoix*> &v_uech);
+        void recuperer_Formation(std::vector <formation*> &v_form);
+
     private:
         std::ofstream d_fichier;
 };
