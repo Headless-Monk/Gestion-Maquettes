@@ -68,7 +68,30 @@ std::vector<maquette*> lecture_json::lire_maquette()
 std::vector<ue*> lecture_json::lire_UEseule()
 {
     std::vector<ue*> UEseulesFichier;
+    std::string code, intitule;
+    unsigned int credits, coefficient, heuresCM, heuresTD, heuresTP, heuresTotales;
+    std::string mot;
+    char caractere;
 
+    if(d_fichierLecture.is_open())
+    {
+        while(!d_fichierLecture.eof())
+        {
+            d_fichierLecture >> caractere;
+            d_fichierLecture >> mot >> caractere >>  caractere >> code;
+            d_fichierLecture >> mot >> caractere >> caractere >> intitule;
+            d_fichierLecture >> mot >> caractere >> caractere >> credits >> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> coefficient >> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> heuresCM >> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> heuresTD>> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> heuresTP>> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> heuresTotales;
+            d_fichierLecture >> mot;
+
+            UEseule ueCourante{heuresCM, heuresTD, heuresTP, code, intitule, credits, coefficient};
+            UEseulesFichier.push_back(&ueCourante);
+        }
+    }
     return UEseulesFichier;
 }
 
