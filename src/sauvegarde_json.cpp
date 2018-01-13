@@ -1,8 +1,8 @@
 #include "sauvegarde_json.h"
 
-sauvegarde_json::sauvegarde_json(std::string &str)
+sauvegarde_json::sauvegarde_json(std::string chemin)
 {
-    d_fichier.open(str);
+    d_fichier.open(chemin);
 }
 
 sauvegarde_json::~sauvegarde_json()
@@ -95,32 +95,3 @@ void sauvegarde_json::sauvegarder_Formation(const std::vector <formation*> &v_fo
     d_fichier << "}" << std::endl;
 }
 
-void sauvegarde_json::recuperer_maquette(std::vector <maquette*> &v_m)
-{
-
-}
-
-void sauvegarde_json::recuperer_UESeule(std::vector <UEseule*> &v_ueS)
-{
-
-}
-
-void sauvegarde_json::recuperer_UEComposee(std::vector <UEcomposee*> &v_ueC)
-{
-
-}
-
-void sauvegarde_json::recuperer_ECUE(std::vector <ecue*> &v_ec)
-{
-
-}
-
-void sauvegarde_json::recuperer_UEChoix(std::vector <UEchoix*> &v_uech)
-{
-
-}
-
-void sauvegarde_json::recuperer_Formation(std::vector <formation*> &v_form)
-{
-
-}
