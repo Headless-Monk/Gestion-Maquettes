@@ -10,51 +10,90 @@ lecture_json::~lecture_json()
     d_fichierLecture.close();
 }
 
-std::vector<maquette*>& lecture_json::lire_maquette()
+std::vector<maquette*> lecture_json::lire_maquette()
 {
     std::vector<maquette*> maquettesFichier;
-    maquette maquetetCourante;
+
+    std::vector<ue*> tmpUEComposeeMaquette;
+    std::vector<ue*> tmpUESeulesMaquette;
+    std::vector<UEchoix*> tmpUEChoixMaquette;
+
     std::string mot;
+    std::string domaine, mention, parcours;
+    int annees, semestres;
+    std::string typeUE;
     char caractere;
     if(d_fichierLecture.is_open())
     {
         while(!d_fichierLecture.eof())
         {
+            d_fichierLecture >> caractere;
+            d_fichierLecture >> mot >> caractere >>  caractere >> domaine;
+            d_fichierLecture >> mot >> caractere >> caractere >> mention;
+            d_fichierLecture >> mot >> caractere >> caractere >> parcours;
+            d_fichierLecture >> mot >> caractere >> caractere >> annees >> caractere;
+            d_fichierLecture >> mot >> caractere >> caractere >> semestres>> caractere;
+            d_fichierLecture >> typeUE;
+
+            while(typeUE != "}")
+            {
+                //lire les UEs de la maquette
+                if(typeUE =="\"UEComposee\":")
+                    tmpUEComposeeMaquette = lire_UEcomposee();
+                else if(typeUE=="\"UESeule\":")
+                    tmpUESeulesMaquette = lire_UEseule();
+                else if(typeUE=="\"UEChoix\":")
+                    tmpUEChoixMaquette = lire_UEchoix();
+
+                d_fichierLecture >> typeUE;
+            }
+
+            //completer la maquette courante
+            maquette maquetteCourante{mention, parcours, annees, semestres};
+            for(int i = 0; i < tmpUEComposeeMaquette.size(); i++)
+                maquetteCourante.ajouter_ue(tmpUEComposeeMaquette[i]);
+           for(int i = 0; i < tmpUESeulesMaquette.size(); i++)
+                maquetteCourante.ajouter_ue(tmpUESeulesMaquette[i]);
+            for(int i = 0; i < tmpUEChoixMaquette.size();i++)
+                maquetteCourante.ajouter_ue(tmpUEChoixMaquette[i]);
+
+           //puis l'ajouter au vecteur de maquettes
+           maquettesFichier.push_back(&maquetteCourante);
 
         }
     }
     return maquettesFichier;
 }
 
-std::vector<UEseule*>& lecture_json::lire_UEseule()
+std::vector<ue*> lecture_json::lire_UEseule()
 {
-    std::vector<UEseule*> UEseulesFichier;
+    std::vector<ue*> UEseulesFichier;
 
     return UEseulesFichier;
 }
 
-std::vector<UEcomposee*>& lecture_json::lire_UEcomposee()
+std::vector<ue*> lecture_json::lire_UEcomposee()
 {
-    std::vector<UEcomposee*> UEcomposeesFichier;
+    std::vector<ue*> UEcomposeesFichier;
 
     return UEcomposeesFichier;
 }
 
-std::vector<ecue*>& lecture_json::lire_ecue()
+std::vector<ecue*> lecture_json::lire_ecue()
 {
     std::vector<ecue*> ecueFichier;
 
     return ecueFichier;
 }
 
-std::vector<UEchoix*>& lecture_json::lire_UEchoix()
+std::vector<UEchoix*> lecture_json::lire_UEchoix()
 {
     std::vector<UEchoix*> UEchoixFichier;
 
     return UEchoixFichier;
 }
 
-std::vector<formation*>& lecture_json::lire_formation()
+std::vector<formation*> lecture_json::lire_formation()
 {
     std::vector<formation*> formationsFichier;
 

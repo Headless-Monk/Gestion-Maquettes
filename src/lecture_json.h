@@ -19,12 +19,12 @@ class lecture_json
         lecture_json(std::string chemin);
         ~lecture_json();
 
-        std::vector<maquette*>& lire_maquette();
-        std::vector<UEseule*>& lire_UEseule();
-        std::vector<UEcomposee*>& lire_UEcomposee();
-        std::vector<ecue*>& lire_ecue();
-        std::vector<UEchoix*>& lire_UEchoix();
-        std::vector<formation*>& lire_formation();
+        std::vector<maquette*> lire_maquette();
+        std::vector<ue*> lire_UEseule();
+        std::vector<ue*> lire_UEcomposee();
+        std::vector<ecue*> lire_ecue();
+        std::vector<UEchoix*> lire_UEchoix();
+        std::vector<formation*> lire_formation();
 
     private:
         std::ifstream d_fichierLecture;
