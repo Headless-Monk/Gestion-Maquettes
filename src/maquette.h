@@ -51,6 +51,8 @@ public:
     unsigned int nombre_ue_choix() const;
     unsigned int nombre_ue() const;
 
+    void sauvegarde_json(std::ofstream &os);
+
 private:
     std::vector <ue*> d_ues;
     std::vector <UEchoix*> d_ues_choix;

@@ -1,4 +1,5 @@
 #include "UEchoix.h"
+#include <fstream>
 
 UEchoix::UEchoix() : d_liste_ue{}
 {}
@@ -47,4 +48,25 @@ void UEchoix::modifier_ue(std::vector <ue*> ue)
 unsigned int UEchoix::nombre_ue_choix() const
 {
     return d_liste_ue.size();
+}
+
+void UEchoix::sauvegarde_json(std::ofstream &os) const
+{
+    int i;
+    for(i = 0; i < d_liste_ue.size()-1; i++)
+    {
+        d_liste_ue[i]->entete_json(os);
+        os << "[" << std::endl;
+        d_liste_ue[i]->sauvegarde_json(os);
+        os << "]," << std::endl;
+    }
+    d_liste_ue[i]->entete_json(os);
+    os << "[" << std::endl;
+    d_liste_ue[d_liste_ue.size()-1]->sauvegarde_json(os);
+    os << "]" << std::endl;
+}
+
+void UEchoix::entete_json(std::ofstream &os) const
+{
+    os << "\"UEChoix\" :" << std::endl;
 }

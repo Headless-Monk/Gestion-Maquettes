@@ -1,4 +1,5 @@
 #include "maquette.h"
+#include <fstream>
 
 maquette::maquette() :
             d_ues{}, d_ues_choix{}, d_position_ue_choix_dans_ue{0},
@@ -267,6 +268,38 @@ unsigned int maquette::nombre_ue_choix() const
 unsigned int maquette::nombre_ue() const
 {
     return d_ues.size();
+}
+
+void maquette::sauvegarde_json(std::ofstream &os)
+{
+    os << "\"Domaine\" : \" " << d_domaine << " \" ," << std::endl;
+    os << "\"Mention\" : \" " << d_mention << " \" ," << std::endl;
+    os << "\"Parcours\" : " << d_parcours << " ," << std::endl;
+    os << "\"Annees\" : " << d_annee << " ," << std::endl;
+    os << "\"Semestres\" : " << d_semestre << " ," << std::endl;
+
+    for(int i = 0; i < d_ues.size(); i++)
+    {
+        d_ues[i]->entete_json(os);
+        os << "[" << std::endl;
+        d_ues[i]->sauvegarde_json(os);
+        os << "]," << std::endl;
+    }
+
+    for(int i = 0; i < d_ues_choix.size()-1; i++)
+    {
+        d_ues_choix[i]->entete_json(os);
+        os << "[" << std::endl;
+        d_ues_choix[i]->sauvegarde_json(os);
+        os << "]," << std::endl;
+    }
+    if(d_ues_choix.size() == 1)
+        d_ues_choix[0]->entete_json(os);
+
+    os << "[" << std::endl;
+    d_ues_choix[d_ues_choix.size()-1]->sauvegarde_json(os);
+    os << "]" << std::endl;
+
 }
 
 std::ostream& operator<<(std::ostream &os, maquette &m)
