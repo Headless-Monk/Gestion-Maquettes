@@ -1,6 +1,6 @@
 {
 "Code" : 13GPQUA5 ,
-"Intitule" : ECUE qualite de programmation ,
+"Intitule" : " ECUE qualite de programmation " ,
 "Coefficient" : 3 ,
 "Heures CM" : 12 ,
 "Heures TD" : 6 ,
@@ -9,7 +9,7 @@
 },
 {
 "Code" : 13GPETC5 ,
-"Intitule" : ECUE Etudes de cas ,
+"Intitule" : " ECUE Etudes de cas " ,
 "Coefficient" : 1 ,
 "Heures CM" : 0 ,
 "Heures TD" : 16 ,
@@ -18,7 +18,7 @@
 },
 {
 "Code" : 13GPECEN ,
-"Intitule" : ECUE Economie d'entreprise ,
+"Intitule" : " ECUE Economie d'entreprise " ,
 "Coefficient" : 2 ,
 "Heures CM" : 20 ,
 "Heures TD" : 0 ,
@@ -27,7 +27,7 @@
 },
 {
 "Code" : 13GPCOMP ,
-"Intitule" : ECUE Modele comtpable d'entreprise ,
+"Intitule" : " ECUE Modele comtpable d'entreprise " ,
 "Coefficient" : 1 ,
 "Heures CM" : 10 ,
 "Heures TD" : 0 ,
@@ -36,7 +36,7 @@
 },
 {
 "Code" : 13GPMICR ,
-"Intitule" : ECUE Micro-Macroeconomie ,
+"Intitule" : " ECUE Micro-Macroeconomie " ,
 "Coefficient" : 3 ,
 "Heures CM" : 26 ,
 "Heures TD" : 10 ,
@@ -45,7 +45,7 @@
 },
 {
 "Code" : 13GPANCO ,
-"Intitule" : ECUE Anglais computing 1 ,
+"Intitule" : " ECUE Anglais computing 1 " ,
 "Coefficient" : 2 ,
 "Heures CM" : 0 ,
 "Heures TD" : 20 ,
@@ -54,7 +54,7 @@
 },
 {
 "Code" : 13GPALL5 ,
-"Intitule" : ECUE Allemand ,
+"Intitule" : " ECUE Allemand " ,
 "Coefficient" : 2 ,
 "Heures CM" : 0 ,
 "Heures TD" : 20 ,
@@ -63,7 +63,7 @@
 },
 {
 "Code" : 13GPSTAG ,
-"Intitule" : ECUE Techniques de recherche de stage ,
+"Intitule" : " ECUE Techniques de recherche de stage " ,
 "Coefficient" : 1 ,
 "Heures CM" : 0 ,
 "Heures TD" : 10 ,

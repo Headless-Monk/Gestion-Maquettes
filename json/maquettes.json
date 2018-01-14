@@ -1,19 +1,19 @@
 {
-"Domaine" : SCIENCE ET TECHNOLOGIE ,
-"Mention" : Licence Informatique ,
+"Domaine" : " SCIENCE ET TECHNOLOGIE " ,
+"Mention" : " Licence Informatique " ,
 "Parcours" : MIAGE ,
 "Annees" : 3 ,
 "Semestres" : 5 ,
 "UEComposee":
 [
 "Code" : 13GUPRG5 ,
-"Intitule" : UE DE L'ETUDE DE CAS A LA PROGRAMMATION ,
+"Intitule" : " UE DE L'ETUDE DE CAS A LA PROGRAMMATION " ,
 "Credits" : 3 ,
 "Coefficient" : 1 ,
 "ECUE" : 
 [
 "Code" : 13GPQUA5 ,
-"Intitule" : ECUE qualite de programmation ,
+"Intitule" : " ECUE qualite de programmation " ,
 "Coefficient" : 3 ,
 "Heures CM" : 12 ,
 "Heures TD" : 6 ,
@@ -22,7 +22,7 @@
 ],
 [
 "Code" : 13GPETC5 ,
-"Intitule" : ECUE Etudes de cas ,
+"Intitule" : " ECUE Etudes de cas " ,
 "Coefficient" : 1 ,
 "Heures CM" : 0 ,
 "Heures TD" : 16 ,
@@ -33,7 +33,7 @@
 "UESeule":
 [
 "Code" : 13GUPOO5 ,
-"Intitule" : PROGRAMMATION ORIENTEE OBJET ,
+"Intitule" : " PROGRAMMATION ORIENTEE OBJET " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -44,7 +44,7 @@
 "UESeule":
 [
 "Code" : 13GUALGO ,
-"Intitule" : ALGORITHMIQUE ,
+"Intitule" : " ALGORITHMIQUE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -55,7 +55,7 @@
 "UESeule":
 [
 "Code" : 13GUCSI5 ,
-"Intitule" : CONCEPTION DE SYTEMES D'INFORMATION ,
+"Intitule" : " CONCEPTION DE SYTEMES D'INFORMATION " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -66,7 +66,7 @@
 "UESeule":
 [
 "Code" : 13GUINR5 ,
-"Intitule" : INTRODUCTION AUX RESEAUX ,
+"Intitule" : " INTRODUCTION AUX RESEAUX " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 18 ,
@@ -77,13 +77,13 @@
 "UEComposee":
 [
 "Code" : 13GUECOG ,
-"Intitule" : ECONOMIE ET GESTION 1 ,
+"Intitule" : " ECONOMIE ET GESTION 1 " ,
 "Credits" : 6 ,
 "Coefficient" : 2 ,
 "ECUE" : 
 [
 "Code" : 13GPECEN ,
-"Intitule" : ECUE Economie d'entreprise ,
+"Intitule" : " ECUE Economie d'entreprise " ,
 "Coefficient" : 2 ,
 "Heures CM" : 20 ,
 "Heures TD" : 0 ,
@@ -92,7 +92,7 @@
 ],
 [
 "Code" : 13GPCOMP ,
-"Intitule" : ECUE Modele comtpable d'entreprise ,
+"Intitule" : " ECUE Modele comtpable d'entreprise " ,
 "Coefficient" : 1 ,
 "Heures CM" : 10 ,
 "Heures TD" : 0 ,
@@ -101,7 +101,7 @@
 ],
 [
 "Code" : 13GPMICR ,
-"Intitule" : ECUE Micro-Macroeconomie ,
+"Intitule" : " ECUE Micro-Macroeconomie " ,
 "Coefficient" : 3 ,
 "Heures CM" : 26 ,
 "Heures TD" : 10 ,
@@ -112,13 +112,13 @@
 "UEComposee":
 [
 "Code" : 13GUTEXT ,
-"Intitule" : TECHNIQUES D'EXPRESSION ,
+"Intitule" : " TECHNIQUES D'EXPRESSION " ,
 "Credits" : 3 ,
 "Coefficient" : 1 ,
 "ECUE" : 
 [
 "Code" : 13GPANCO ,
-"Intitule" : ECUE Anglais computing 1 ,
+"Intitule" : " ECUE Anglais computing 1 " ,
 "Coefficient" : 2 ,
 "Heures CM" : 0 ,
 "Heures TD" : 20 ,
@@ -127,7 +127,7 @@
 ],
 [
 "Code" : 13GPALL5 ,
-"Intitule" : ECUE Allemand ,
+"Intitule" : " ECUE Allemand " ,
 "Coefficient" : 2 ,
 "Heures CM" : 0 ,
 "Heures TD" : 20 ,
@@ -136,7 +136,7 @@
 ],
 [
 "Code" : 13GPSTAG ,
-"Intitule" : ECUE Techniques de recherche de stage ,
+"Intitule" : " ECUE Techniques de recherche de stage " ,
 "Coefficient" : 1 ,
 "Heures CM" : 0 ,
 "Heures TD" : 10 ,
@@ -148,7 +148,7 @@
 [
 [
 "Code" : 13GUIAR5 ,
-"Intitule" : INTELLIGENCE ARTIFICIELLE ,
+"Intitule" : " INTELLIGENCE ARTIFICIELLE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 15 ,
@@ -158,7 +158,7 @@
 ],
 [
 "Code" : 13GUREO5 ,
-"Intitule" : RECHERCHE OPERATIONNELLE ,
+"Intitule" : " RECHERCHE OPERATIONNELLE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 15 ,

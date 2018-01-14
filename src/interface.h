@@ -11,6 +11,7 @@
 #include "UEcomposee.h"
 #include "afficheur_txt.h"
 #include "sauvegarde_json.h"
+#include "lecture_json.h"
 
 #include <iostream>
 #include <vector>

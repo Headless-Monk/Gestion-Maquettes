@@ -1,6 +1,6 @@
 {
 "Code" : 13GUPOO5 ,
-"Intitule" : PROGRAMMATION ORIENTEE OBJET ,
+"Intitule" : " PROGRAMMATION ORIENTEE OBJET " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -10,7 +10,7 @@
 },
 {
 "Code" : 13GUALGO ,
-"Intitule" : ALGORITHMIQUE ,
+"Intitule" : " ALGORITHMIQUE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -20,7 +20,7 @@
 },
 {
 "Code" : 13GUCSI5 ,
-"Intitule" : CONCEPTION DE SYTEMES D'INFORMATION ,
+"Intitule" : " CONCEPTION DE SYTEMES D'INFORMATION " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 14 ,
@@ -30,7 +30,7 @@
 },
 {
 "Code" : 13GUINR5 ,
-"Intitule" : INTRODUCTION AUX RESEAUX ,
+"Intitule" : " INTRODUCTION AUX RESEAUX " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 18 ,
@@ -40,7 +40,7 @@
 },
 {
 "Code" : 13GUIAR5 ,
-"Intitule" : INTELLIGENCE ARTIFICIELLE ,
+"Intitule" : " INTELLIGENCE ARTIFICIELLE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 15 ,
@@ -50,7 +50,7 @@
 },
 {
 "Code" : 13GUREO5 ,
-"Intitule" : RECHERCHE OPERATIONNELLE ,
+"Intitule" : " RECHERCHE OPERATIONNELLE " ,
 "Credit" : 3 ,
 "Coefficient" : 1 ,
 "Heures CM" : 15 ,

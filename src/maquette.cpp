@@ -267,8 +267,8 @@ unsigned int maquette::nombre_ue_choix() const
 
 void maquette::sauvegarde_json(std::ofstream &os)
 {
-    os << "\"Domaine\" : " << d_domaine << " ," << std::endl;
-    os << "\"Mention\" : " << d_mention << " ," << std::endl;
+    os << "\"Domaine\" : \" " << d_domaine << " \" ," << std::endl;
+    os << "\"Mention\" : \" " << d_mention << " \" ," << std::endl;
     os << "\"Parcours\" : " << d_parcours << " ," << std::endl;
     os << "\"Annees\" : " << d_annee << " ," << std::endl;
     os << "\"Semestres\" : " << d_semestre << " ," << std::endl;

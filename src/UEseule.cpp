@@ -73,7 +73,7 @@ unsigned int UEseule::heures_tp() const
 void UEseule::sauvegarde_json(std::ofstream &os) const
 {
     os << "\"Code\" : " << code() << " ," << std::endl;
-    os << "\"Intitule\" : " << intitule() << " ," << std::endl;
+    os << "\"Intitule\" : \" " << intitule() << " \" ," << std::endl;
     os << "\"Credit\" : " << credits() << " ," << std::endl;
     os << "\"Coefficient\" : " << coefficient() << " ," << std::endl;
     os << "\"Heures CM\" : " << heures_cm() << " ," << std::endl;

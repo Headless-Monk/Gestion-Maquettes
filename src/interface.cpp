@@ -1085,5 +1085,32 @@ void interface::afficher_exporter_donnees()
 
 void interface::afficher_importer_donnees()
 {
+    std::string str;
 
+    str = "json/maquettes.json";
+    lecture_json json_Maquette(str);
+    d_maquette = json_Maquette.lire_maquette();
+
+    str = "json/UESeule.json";
+    lecture_json json_UESeule(str);
+    d_UEseule = json_UESeule.lire_UEseule();
+
+    str = "json/UEComposee.json";
+    lecture_json json_UEComposee(str);
+    d_UEcomposee = json_UEComposee.lire_UEcomposee();
+
+    str = "json/ECUE.json";
+    lecture_json json_ECUE(str);
+    d_ecue = json_ECUE.lire_ecue();
+
+    str = "json/UEChoix.json";
+    lecture_json json_UEChoix(str);
+    d_UEchoix = json_UEChoix.lire_UEchoix();
+
+    str = "json/Formation.json";
+    lecture_json json_Formation(str);
+    d_formation = json_Formation.lire_formation();
+
+    std::cout << "L'importation des donnees a correctement ete effectue" << std::endl;
+    system("pause");
 }

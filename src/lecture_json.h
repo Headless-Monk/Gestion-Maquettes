@@ -16,15 +16,18 @@
 class lecture_json
 {
     public:
+        lecture_json() = delete;
         lecture_json(std::string chemin);
         ~lecture_json();
 
         std::vector<maquette*> lire_maquette();
-        std::vector<ue*> lire_UEseule();
-        std::vector<ue*> lire_UEcomposee();
+        std::vector<UEseule*> lire_UEseule();
+        std::vector<UEcomposee*> lire_UEcomposee();
         std::vector<ecue*> lire_ecue();
         std::vector<UEchoix*> lire_UEchoix();
         std::vector<formation*> lire_formation();
+
+        std::string recupere_titre();
 
     private:
         std::ifstream d_fichierLecture;
