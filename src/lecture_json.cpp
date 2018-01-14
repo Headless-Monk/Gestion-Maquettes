@@ -116,36 +116,12 @@ UEseule& lecture_json::lire_une_UEseule()
 std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
 {
     std::vector<UEcomposee*> UEcomposeesFichier;
-    std::string code, intitule;
-    unsigned int credits, coefficient;
-    std::string mot;
-    char caractere;
-    std::string ECUE;
-    std::vector<ecue*> tmpECUE;
-
 
     if(d_fichierLecture.is_open())
     {
-        while(!d_fichierLecture.eof() && mot != "]")
+        while(!d_fichierLecture.eof())
         {
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere >> code >> caractere;
-            d_fichierLecture >> mot >> caractere;
-            intitule = recupere_titre();
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere >> credits >> caractere;
-            d_fichierLecture >> mot >> caractere >> coefficient >> caractere;
-            d_fichierLecture >> ECUE >> caractere;
-
-            tmpECUE = lire_ecue();
-
-            UEcomposee ueComposeeCourante{code, intitule, credits, coefficient};
-            for(int i = 0; i < tmpECUE.size(); i++)
-                ueComposeeCourante.ajouter_ecue(tmpECUE[i]);
-
-            UEcomposeesFichier.push_back(&ueComposeeCourante);
-
-            d_fichierLecture >> mot;
+            UEcomposeesFichier.push_back(&lire_une_UEcomposee());
         }
     }
     return UEcomposeesFichier;
@@ -153,7 +129,31 @@ std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
 
 UEcomposee& lecture_json::lire_une_UEcomposee()
 {
+    std::string code, intitule;
+    unsigned int credits, coefficient;
+    std::string mot;
+    char caractere;
+    std::string ECUE;
+    std::vector<ecue*> tmpECUE;
 
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere >> code >> caractere;
+    d_fichierLecture >> mot >> caractere;
+    intitule = recupere_titre();
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere >> credits >> caractere;
+    d_fichierLecture >> mot >> caractere >> coefficient >> caractere;
+    d_fichierLecture >> ECUE >> caractere;
+
+    tmpECUE = lire_ecue();
+
+    UEcomposee ueComposeeCourante{code, intitule, credits, coefficient};
+    for(int i = 0; i < tmpECUE.size(); i++)
+        ueComposeeCourante.ajouter_ecue(tmpECUE[i]);
+
+    d_fichierLecture >> mot;
+
+    return ueComposeeCourante;
 }
 
 std::vector<ecue*> lecture_json::lire_ecue()
