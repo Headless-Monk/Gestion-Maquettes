@@ -131,17 +131,55 @@ TEST_CASE("Affichage global", "[maquette]")
 
         for(unsigned int i=0; i<liste_ue.size(); i++)
             delete liste_ue[i];
-
     }
 
     SECTION("Une maquette avec UEchoix s'affiche correctement")
     {
+        formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
+            + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
 
+
+        liste_ue_choix.push_back(new UEchoix{});
+        liste_ue_choix[0]->ajouter_ue(new UEseule{heures_cm, heures_td, heures_tp, code, libele, credits, coefficient});
+
+        maquette maquette_avec_ue_choix{liste_ue, liste_ue_choix, mention, parcours, annee, semestre};
+
+        std::ostringstream ost{};
+        ost << maquette_avec_ue_choix;
+        formatLu = ost.str();
+
+        /*  Une maquette contenant uniquement une UEchoix ne s'affiche pas
+         *   REQUIRE(formatLu == formatAttendu);
+         */
+
+        for(unsigned int i=0; i<liste_ue_choix.size(); i++)
+            delete liste_ue_choix[i];
     }
 
     SECTION("Une maquette avec deux types d'unités d'enseignement s'affiche correctement")
     {
+        formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
+                        + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
+        formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
+                        + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
 
+        liste_ue.push_back(new UEseule{heures_cm, heures_td, heures_tp, code, libele, credits, coefficient});
+        liste_ue_choix.push_back(new UEchoix{});
+        liste_ue_choix[0]->ajouter_ue(new UEseule{heures_cm, heures_td, heures_tp, code, libele, credits, coefficient});
+
+        maquette m{liste_ue, liste_ue_choix, mention, parcours, annee, semestre};
+
+        std::ostringstream ost{};
+        ost << m;
+        formatLu = ost.str();
+
+        REQUIRE(formatLu == formatAttendu);
+
+        for(unsigned int i=0; i<liste_ue.size(); i++)
+            delete liste_ue[i];
+
+        for(unsigned int i=0; i<liste_ue_choix.size(); i++)
+            delete liste_ue_choix[i];
     }
 }
 
@@ -281,9 +319,36 @@ TEST_CASE("Modification de l'entête d'une unité d'enseignement", "[maquette]")
 
         maquette_defaut.saisir_maquette(ost, ist);
 
-        //valeursEntete(maquette_defaut, domaine, mention, parcours, annee, semestre);
+        /*  Impossible de saisir un paramètre contenant un space
+         *   valeursEntete(maquette_defaut, domaine, mention, parcours, annee, semestre);
+         */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
