@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "../src/UEseule.cpp"
 #include <string>
-#include <vector>
+
 
 
 void ueSeuleALesBonnesValeurs(const UEseule& ues,unsigned int heures_cm,unsigned int heures_td, unsigned intheures_tp,
@@ -17,13 +17,6 @@ void ueSeuleALesBonnesValeurs(const UEseule& ues,unsigned int heures_cm,unsigned
     REQUIRE(ues.coefficient()==coefficient);
 }
 
-void ueSeuleALesBonneHeuresDonnees(const UEseule& ues,unsigned int heures_cm,unsigned int heures_td, unsigned int heures_tp)
-{
-    REQUIRE(ues.heures_cm()==heures_cm);
-    REQUIRE(ues.heures_td()==heures_td);
-    REQUIRE(ues.heures_tp()==heures_tp);
-
-}
 
 TEST_CASE("L'UE seule est bien cree", "[UEseule]")
 {
@@ -50,7 +43,11 @@ TEST_CASE("L'UE seule est bien cree", "[UEseule]")
        ueSeuleALesBonnesValeurs(ues2,heures_cm,heures_td,heures_tp,code,intitule,credits,coefficient);
     }
 
-}
+}    SECTION ("Le total des heures a la bonne valeur")
+    {
+        unsigned int total = heures_cm + heures_td + heures_tp;
+        ues.
+    }
 
 TEST_CASE("L'UE seule est bien modifiee")
 {
@@ -68,21 +65,21 @@ TEST_CASE("L'UE seule est bien modifiee")
     SECTION(" L'heure des cm modifiee a la bonne valeur")
     {
         ues.heures_cm(4);
-        ueSeuleALesBonneHeuresDonnees(ues,4,heures_td,heures_tp);
-
+        REQUIRE(ues.heures_cm(),4)
 
     }
 
     SECTION ("L'heure des td modifiee a la bonne valeur")
     {
         ues.heures_td(5);
-        ueSeuleALesBonneHeuresDonnees(ues,heures_cm,5,heures_tp);
+        REQUIRE(ues.heures_td(),5);
     }
 
     SECTION("L'heure des tp modifiee a la bonne valeur")
     {
         ues.heures_td(6);
-        ueSeuleALesBonneHeuresDonnees(ues,heures_cm,heures_td,6);
+        REQUIRE(ues.heures_tp(),6)
+
     }
     SECTION ("Le total des heures a la bonne valeur")
     {
