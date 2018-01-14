@@ -17,9 +17,6 @@ public:
 
     virtual void afficher(std::ostream &os) const =0;
 
-    virtual void sauvegarde_json(std::ofstream &os) const = 0;
-    virtual void entete_json(std::ofstream &os) const = 0;
-
 
     void code(std::string code);
     void intitule(std::string intitule);

@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <ostream>
-#include <fstream>
 
 class ecue
 {
@@ -30,8 +29,6 @@ public:
     unsigned int heures_cm() const;
     unsigned int heures_td() const;
     unsigned int heures_tp() const;
-
-    void sauvegarde_json(std::ofstream &os);
 
 private:
     unsigned int d_coefficient;

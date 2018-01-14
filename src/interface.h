@@ -10,8 +10,6 @@
 #include "UEseule.h"
 #include "UEcomposee.h"
 #include "afficheur_txt.h"
-#include "sauvegarde_json.h"
-#include "lecture_json.h"
 
 #include <iostream>
 #include <vector>
@@ -75,9 +73,6 @@ public:
     void afficher_modifier_UE_choix();
     void afficher_supprimer_UE_choix();
     void afficher_liste_UE_choix();
-
-    void afficher_exporter_donnees();
-    void afficher_importer_donnees();
 
 private:
     std::vector<formation*> d_formation;

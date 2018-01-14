@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <fstream>
 
 #include "maquette.h"
 
@@ -23,8 +22,6 @@ public:
 
   std::string mention() const;
   unsigned int nombre_maquettes() const;
-
-  void sauvegarde_json(std::ofstream &os);
 
 private:
   std::vector <maquette*> d_maquettes;

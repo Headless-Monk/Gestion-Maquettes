@@ -1,5 +1,4 @@
 #include "UEcomposee.h"
-#include <fstream>
 
 UEcomposee::UEcomposee(std::string code, std::string intitule, unsigned int credits, unsigned int coefficient) :
             ue{code, intitule, credits, coefficient}, d_ecues{}
@@ -79,29 +78,6 @@ void UEcomposee::descendre_ecue(unsigned int ecue_a_descendre)
 std::vector<ecue*> UEcomposee::liste_ecue() const
 {
     return d_ecues;
-}
-
-void UEcomposee::sauvegarde_json(std::ofstream &os) const
-{
-    os << "\"Code\" : " << code() << " ," << std::endl;
-    os << "\"Intitule\" : \" " << intitule() << " \" ," << std::endl;
-    os << "\"Credits\" : " << credits() << " ," << std::endl;
-    os << "\"Coefficient\" : " << coefficient() << " ," << std::endl;
-    os << "\"ECUE\" : " << std::endl;
-    for(int i = 0; i < d_ecues.size()-1; i++)
-    {
-        os << "[" << std::endl;
-        d_ecues[i]->sauvegarde_json(os);
-        os << "]," << std::endl;
-    }
-    os << "[" << std::endl;
-    d_ecues[d_ecues.size()-1]->sauvegarde_json(os);
-    os << "]" << std::endl;
-}
-
-void UEcomposee::entete_json(std::ofstream &os) const
-{
-    os << "\"UEComposee\" :" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &os, UEcomposee &UEc)
