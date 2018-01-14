@@ -51,27 +51,27 @@ TEST_CASE("L'UE  est bien modifiee")
     SECTION("Le code modifie a la bonne valeur")
     {
         u.code("13GURPG6");
-        REQUIRE(u.code(),"13GURPG6");
+        REQUIRE(u.code()=="13GURPG6");
 
     }
 
     SECTION ("L'intitule modifie a la bonne valeur")
     {
         u.intitule("Anglais");
-        REQUIRE(u.intitule(),"Anglais");
+        REQUIRE(u.intitule()=="Anglais");
     }
 
     SECTION("Les credits modifies ont la bonne valeurs ")
     {
         u.credits(2);
-        REQUIRE(u.credits(),2);
+        REQUIRE(u.credits()==2);
 
     }
 
     SECTION ("Le coefficient modifie a la bonne valeur")
     {
        u.coefficient(2);
-       REQUIRE(u.coefficient(),2);
+       REQUIRE(u.coefficient()==2);
     }
 
 }
