@@ -4,15 +4,16 @@
 #include <vector>
 
 
-void UESeuleALesBonnesValeurs(const UEseule& ues){
+void UESeuleALesBonnesValeurs(const UEseule& ues,int heures_cm,heures_td,heures_tp,
+                              std::string code, std::string intitule, int credits, int coefficient){
 
-        REQUIRE(ues.heures_cm(),heures_cm);
-        REQUIRE(ues.heures_td(),heures_td);
-        REQUIRE(ues.heures_tp(),heures_tp);
-        REQUIRE(ues.code(),code);
-        REQUIRE(ues.intitule(),intitule);
-        REQUIRE(ues.credits(),credits);
-        REQUIRE(ues.coefficient(),coefficient);
+        REQUIRE(ues.heures_cm()==heures_cm);
+        REQUIRE(ues.heures_td()==heures_td);
+        REQUIRE(ues.heures_tp()==heures_tp);
+        REQUIRE(ues.code()==code);
+        REQUIRE(ues.intitule()==intitule);
+        REQUIRE(ues.credits()==credits);
+        REQUIRE(ues.coefficient()==coefficient);
 }
 
 TEST_CASE("L'UE seule est bien cree", "[UEseule]")
@@ -33,11 +34,11 @@ TEST_CASE("L'UE seule est bien cree", "[UEseule]")
 
     SECTION("Les donnees d'Ue seule construite sont correctes")
     {
-       UESeuleALesBonnesValeurs(ues);
+       UESeuleALesBonnesValeurs(ues,heures_cm,heures_td,heures_tp,code,intitule,credits,coefficient);
     }
     SECTION("Les donnees d'UE seule construite par recopie sont correctes")
     {
-       UESeuleALesBonnesValeurs(ues2);
+       UESeuleALesBonnesValeurs(ues2,heures_cm,heures_td,heures_tp,code,intitule,credits,coefficient);
     }
 
 }
@@ -60,6 +61,9 @@ TEST_CASE("L'UE seule est bien modifiee")
     }
 
     SECTION ("L'UE seule modifé a les bonnes valeurs")
+    {
+
+    }
 
 }
 
