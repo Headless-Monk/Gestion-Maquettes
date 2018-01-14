@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <iostream>
+
 void valeursEntete(maquette &m, std::string domaine, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre)
 {
     REQUIRE(m.domaine() == domaine);

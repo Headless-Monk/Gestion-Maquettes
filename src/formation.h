@@ -28,4 +28,6 @@ private:
   std::string d_mention;
 };
 
+std::ostream& operator<<(std::ostream &os, formation &f);
+
 #endif

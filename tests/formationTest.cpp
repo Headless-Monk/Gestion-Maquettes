@@ -2,8 +2,9 @@
 #include "../src/formation.h"
 #include "../src/maquette.h"
 
-#include <iostream>
 #include <vector>
+#include <sstream>
+#include <string>
 
 void initialisationFormation(formation &f, std::vector <maquette*> &liste_maquette, std::string mention)
 {
@@ -40,3 +41,65 @@ TEST_CASE("Les formations sont bien construites", "[formation]")
         initialisationFormation(formation_copie, liste_maquette, mention);
     }
 }
+
+
+
+TEST_CASE("Afficher la liste des formations", "[formation]")
+{
+    std::vector <maquette*> liste_maquette{};
+    std::string mention = "Licence Informatique";
+
+    std::string domaine = "SCIENCE ET TECHNOLOGIE";
+    std::string parcours = "MIAGE";
+    unsigned int annee = 3;
+    unsigned int semestre = 6;
+
+    std::string formatLu = "";
+    std::string formatAttendu = "";
+
+    formatAttendu += "Mention : " + mention + "\n";
+    formatAttendu += "Liste des maquettes :\n";
+
+    SECTION("Affichage d'une formation sans maquette")
+    {
+        formation formation_sans_maquette{mention};
+
+        std::ostringstream ost{};
+        ost << formation_sans_maquette;
+        formatLu = ost.str();
+
+        REQUIRE(formatLu == formatAttendu);
+    }
+
+    SECTION("Affichage d'une formation avec maquette")
+    {
+        liste_maquette.push_back(new maquette{mention, parcours, annee, semestre});
+        formation formation_sans_maquette{liste_maquette, mention};
+
+        formatAttendu += domaine + " | " + mention + " | " + parcours + "\n";
+
+        std::ostringstream ost{};
+        ost << formation_sans_maquette;
+        formatLu = ost.str();
+
+        REQUIRE(formatLu == formatAttendu);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
