@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "../src/ue.cpp"
+#include "../src/ue.h"
 #include <string>
 
 
