@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-
+#include <iostream>
 void valeursEntete(maquette &m, std::string domaine, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre)
 {
     REQUIRE(m.domaine() == domaine);
@@ -116,8 +116,9 @@ TEST_CASE("Affichage global", "[maquette]")
 
     SECTION("Une maquette avec ue s'affiche correctement")
     {
+        formatAttendu   += " 1  |  \n";
         formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
-                        + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
+            + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
 
         liste_ue.push_back(new UEseule{heures_cm, heures_td, heures_tp, code, libele, credits, coefficient});
         maquette maquette_avec_ue{liste_ue, liste_ue_choix, mention, parcours, annee, semestre};
@@ -135,6 +136,7 @@ TEST_CASE("Affichage global", "[maquette]")
 
     SECTION("Une maquette avec UEchoix s'affiche correctement")
     {
+        formatAttendu   += " 1  |  \n";
         formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
             + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
 
@@ -158,8 +160,10 @@ TEST_CASE("Affichage global", "[maquette]")
 
     SECTION("Une maquette avec deux types d'unités d'enseignement s'affiche correctement")
     {
+        formatAttendu   += " 1  |  \n";
         formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
                         + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
+        formatAttendu   += " 2  |  \n";
         formatAttendu   += code + "   |   " + std::to_string(coefficient) + "   |   " + std::to_string(credits) + "   |   " + libele + "   |   "
                         + std::to_string(heures_cm) + "   |   " + std::to_string(heures_td) + "   |   " + std::to_string(heures_tp) + "   |   " + std::to_string(heures_totales) + "\n";
 
@@ -327,31 +331,6 @@ TEST_CASE("Modification de l'entête d'une unité d'enseignement", "[maquette]")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 TEST_CASE("Mutateurs", "[maquette]")
 {
     std::string domaine = "SCIENCEs ET TECHNOLOGIEs";
@@ -374,25 +353,3 @@ TEST_CASE("Mutateurs", "[maquette]")
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

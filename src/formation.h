@@ -12,21 +12,20 @@ class formation
 public:
   formation() = delete;
   formation(std::string mention);
-
-  /* à faire */
   formation(std::vector <maquette*> &maquettes, std::string mention);
   formation(formation &f);
-  void afficher(std::ostream &os) const;
-  void modifier_maquette(std::vector<maquette*> maq);
-  /* ------- */
+
   ~formation();
 
-  //pour l'instant classe inutile
-  //elle sert à trier les maquettes
+  void afficher(std::ostream &os) const;
+  void modifier_maquette(std::vector<maquette*> maq);
+
+  std::string mention() const;
+  unsigned int nombre_maquettes() const;
 
 private:
   std::vector <maquette*> d_maquettes;
-  std::string d_mention; //peut changer en fonction de ce qu'on veut stocker dans une formation
+  std::string d_mention;
 };
 
 #endif

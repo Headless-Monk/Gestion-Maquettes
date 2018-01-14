@@ -31,3 +31,13 @@ void formation::modifier_maquette(std::vector<maquette*> maq)
     for(unsigned int i = 0; i < maq.size(); i++)
         d_maquettes[i] = maq[i];
 }
+
+std::string formation::mention() const
+{
+    return d_mention;
+}
+
+unsigned int formation::nombre_maquettes() const
+{
+    return d_maquettes.size();
+}
