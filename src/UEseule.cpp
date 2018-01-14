@@ -76,15 +76,15 @@ void UEseule::sauvegarde_json(std::ofstream &os) const
     os << "\"Intitule\" : \" " << intitule() << " \" ," << std::endl;
     os << "\"Credit\" : " << credits() << " ," << std::endl;
     os << "\"Coefficient\" : " << coefficient() << " ," << std::endl;
-    os << "\"Heures CM\" : " << heures_cm() << " ," << std::endl;
-    os << "\"Heures TD\" : " << heures_td() << " ," << std::endl;
-    os << "\"Heures TP\" : " << heures_tp() << " ," << std::endl;
-    os << "\"Heures totale\" : " << heures_cm() + heures_td() + heures_tp() << std::endl;
+    os << "\"Heures_CM\" : " << heures_cm() << " ," << std::endl;
+    os << "\"Heures_TD\" : " << heures_td() << " ," << std::endl;
+    os << "\"Heures_TP\" : " << heures_tp() << " ," << std::endl;
+    os << "\"Heures_Totale\" : " << heures_cm() + heures_td() + heures_tp() << std::endl;
 }
 
 void UEseule::entete_json(std::ofstream &os) const
 {
-    os << "\"UESeule\":" << std::endl;
+    os << "\"UESeule\" :" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &os, const UEseule &UEs)

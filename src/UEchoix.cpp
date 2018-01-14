@@ -55,10 +55,12 @@ void UEchoix::sauvegarde_json(std::ofstream &os) const
     int i;
     for(i = 0; i < d_liste_ue.size()-1; i++)
     {
+        d_liste_ue[i]->entete_json(os);
         os << "[" << std::endl;
         d_liste_ue[i]->sauvegarde_json(os);
         os << "]," << std::endl;
     }
+    d_liste_ue[i]->entete_json(os);
     os << "[" << std::endl;
     d_liste_ue[d_liste_ue.size()-1]->sauvegarde_json(os);
     os << "]" << std::endl;
@@ -66,5 +68,5 @@ void UEchoix::sauvegarde_json(std::ofstream &os) const
 
 void UEchoix::entete_json(std::ofstream &os) const
 {
-    os << "\"UEChoix\":" << std::endl;
+    os << "\"UEChoix\" :" << std::endl;
 }

@@ -78,7 +78,7 @@ std::vector<UEseule*> lecture_json::lire_UEseule()
 
     if(d_fichierLecture.is_open())
     {
-        while(!d_fichierLecture.eof())
+        while(!d_fichierLecture.eof() && mot != "]")
         {
             d_fichierLecture >> caractere;
             d_fichierLecture >> mot >> caractere >> code >> caractere;
@@ -91,7 +91,7 @@ std::vector<UEseule*> lecture_json::lire_UEseule()
             d_fichierLecture >> mot >> caractere >> heuresTD>> caractere;
             d_fichierLecture >> mot >> caractere >> heuresTP>> caractere;
             d_fichierLecture >> mot >> caractere >> heuresTotales;
-            d_fichierLecture >> mot >> caractere;
+            d_fichierLecture >> mot;
 
             UEseule ueCourante{heuresCM, heuresTD, heuresTP, code, intitule, credits, coefficient};
             UEseulesFichier.push_back(&ueCourante);
@@ -113,7 +113,7 @@ std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
 
     if(d_fichierLecture.is_open())
     {
-        while(!d_fichierLecture.eof())
+        while(!d_fichierLecture.eof() && mot != "]")
         {
             d_fichierLecture >> caractere;
             d_fichierLecture >> mot >> caractere >> code >> caractere;
@@ -131,6 +131,8 @@ std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
                 ueComposeeCourante.ajouter_ecue(tmpECUE[i]);
 
             UEcomposeesFichier.push_back(&ueComposeeCourante);
+
+            d_fichierLecture >> mot;
         }
     }
     return UEcomposeesFichier;
@@ -147,7 +149,7 @@ std::vector<ecue*> lecture_json::lire_ecue()
 
     if(d_fichierLecture.is_open())
     {
-        while(!d_fichierLecture.eof())
+        while(!d_fichierLecture.eof() && mot != "]")
         {
             d_fichierLecture >> caractere;
             d_fichierLecture >> mot >> caractere >> code >>  caractere;
@@ -162,6 +164,7 @@ std::vector<ecue*> lecture_json::lire_ecue()
             d_fichierLecture >> mot;
 
             ecue ecueCourante{coefficient, code, intitule, heuresCM, heuresTD, heuresTP};
+
             ecueFichier.push_back(&ecueCourante);
         }
     }
@@ -172,41 +175,65 @@ std::vector<ecue*> lecture_json::lire_ecue()
 std::vector<UEchoix*> lecture_json::lire_UEchoix()
 {
     std::vector<UEchoix*> UEchoixFichier;
-//    std::string code, intitule;
-//    unsigned int credits, coefficient, heuresCM, heuresTD, heuresTP, heuresTotales;
-//    std::string mot;
-//    char caractere;
-//    std::vector<ue*> tmpUE;
-//
-//
-//    if(d_fichierLecture.is_open())
-//    {
-//        while(!d_fichierLecture.eof())
-//        {
-//            d_fichierLecture >> caractere;
-//            while(mot != "]")
-//            {
-//                d_fichierLecture >> caractere;
-//                d_fichierLecture >> mot >> caractere >> code >> caractere;
-//                d_fichierLecture >> mot >> caractere;
-//                intitule = recupere_titre();
-//                d_fichierLecture >> caractere;
-//                d_fichierLecture >> mot >> caractere >> credits >> caractere;
-//                d_fichierLecture >> mot >> caractere >> coefficient >> caractere;;
-//                d_fichierLecture >> mot >> caractere >> heuresCM >> caractere;
-//                d_fichierLecture >> mot >> caractere >> heuresTD>> caractere;
-//                d_fichierLecture >> mot >> caractere >> heuresTP>> caractere;
-//                d_fichierLecture >> mot >> caractere >> heuresTotales;
-//                d_fichierLecture >> mot;
-//
-//                ue ueCourante{code, intitule, credits, coefficient};
-//                tmpUE.push_back(&ueCourante);
-//            }
-//            d_fichierLecture >> mot;
-//            UEchoix UEChoixCourante{tmpUE};
-//            UEchoixFichier.push_back(&UEChoixCourante);
-//        }
-//    }
+    std::string code, intitule;
+    unsigned int credits, coefficient, heuresCM, heuresTD, heuresTP, heuresTotales;
+    std::string mot;
+    char caractere;
+    std::vector<ue*> tmpUE;
+    std::vector<ecue*> tmpECUE;
+
+
+    if(d_fichierLecture.is_open())
+    {
+        while(!d_fichierLecture.eof())
+    {
+            while(mot != "]")
+            {
+                d_fichierLecture >> mot;
+                if(mot == "\"UESeule\"")
+                {
+                    d_fichierLecture >> caractere;
+                    d_fichierLecture >> mot >> caractere >> code >> caractere;
+                    d_fichierLecture >> mot >> caractere;
+                    intitule = recupere_titre();
+                    d_fichierLecture >> caractere;
+                    d_fichierLecture >> mot >> caractere >> credits >> caractere;
+                    d_fichierLecture >> mot >> caractere >> coefficient >> caractere;;
+                    d_fichierLecture >> mot >> caractere >> heuresCM >> caractere;
+                    d_fichierLecture >> mot >> caractere >> heuresTD>> caractere;
+                    d_fichierLecture >> mot >> caractere >> heuresTP>> caractere;
+                    d_fichierLecture >> mot >> caractere >> heuresTotales;
+                    d_fichierLecture >> mot;
+
+                    UEseule UEseuleCourante{heuresCM, heuresTD, heuresTP, code, intitule, credits, coefficient};
+                    tmpUE.push_back(&UEseuleCourante);
+                }
+                else
+                    if(mot == "\"UEComposee\":")
+                {
+                    d_fichierLecture >> caractere;
+                    d_fichierLecture >> mot >> caractere >> code >> caractere;
+                    d_fichierLecture >> mot >> caractere;
+                    intitule = recupere_titre();
+                    d_fichierLecture >> caractere;
+                    d_fichierLecture >> mot >> caractere >> credits >> caractere;
+                    d_fichierLecture >> mot >> caractere >> coefficient >> caractere;
+                    d_fichierLecture >> mot >> caractere;
+
+                    tmpECUE = lire_ecue();
+
+                    UEcomposee ueComposeeCourante{code, intitule, credits, coefficient};
+                    for(int i = 0; i < tmpECUE.size(); i++)
+                        ueComposeeCourante.ajouter_ecue(tmpECUE[i]);
+
+                    tmpUE.push_back(&ueComposeeCourante);
+                }
+            }
+            d_fichierLecture >> mot;
+            UEchoix UEChoixCourante{tmpUE};
+            UEchoixFichier.push_back(&UEChoixCourante);
+        }
+    }
     return UEchoixFichier;
 }
 

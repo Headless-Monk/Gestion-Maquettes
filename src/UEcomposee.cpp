@@ -101,7 +101,7 @@ void UEcomposee::sauvegarde_json(std::ofstream &os) const
 
 void UEcomposee::entete_json(std::ofstream &os) const
 {
-    os << "\"UEComposee\":" << std::endl;
+    os << "\"UEComposee\" :" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &os, UEcomposee &UEc)
