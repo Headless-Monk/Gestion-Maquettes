@@ -27,6 +27,13 @@ class lecture_json
         std::vector<UEchoix*> lire_UEchoix();
         std::vector<formation*> lire_formation();
 
+        maquette& lire_une_maquette();
+        UEseule& lire_une_UEseule();
+        UEcomposee& lire_une_UEcomposee();
+        ecue& lire_une_ecue();
+        UEchoix& lire_une_UEchoix();
+        formation& lire_une_formation();
+
         std::string recupere_titre();
 
     private:

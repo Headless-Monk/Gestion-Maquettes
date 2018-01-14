@@ -14,6 +14,18 @@ std::vector<maquette*> lecture_json::lire_maquette()
 {
     std::vector<maquette*> maquettesFichier;
 
+    if(d_fichierLecture.is_open())
+    {
+        while(!d_fichierLecture.eof())
+        {
+            maquettesFichier.push_back(&lire_une_maquette());
+        }
+    }
+    return maquettesFichier;
+}
+
+maquette& lecture_json::lire_une_maquette()
+{
     std::vector<UEcomposee*> tmpUEComposeeMaquette;
     std::vector<UEseule*> tmpUESeulesMaquette;
     std::vector<UEchoix*> tmpUEChoixMaquette;
@@ -23,81 +35,80 @@ std::vector<maquette*> lecture_json::lire_maquette()
     int annees, semestres;
     std::string typeUE;
     char caractere;
-    if(d_fichierLecture.is_open())
+
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere;
+    domaine = recupere_titre();
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere;
+    mention = recupere_titre();
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere >> parcours >> caractere;
+    d_fichierLecture >> mot >> caractere >> annees >> caractere;
+    d_fichierLecture >> mot >> caractere >> semestres>> caractere;
+    d_fichierLecture >> typeUE >> caractere;
+
+    maquette maquetteCourante{mention, parcours, annees, semestres};
+
+    while(typeUE != "}")
     {
-        while(!d_fichierLecture.eof())
-        {
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere;
-            domaine = recupere_titre();
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere;
-            mention = recupere_titre();
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere >> parcours >> caractere;
-            d_fichierLecture >> mot >> caractere >> annees >> caractere;
-            d_fichierLecture >> mot >> caractere >> semestres>> caractere;
-            d_fichierLecture >> typeUE >> caractere;
+        //lire les UEs de la maquette
+        if(typeUE =="\"UEComposee\"")
+            tmpUEComposeeMaquette = lire_UEcomposee();
+        else if(typeUE=="\"UESeule\"")
+            tmpUESeulesMaquette = lire_UEseule();
+        else if(typeUE=="\"UEChoix\"")
+            tmpUEChoixMaquette = lire_UEchoix();
 
-            while(typeUE != "}")
-            {
-                //lire les UEs de la maquette
-                if(typeUE =="\"UEComposee\"")
-                    tmpUEComposeeMaquette = lire_UEcomposee();
-                else if(typeUE=="\"UESeule\"")
-                    tmpUESeulesMaquette = lire_UEseule();
-                else if(typeUE=="\"UEChoix\"")
-                    tmpUEChoixMaquette = lire_UEchoix();
+        //completer la maquette courante
+        for(int i = 0; i < tmpUEComposeeMaquette.size(); i++)
+            maquetteCourante.ajouter_ue(tmpUEComposeeMaquette[i]);
+        for(int i = 0; i < tmpUESeulesMaquette.size(); i++)
+            maquetteCourante.ajouter_ue(tmpUESeulesMaquette[i]);
+        for(int i = 0; i < tmpUEChoixMaquette.size();i++)
+            maquetteCourante.ajouter_ue(tmpUEChoixMaquette[i]);
 
-                //completer la maquette courante
-                maquette maquetteCourante{mention, parcours, annees, semestres};
-                for(int i = 0; i < tmpUEComposeeMaquette.size(); i++)
-                    maquetteCourante.ajouter_ue(tmpUEComposeeMaquette[i]);
-                for(int i = 0; i < tmpUESeulesMaquette.size(); i++)
-                    maquetteCourante.ajouter_ue(tmpUESeulesMaquette[i]);
-                for(int i = 0; i < tmpUEChoixMaquette.size();i++)
-                    maquetteCourante.ajouter_ue(tmpUEChoixMaquette[i]);
-
-                //puis l'ajouter au vecteur de maquettes
-                maquettesFichier.push_back(&maquetteCourante);
-
-                d_fichierLecture >> typeUE;
-            }
-        }
+        d_fichierLecture >> typeUE;
     }
-    return maquettesFichier;
+
+    return maquetteCourante;
 }
 
 std::vector<UEseule*> lecture_json::lire_UEseule()
 {
     std::vector<UEseule*> UEseulesFichier;
-    std::string code, intitule;
-    unsigned int credits, coefficient, heuresCM, heuresTD, heuresTP, heuresTotales;
-    std::string mot;
-    char caractere;
 
     if(d_fichierLecture.is_open())
     {
         while(!d_fichierLecture.eof() && mot != "]")
         {
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere >> code >> caractere;
-            d_fichierLecture >> mot >> caractere;
-            intitule = recupere_titre();
-            d_fichierLecture >> caractere;
-            d_fichierLecture >> mot >> caractere >> credits >> caractere;
-            d_fichierLecture >> mot >> caractere >> coefficient >> caractere;
-            d_fichierLecture >> mot >> caractere >> heuresCM >> caractere;
-            d_fichierLecture >> mot >> caractere >> heuresTD>> caractere;
-            d_fichierLecture >> mot >> caractere >> heuresTP>> caractere;
-            d_fichierLecture >> mot >> caractere >> heuresTotales;
-            d_fichierLecture >> mot;
-
-            UEseule ueCourante{heuresCM, heuresTD, heuresTP, code, intitule, credits, coefficient};
-            UEseulesFichier.push_back(&ueCourante);
+            UEseulesFichier.push_back(lire_une_UEseule());
         }
     }
     return UEseulesFichier;
+}
+
+UEseule& lecture_json::lire_une_UEseule()
+{
+    std::string code, intitule;
+    unsigned int credits, coefficient, heuresCM, heuresTD, heuresTP, heuresTotales;
+    std::string mot;
+    char caractere;
+
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere >> code >> caractere;
+    d_fichierLecture >> mot >> caractere;
+    intitule = recupere_titre();
+    d_fichierLecture >> caractere;
+    d_fichierLecture >> mot >> caractere >> credits >> caractere;
+    d_fichierLecture >> mot >> caractere >> coefficient >> caractere;
+    d_fichierLecture >> mot >> caractere >> heuresCM >> caractere;
+    d_fichierLecture >> mot >> caractere >> heuresTD>> caractere;
+    d_fichierLecture >> mot >> caractere >> heuresTP>> caractere;
+    d_fichierLecture >> mot >> caractere >> heuresTotales;
+    d_fichierLecture >> mot;
+
+    UEseule ueCourante{heuresCM, heuresTD, heuresTP, code, intitule, credits, coefficient};
 }
 
 std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
@@ -138,6 +149,11 @@ std::vector<UEcomposee*> lecture_json::lire_UEcomposee()
     return UEcomposeesFichier;
 }
 
+UEcomposee& lecture_json::lire_une_UEcomposee()
+{
+
+}
+
 std::vector<ecue*> lecture_json::lire_ecue()
 {
     std::vector<ecue*> ecueFichier;
@@ -170,6 +186,11 @@ std::vector<ecue*> lecture_json::lire_ecue()
     }
 
     return ecueFichier;
+}
+
+ecue& lecture_json::lire_une_ecue()
+{
+
 }
 
 std::vector<UEchoix*> lecture_json::lire_UEchoix()
@@ -237,11 +258,21 @@ std::vector<UEchoix*> lecture_json::lire_UEchoix()
     return UEchoixFichier;
 }
 
+UEchoix& lecture_json::lire_une_UEchoix()
+{
+
+}
+
 std::vector<formation*> lecture_json::lire_formation()
 {
     std::vector<formation*> formationsFichier;
 
     return formationsFichier;
+}
+
+formation& lecture_json::lire_une_formation()
+{
+
 }
 
 std::string lecture_json::recupere_titre()
