@@ -18,7 +18,7 @@ UEseule:: ~UEseule()
 void UEseule::afficher(std::ostream &os) const
 {
     os <<   code() << "   |   " <<
-            coefficient() << "    |   " <<
+            coefficient() << "   |   " <<
             credits() << "   |   " <<
             intitule() << "   |   " <<
             d_heures_cm << "   |   " <<

@@ -56,14 +56,14 @@ void maquette::afficher(std::ostream &os) const
         {
             for(unsigned int i=0; i<d_ues_choix.size(); i++)
             {
-                std::cout << " " << cpt_affichage << "  |  " << std::endl;
+                os << " " << cpt_affichage << "  |  " << std::endl;
                 cpt_affichage += d_ues_choix[i]->nombre_ue_choix();
                 d_ues_choix[i]->afficher(os);
             }
         }
         else if(d_ues.size() > 0)
         {
-            std::cout << " " << cpt_affichage << "  |  " << std::endl;
+            os << " " << cpt_affichage << "  |  " << std::endl;
             cpt_affichage++;
             d_ues[cpt_ues]->afficher(os);
             cpt_ues++;

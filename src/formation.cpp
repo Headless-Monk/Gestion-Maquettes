@@ -17,10 +17,10 @@ formation::~formation()
 
 void formation::afficher(std::ostream &os)const
 {
-    std::cout << "Mention : " << d_mention << std::endl;
-    std::cout << "Liste des maquettes :" << std::endl;
+    os << "Mention : " << d_mention << std::endl;
+    os << "Liste des maquettes :" << std::endl;
     for(unsigned int i = 0; i < d_maquettes.size(); i++)
-        std::cout << d_maquettes[i]->domaine() << " | "
+        os << d_maquettes[i]->domaine() << " | "
                   << d_maquettes[i]->mention() << " | "
                   << d_maquettes[i]->parcours() << std::endl;
 }
@@ -52,4 +52,20 @@ void formation::sauvegarde_json(std::ofstream &os)
 
     os << "]" << std::endl;
     os << "}" << std::endl;
+}
+
+std::string formation::mention() const
+{
+    return d_mention;
+}
+
+unsigned int formation::nombre_maquettes() const
+{
+    return d_maquettes.size();
+}
+
+std::ostream& operator<<(std::ostream &os, formation &f)
+{
+    f.afficher(os);
+    return os;
 }
