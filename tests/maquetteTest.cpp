@@ -7,16 +7,22 @@
 #include <vector>
 #include <sstream>
 
-void initiaisationMaquette(maquette &m, const std::vector <ue*> &liste_ue, const std::vector <UEchoix*> &liste_ue_choix, std::string domaine, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre)
+void valeursEntete(maquette &m, std::string domaine, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre)
 {
-    REQUIRE(m.nombre_ue() == liste_ue.size());
-    REQUIRE(m.nombre_ue_choix() == liste_ue_choix.size());
-    REQUIRE(m.position_ue_choix_dans_ue() == liste_ue.size());
     REQUIRE(m.domaine() == domaine);
     REQUIRE(m.mention() == mention);
     REQUIRE(m.parcours() == parcours);
     REQUIRE(m.annee() == annee);
     REQUIRE(m.semestre() == semestre);
+}
+
+void initiaisationMaquette(maquette &m, const std::vector <ue*> &liste_ue, const std::vector <UEchoix*> &liste_ue_choix, std::string domaine, std::string mention, std::string parcours, unsigned int annee, unsigned int semestre)
+{
+    REQUIRE(m.nombre_ue() == liste_ue.size());
+    REQUIRE(m.nombre_ue_choix() == liste_ue_choix.size());
+    REQUIRE(m.position_ue_choix_dans_ue() == liste_ue.size());
+
+    valeursEntete(m, domaine, mention, parcours, annee, semestre);
 }
 
 TEST_CASE("Les maquettes sont bien construites", "[maquette]")
@@ -214,8 +220,95 @@ TEST_CASE("Ajout d'une unité d'enseignement", "[maquette]")
 
 
 
+TEST_CASE("Suppression d'une unité d'enseignement", "[maquette]")
+{
+    std::vector <ue*> liste_ue{};
+    std::vector <UEchoix*> liste_ue_choix{};
+
+    std::string domaine = "SCIENCE ET TECHNOLOGIE";
+    std::string mention = "Licence Informatique";
+    std::string parcours = "MIAGE";
+    unsigned int annee = 3;
+    unsigned int semestre = 6;
 
 
+    std::string code = "13GUWEDY";
+    std::string libele = "UE développement de sites web dynamiques";
+    unsigned int credits = 3;
+    unsigned int coefficient = 1;
+    unsigned int heures_cm = 4;
+    unsigned int heures_td = 5;
+    unsigned int heures_tp = 6;
+    unsigned int heures_totales = heures_cm + heures_td + heures_tp;
+
+    liste_ue.push_back(new UEseule{heures_cm, heures_td, heures_tp, code, libele, credits, coefficient});
+    liste_ue_choix.push_back(new UEchoix{});
+
+    maquette maquette_avec_ue{liste_ue, liste_ue_choix, mention, parcours, annee, semestre};
+
+    SECTION("Suppression d'une ue")
+    {
+        REQUIRE(maquette_avec_ue.nombre_ue() == 1);
+        maquette_avec_ue.supprimer_ue(liste_ue[0]);
+        REQUIRE(maquette_avec_ue.nombre_ue() == 0);
+    }
+
+    SECTION("Suppression d'une UEchoix")
+    {
+        REQUIRE(maquette_avec_ue.nombre_ue_choix() == 1);
+        maquette_avec_ue.supprimer_ue(liste_ue_choix[0]);
+        REQUIRE(maquette_avec_ue.nombre_ue_choix() == 0);
+    }
+}
+
+
+
+TEST_CASE("Modification de l'entête d'une unité d'enseignement", "[maquette]")
+{
+    std::string domaine = "SCIENCE ET TECHNOLOGIE";
+    std::string mention = "Licence Informatique";
+    std::string parcours = "MIAGE";
+    unsigned int annee = 3;
+    unsigned int semestre = 6;
+
+    SECTION("Saisie de l'entête")
+    {
+        maquette maquette_defaut{};
+
+        std::string formatLu = mention + "\n" + parcours + "\n" + std::to_string(annee) + "\n" + std::to_string(semestre) + "\n";
+        std::istringstream ist{formatLu};
+        std::ostringstream ost{};
+
+        maquette_defaut.saisir_maquette(ost, ist);
+
+        //valeursEntete(maquette_defaut, domaine, mention, parcours, annee, semestre);
+    }
+}
+
+
+
+TEST_CASE("Mutateurs", "[maquette]")
+{
+    std::string domaine = "SCIENCEs ET TECHNOLOGIEs";
+    std::string mention = "Licence Informatique";
+    std::string parcours = "MIAGE";
+    unsigned int annee = 3;
+    unsigned int semestre = 6;
+
+    maquette m{};
+
+    SECTION("Mutateurs")
+    {
+        m.domaine(domaine);
+        m.mention(mention);
+        m.parcours(parcours);
+        m.annee(annee);
+        m.semestre(semestre);
+
+        valeursEntete(m, domaine, mention, parcours, annee, semestre);
+    }
+
+}
 
 
 
