@@ -2,8 +2,6 @@
 #include "../src/ue.h"
 #include "../src/UEseule.h"
 
-
-
 #include <string>
 
 
@@ -33,9 +31,9 @@ TEST_CASE("L'UE seule est bien cree", "[UEseule]")
     std::string code = "13GUPRG5";
     std::string intitule = "Anglais";
 
-    UEseule ues(heures_cm,heures_td,heures_tp,code,
-            intitule,credits, coefficient);
-    UEseule ues2(ues);
+    UEseule ues{heures_cm,heures_td,heures_tp,code,
+            intitule,credits, coefficient};
+    UEseule ues2{ues};
 
 
     SECTION("Les donnees d'Ue seule construite sont correctes")
@@ -60,7 +58,7 @@ TEST_CASE("L'UE seule est bien modifiee")
     std::string code = "13GUPRG5";
     std::string intitule = "Anglais";
 
-    UEseule ues(heures_cm,heures_td,heures_tp,code,intitule,3,1);
+    UEseule ues(heures_cm,heures_td,heures_tp,code,intitule,credits,coefficient);
 
     SECTION(" L'heure des cm modifiee a la bonne valeur")
     {
@@ -77,7 +75,7 @@ TEST_CASE("L'UE seule est bien modifiee")
 
     SECTION("L'heure des tp modifiee a la bonne valeur")
     {
-        ues.heures_td(6);;
+        ues.heures_tp(6);
         REQUIRE(ues.heures_tp()==6);
 
     }
@@ -86,7 +84,24 @@ TEST_CASE("L'UE seule est bien modifiee")
         unsigned int total = heures_cm + heures_td + heures_tp;
         REQUIRE(ues.duree_totale()==total);
     }
+    SECTION("Les credit modifiee ont la bonne valeur")
+    {
+        ues.credits(2);
+        REQUIRE(ues.credits()==2);
+    }
 
+    SECTION ("Le coefficient modifie a la bonne valeur")
+    {
+        ues.coefficient(2);
+        REQUIRE(ues.coefficient()==2);
+    }
+
+    SECTION ("Le code modifie a la bonne valeur")
+    {
+        ues.code("13GUPRG6");
+        REQUIRE(ues.code()=="13GUPRG6");
+
+    }
     SECTION ("L'UE seule modifee a les bonnes valeurs")
     {
         ues.modifier_completement_ue(1,1,1,"13GUPRG6","Allemand",1,2);
