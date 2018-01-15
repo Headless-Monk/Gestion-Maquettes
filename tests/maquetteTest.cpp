@@ -317,17 +317,31 @@ TEST_CASE("Modification de l'entête d'une unité d'enseignement", "[maquette]")
     {
         maquette maquette_defaut{};
 
-        std::string formatLu = mention + "\n" + parcours + "\n" + std::to_string(annee) + "\n" + std::to_string(semestre) + "\n";
+        std::string formatLu = mention + "\n" + parcours + "\n" + std::to_string(annee)
+            + "\n" + std::to_string(semestre) + "\n";
         std::istringstream ist{formatLu};
         std::ostringstream ost{};
 
         maquette_defaut.saisir_maquette(ost, ist);
 
-        /*  Impossible de saisir un paramètre contenant un space
-         *   valeursEntete(maquette_defaut, domaine, mention, parcours, annee, semestre);
-         */
+        /*
+        valeursEntete(maquette_defaut, domaine, mention, parcours, annee, semestre);
+        */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
