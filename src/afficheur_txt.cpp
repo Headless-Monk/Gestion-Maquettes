@@ -9,6 +9,10 @@ afficheur_txt::afficheur_txt()
 afficheur_txt::~afficheur_txt()
 {}
 
+/**
+    Permet d'exporter une maquette
+    @param[in] const maquette* - m
+*/
 void afficheur_txt::exporter_maquette(const maquette *m)
 {
     d_fichier.open(nom(m));
@@ -37,6 +41,11 @@ void afficheur_txt::exporter_maquette(const maquette *m)
 
 }
 
+/**
+    Retourne le nom du fichier dans lequel est enregitre la maquette
+    @param[in] const maquette* - m
+    @param[out] std::string - nom_fichier
+*/
 std::string afficheur_txt::nom(const maquette *m)
 {
     std::string nom_fichier;
@@ -54,6 +63,11 @@ std::string afficheur_txt::nom(const maquette *m)
     return nom_fichier;
 }
 
+/**
+    Ecrit les details de la mquette dans un fichier
+    @param[in] const maquette* - m
+*/
+
 void afficheur_txt::ecrire_details_maquette(const maquette *m)
 {
     d_fichier << m->domaine() << ";" << std::endl;
@@ -63,6 +77,11 @@ void afficheur_txt::ecrire_details_maquette(const maquette *m)
     d_fichier << m->semestre() << ";" << std::endl;
 }
 
+/**
+    Retourne le nom du fichier dans lequel est enregitre la maquette
+    @param[in] const maquette* - m
+    @param[out] std::string - nom_fichier
+*/
 void afficheur_txt::ecrire_ue(ue *u)
 {
     if(dynamic_cast<UEseule*>(u) != nullptr)
@@ -75,6 +94,10 @@ void afficheur_txt::ecrire_ue(ue *u)
     }
 }
 
+/**
+   Ecrit une unite d'enseignement choix dans un fichier
+    @param[in] const UEchoix* - UEc
+*/
 void afficheur_txt::ecrire_ue_choix(const UEchoix *UEc)
 {
     std::vector <ue*> liste_ue{UEc->liste_ue()};
@@ -82,6 +105,10 @@ void afficheur_txt::ecrire_ue_choix(const UEchoix *UEc)
         ecrire_ue(liste_ue[i]);
 }
 
+/**
+   Ecrit une unite d'enseignement seule dans un fichier
+    @param[in] const UEseule* - UEs
+*/
 void afficheur_txt::ecrire_ue_seule(const UEseule *UEs)
 {
     d_fichier   << UEs->code() << ";"
@@ -94,6 +121,10 @@ void afficheur_txt::ecrire_ue_seule(const UEseule *UEs)
                 << UEs->duree_totale() << ";" << std::endl;
 }
 
+/**
+   Ecrit une unite d'enseignement composee dans un fichier
+    @param[in] const UEcomposee* - UEc
+*/
 void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
 {
     d_fichier   << UEc->code() << ";"
@@ -108,6 +139,10 @@ void afficheur_txt::ecrire_ue_composee(const UEcomposee *UEc)
     }
 }
 
+/**
+   Ecrit un element constituif d'unite d'enseignement
+    @param[in] const ecue* - ec
+*/
 void afficheur_txt::ecrire_ecue(const ecue *ec)
 {
     d_fichier   << ec->code() << ";"

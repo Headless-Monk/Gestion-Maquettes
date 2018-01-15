@@ -3,6 +3,7 @@
 #include "../src/UEseule.h"
 
 #include <string>
+#include <sstream>
 
 
 
@@ -107,6 +108,35 @@ TEST_CASE("L'UE seule est bien modifiee")
         ues.modifier_completement_ue(1,1,1,"13GUPRG6","Allemand",1,2);
         ueSeuleALesBonnesValeurs(ues,1,1,1,"13GUPRG6","Allemand",1,2);
     }
+
+}
+
+TEST_CASE("L'affichage d'une UE est correct"){
+
+    unsigned int heures_cm = 3;
+    unsigned int heures_td = 2;
+    unsigned int heures_tp = 1;
+    unsigned int credits = 3;
+    unsigned int coefficient = 1;
+    std::string code = "13GUPRG5";
+    std::string intitule = "Anglais";
+
+    UEseule ues(heures_cm,heures_td,heures_tp,code,intitule,credits,coefficient);
+
+     std::string formatAttendu = code + "   |   " +
+            std::to_string(coefficient) + "   |   " +
+            std::to_string(credits) + "   |   " +
+            intitule + "   |   " +
+            std::to_string(heures_cm) + "   |   " +
+            std::to_string(heures_td) + "   |   " +
+            std::to_string(heures_tp) + "   |   " +
+            std::to_string(heures_cm + heures_td + heures_tp) + "\n";
+
+    std::ostringstream ost{};
+    ues.afficher(ost);
+    std::string formatLu = ost.str();
+
+    REQUIRE(formatLu == formatAttendu);
 
 }
 

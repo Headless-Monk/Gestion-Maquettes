@@ -60,7 +60,7 @@ TEST_CASE("L'affichage est correct", "[ECUE]")
             std::to_string(heures_cm) + "   |   " +
             std::to_string(heures_td) + "   |   " +
             std::to_string(heures_tp) + "   |   " +
-            std::to_string(heures_cm + heures_td + heures_td) + "\n";
+            std::to_string(heures_cm + heures_td + heures_tp) + "\n";
 
     std::ostringstream ost{};
     ecue1.afficher(ost);

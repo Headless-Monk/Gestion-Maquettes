@@ -83,6 +83,9 @@ void interface::temporaire_ecrit_maquette()
     d_UEcomposee[d_UEcomposee.size()-1]->ajouter_ecue(d_ecue[d_ecue.size()-1]);
 }
 
+/**
+   Initialisation de l'interface
+*/
 void interface::initialiser()
 {
     int choix = 0;
@@ -122,6 +125,9 @@ void interface::initialiser()
     }
 }
 
+/**
+   Affichage du menu principal
+*/
 void interface::afficher_menu_principal()
 {
     cout << "1) Gerer les maquettes" << endl;
@@ -133,6 +139,9 @@ void interface::afficher_menu_principal()
     cout << "7) Quitter" << endl;
 }
 
+/**
+   Affichage du menu des maquettes sur l'interface
+*/
 void interface::afficher_menu_maquettes()
 {
     int choix = 0;
@@ -176,6 +185,9 @@ void interface::afficher_menu_maquettes()
     }
 }
 
+/**
+   Affichage du menu des formations sur l'interface
+*/
 void interface::afficher_menu_formations()
 {
     int choix = 0;
@@ -212,6 +224,9 @@ void interface::afficher_menu_formations()
     }
 }
 
+/**
+   Affichage du menu des unites d'enseignements seules
+*/
 void interface::afficher_menu_UEseuls()
 {
     int choix = 0;
@@ -249,6 +264,9 @@ void interface::afficher_menu_UEseuls()
     }
 }
 
+/**
+   Affichage du menu des unites d'enseignements composees
+*/
 void interface::afficher_menu_UEcomposees()
 {
     int choix = 0;
@@ -286,6 +304,9 @@ void interface::afficher_menu_UEcomposees()
     }
 }
 
+/**
+   Affichage du menu des elements constitutifs d'unite d'enseignement
+*/
 void interface::afficher_menu_ECUEs()
 {
     int choix = 0;
@@ -323,6 +344,9 @@ void interface::afficher_menu_ECUEs()
     }
 }
 
+/**
+   Affichage du menu d'unite d'enseignement choix
+*/
 void interface::afficher_menu_UEchoix()
 {
     int choix = 0;
@@ -360,6 +384,9 @@ void interface::afficher_menu_UEchoix()
     }
 }
 
+/**
+   Creation de maquette a partir de l'interface
+*/
 void interface::afficher_creer_maquette()
 {
     system("cls");
@@ -370,6 +397,9 @@ void interface::afficher_creer_maquette()
     cout << endl;
 }
 
+/**
+   Modification de maquette a partir de l'interface
+*/
 void interface::afficher_modifier_maquette()
 {
     system("cls");
@@ -385,6 +415,10 @@ void interface::afficher_modifier_maquette()
     }
 }
 
+/**
+   Modification d'une maquette à partir d'un menu present sur l'interface
+   @param[in] maquette* - m
+*/
 void interface::afficher_menu_modification_maquette(maquette *m)
 {
    int choix = 0;
@@ -438,6 +472,10 @@ void interface::afficher_menu_modification_maquette(maquette *m)
     }
 }
 
+/**
+   Monter une unite d'enseignement sur la maquette, a partir de l'interface
+   @param[in] maquette* - m
+*/
 void interface::afficher_monter_ue(maquette *m)
 {
     unsigned int ue_a_monter;
@@ -446,6 +484,10 @@ void interface::afficher_monter_ue(maquette *m)
     m->monter_ue(ue_a_monter);
 }
 
+/**
+   Descendre une unite d'enseignement sur la maquette, a partir de l'interface
+   @param[in] maquette* - m
+*/
 void interface::afficher_descendre_ue(maquette *m)
 {
     unsigned int ue_a_descendre;
@@ -454,6 +496,9 @@ void interface::afficher_descendre_ue(maquette *m)
     m->descendre_ue(ue_a_descendre);
 }
 
+/**
+   Supression d'une maquette a partir de l'interface
+*/
 void interface::afficher_supprimer_maquette()
 {
     system("cls");
@@ -473,6 +518,9 @@ void interface::afficher_supprimer_maquette()
     }
 }
 
+/**
+   Affiche la liste des maquette
+*/
 void interface::afficher_liste_maquette()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
@@ -483,6 +531,9 @@ void interface::afficher_liste_maquette()
     }
 }
 
+/**
+   Affiche la liste des entetes de la maquette
+*/
 void interface::afficher_liste_maquette_entete()
 {
     for(unsigned int i=0; i<d_maquette.size(); i++)
@@ -493,6 +544,9 @@ void interface::afficher_liste_maquette_entete()
     }
 }
 
+/**
+   Affiche la liste d'unite d'enseignement seule sur l'interface
+*/
 void interface::afficher_export_maquette()
 {
     afficheur_txt aff{};
@@ -502,6 +556,10 @@ void interface::afficher_export_maquette()
     }
     cout << endl << "Les maquettes ont ete exportees correctement" << endl << endl;
 }
+
+/**
+   Affiche la liste d'unite d'enseignement seule sur l'interface
+*/
 
 void interface::afficher_creer_formation()
 {
@@ -534,6 +592,9 @@ void interface::afficher_creer_formation()
     system("pause");
 }
 
+/**
+   Modification d'une formation a partir de l'interface
+*/
 void interface::afficher_modifier_formation()
 {
     unsigned int i;
@@ -572,6 +633,9 @@ void interface::afficher_modifier_formation()
     system("pause");
 }
 
+/**
+   Supression d'une formation a partir de l'interface
+*/
 void interface::afficher_supprimer_formation()
 {
     unsigned int i;
@@ -590,6 +654,9 @@ void interface::afficher_supprimer_formation()
     system("pause");
 }
 
+/**
+   Affiche la liste des formations sur l'interface
+*/
 void interface::afficher_liste_formation()
 {
     for(unsigned int i=0; i<d_formation.size(); i++)
@@ -601,6 +668,9 @@ void interface::afficher_liste_formation()
     system("pause");
 }
 
+/**
+   Creation d'une unite d'enseignement composee a partir de l'interface
+*/
 void interface::afficher_creer_UEcomposee()
 {
     std::string code, intitule;
@@ -625,6 +695,9 @@ void interface::afficher_creer_UEcomposee()
     cout << endl;
 }
 
+/**
+   Affiche la liste d'unite d'enseignement seule sur l'interface
+*/
 void interface::afficher_modifier_UEcomposee()
 {
     unsigned int entier_recherche;
@@ -640,6 +713,10 @@ void interface::afficher_modifier_UEcomposee()
     }
 }
 
+/**
+   Modification d'unite d'enseignement composee a partir de l'interface
+   @param[in] UEcompose* - UEc
+*/
 void interface::afficher_menu_modification_UEcomposee(UEcomposee *UEc)
 {
     int choix = 0;
@@ -695,6 +772,9 @@ void interface::afficher_menu_modification_UEcomposee(UEcomposee *UEc)
     }
 }
 
+/**
+   Supression d'une unite d'enseignement composee a partir de l'interface
+*/
 void interface::afficher_supprimer_UEcomposee()
 {
     system("cls");
@@ -715,6 +795,9 @@ void interface::afficher_supprimer_UEcomposee()
     }
 }
 
+/**
+   Affiche la liste d'unites d'enseignements composees
+*/
 void interface::afficher_liste_UEcomposee()
 {
     for(unsigned int i=0; i<d_UEcomposee.size(); i++)
@@ -725,6 +808,9 @@ void interface::afficher_liste_UEcomposee()
     }
 }
 
+/**
+   Creation d'une unite d'enseignement seule a partir de l'interface
+*/
 void interface::afficher_creer_UEseule()
 {
     std::string codeUE, intituleUE;
@@ -761,6 +847,9 @@ void interface::afficher_creer_UEseule()
 
 }
 
+/**
+   Modifie une unite d'enseignement seule a partir de l'interface
+*/
 void interface::afficher_modifier_UEseule()//il y a du copy pasta : peut etre "afficher_modifier_matiere(vectUE/ECUE)" ?
 {
     unsigned int coeff, td, tp, cm, credits, entier_recherche;
@@ -800,6 +889,9 @@ void interface::afficher_modifier_UEseule()//il y a du copy pasta : peut etre "a
     system("pause");
 }
 
+/**
+   Supprime une unite d'enseignement a partir de l'interface
+*/
 void interface::afficher_supprimer_UEseule()
 {
     std::string intitule_recherche;
@@ -818,6 +910,9 @@ void interface::afficher_supprimer_UEseule()
     d_UEseule.resize(d_UEseule.size()-1);
 }
 
+/**
+   Affiche la liste d'unite d'enseignement seule sur l'interface
+*/
 void interface::afficher_liste_UEseule()
 {
     for(unsigned int i=0; i<d_UEseule.size(); i++)
@@ -827,6 +922,10 @@ void interface::afficher_liste_UEseule()
         cout << endl;
     }
 }
+
+/**
+   Creation d'un element constitutif d'unite d'enseignement a partir de l'interface
+*/
 
 void interface::afficher_creer_ECUE()
 {
@@ -863,6 +962,9 @@ void interface::afficher_creer_ECUE()
     system("pause");
 }
 
+/**
+   Modifie l'element constitutif  de l'unite d'enseignement a partir de l'interface
+*/
 void interface::afficher_modifier_ECUE()
 {
     unsigned int coeff, td, tp, cm, entier_recherche;
@@ -904,6 +1006,9 @@ void interface::afficher_modifier_ECUE()
     system("pause");
 }
 
+/**
+   Supprime un element constitutif d'unite d'enseignement a partir de l'interface
+*/
 void interface::afficher_supprimer_ECUE()
 {
     unsigned int entier_recherche;
@@ -919,6 +1024,9 @@ void interface::afficher_supprimer_ECUE()
     d_ecue.resize(d_ecue.size()-1);
 }
 
+/**
+ Affiche la liste des elements constitutif d'unite d'enseignement sur l'interface
+*/
 void interface::afficher_liste_ECUE()
 {
     cout << endl;
@@ -930,6 +1038,9 @@ void interface::afficher_liste_ECUE()
     }
 }
 
+/**
+   Cree une unite d'enseignement choix a partir de l'interface
+*/
 void interface::afficher_creer_UE_choix()
 {
     unsigned int nbr_UE_composee, nbr_UE_seul;
@@ -967,6 +1078,9 @@ void interface::afficher_creer_UE_choix()
     }
 }
 
+/**
+   Modifie une unite d'enseignement choix a partir de l'interface
+*/
 void interface::afficher_modifier_UE_choix()
 {
     unsigned int numero_UE_choix_a_modifier;
@@ -1012,6 +1126,9 @@ void interface::afficher_modifier_UE_choix()
 
 }
 
+/**
+   Supprime une unite s'enseignement a partir de l'interface
+*/
 void interface::afficher_supprimer_UE_choix()
 {
     unsigned int numero_UE_choix_a_supprimer;
@@ -1027,6 +1144,9 @@ void interface::afficher_supprimer_UE_choix()
     d_UEchoix.resize(d_UEchoix.size()-1);
 }
 
+/**
+   Affiche sur l'interface la liste des unites d'enseignements choix
+*/
 void interface::afficher_liste_UE_choix()
 {
     for(unsigned int i=0; i<d_UEchoix.size(); i++)
