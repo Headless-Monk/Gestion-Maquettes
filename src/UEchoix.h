@@ -4,7 +4,6 @@
 #include <vector>
 #include <ostream>
 
-//utiliser soit un soit l'autre, bug sans les deux
 #include "ue.h"
 class ue;
 

@@ -32,7 +32,6 @@ public:
     void afficher_menu_ECUEs();
     void afficher_menu_UEchoix();
 
-    //SYLVAIN
     void afficher_creer_maquette();
     void afficher_modifier_maquette();
     void afficher_menu_modification_maquette(maquette *m);
@@ -43,32 +42,27 @@ public:
     void afficher_monter_ue(maquette *m);
     void afficher_descendre_ue(maquette *m);
 
-    //OLIVIER
     void afficher_creer_formation();
     void afficher_modifier_formation();
     void afficher_supprimer_formation();
     void afficher_liste_formation();
 
-    //TAREK
     void afficher_creer_UEcomposee();
     void afficher_modifier_UEcomposee();
     void afficher_menu_modification_UEcomposee(UEcomposee *UEc);
     void afficher_supprimer_UEcomposee();
     void afficher_liste_UEcomposee();
 
-    //TAREK
     void afficher_creer_UEseule();
     void afficher_modifier_UEseule();
     void afficher_supprimer_UEseule();
     void afficher_liste_UEseule();
 
-    //OLIVIER
     void afficher_creer_ECUE();
     void afficher_modifier_ECUE();
     void afficher_supprimer_ECUE();
     void afficher_liste_ECUE();
 
-    //QUAND LE RESTE SERA FINI
     void afficher_creer_UE_choix();
     void afficher_modifier_UE_choix();
     void afficher_supprimer_UE_choix();
