@@ -28,7 +28,7 @@ void UEchoix::supprimer_ue(ue *u)
     delete d_liste_ue[i];
     for(; i<d_liste_ue.size()-1; i++)
         std::swap(d_liste_ue[i],d_liste_ue[i+1]);
-    d_liste_ue.resize(d_liste_ue.size());
+    d_liste_ue.resize(d_liste_ue.size()-1);
 }
 
 std::vector<ue*> UEchoix::liste_ue() const
