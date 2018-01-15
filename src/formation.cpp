@@ -15,6 +15,10 @@ formation::formation(formation &f) :
 formation::~formation()
 {}
 
+/**
+    Affiche les donnees de la formation
+    @param[in] std::ostream& - os
+*/
 void formation::afficher(std::ostream &os)const
 {
     os << "Mention : " << d_mention << std::endl;
@@ -25,6 +29,10 @@ void formation::afficher(std::ostream &os)const
                   << d_maquettes[i]->parcours() << std::endl;
 }
 
+/**
+    Modifie la liste des maquettes de la formation
+    @param[in] std::vector<maquette*> - maq
+*/
 void formation::modifier_maquette(std::vector<maquette*> maq)
 {
     d_maquettes.resize(maq.size());
@@ -32,16 +40,30 @@ void formation::modifier_maquette(std::vector<maquette*> maq)
         d_maquettes[i] = maq[i];
 }
 
+/**
+    Renvoie la mention de la formation
+    @param[out] std::string - d_mention
+*/
 std::string formation::mention() const
 {
     return d_mention;
 }
 
+/**
+    Renvoie le nombre de maquettes de la formation
+    @param[out] unsigned int
+*/
 unsigned int formation::nombre_maquettes() const
 {
     return d_maquettes.size();
 }
 
+/**
+    Renvoie le flux de sortie
+    @param[in] std::ostream& - os
+    @param[in] formation& - f
+    @param[out] std::ostream& - os
+*/
 std::ostream& operator<<(std::ostream &os, formation &f)
 {
     f.afficher(os);
