@@ -1,0 +1,6 @@
+<map id="interface::afficher_menu_UEseuls" name="interface::afficher_menu_UEseuls">
+<area shape="rect" id="node2" href="$classinterface.html#a2481b5ac65679a8337dc7515c582c6d5" title="interface::afficher\l_creer_UEseule" alt="" coords="186,5,309,47"/>
+<area shape="rect" id="node3" href="$classinterface.html#a8b487ce9191635ba90686a85dcbc9b7b" title="interface::afficher\l_modifier_UEseule" alt="" coords="181,71,313,112"/>
+<area shape="rect" id="node4" href="$classinterface.html#aff50c58002c158796b2321ed3e61ce17" title="interface::afficher\l_liste_UEseule" alt="" coords="367,129,489,171"/>
+<area shape="rect" id="node5" href="$classinterface.html#afd6c6fd2e83f7396bbe5f42a2c253b8d" title="interface::afficher\l_supprimer_UEseule" alt="" coords="176,188,319,229"/>
+</map>

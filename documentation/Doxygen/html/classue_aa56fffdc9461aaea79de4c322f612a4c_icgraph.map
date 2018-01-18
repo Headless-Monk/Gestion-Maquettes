@@ -1,0 +1,23 @@
+<map id="ue::coefficient" name="ue::coefficient">
+<area shape="rect" id="node2" href="$classue.html#a098ff74c2ee495f22e36206499e2c68e" title="ue::ue" alt="" coords="246,99,305,126"/>
+<area shape="rect" id="node3" href="$classue.html#a0e9d6017801f8d92a743c9acdd3df733" title="ue::coefficient" alt="" coords="223,150,327,177"/>
+<area shape="rect" id="node14" href="$class_u_ecomposee.html#a55443f78ada13b3fd4f26c1f11d65dfc" title="UEcomposee::afficher" alt="" coords="199,279,351,306"/>
+<area shape="rect" id="node19" href="$class_u_ecomposee.html#a8297e10012274a7f0f7a27f0a5e42ab1" title="UEcomposee::modifier\l_entete" alt="" coords="198,213,353,255"/>
+<area shape="rect" id="node20" href="$class_u_eseule.html#a790396304a0a3709e8ae72baa0b34857" title="UEseule::afficher" alt="" coords="214,330,337,357"/>
+<area shape="rect" id="node22" href="$class_u_eseule.html#ad4d98c3d1bf4e9a4785771609a3b26a4" title="UEseule::modifier_completement_ue" alt="" coords="157,381,393,407"/>
+<area shape="rect" id="node4" href="$classafficheur__txt.html#a951ee7372af8cafef70c998b496ea9a0" title="afficheur_txt::ecrire\l_ue_seule" alt="" coords="486,5,621,47"/>
+<area shape="rect" id="node11" href="$classafficheur__txt.html#ab5e2d22fea9d695890957982391925c1" title="afficheur_txt::ecrire\l_ue_composee" alt="" coords="486,71,621,112"/>
+<area shape="rect" id="node12" href="$class_u_ecomposee.html#a02c4f20af2e00cdf49e85ddf7c6fccf3" title="UEcomposee::UEcomposee" alt="" coords="459,137,647,163"/>
+<area shape="rect" id="node13" href="$class_u_eseule.html#a71b9751ce2e6cb166b0da5dd987f9c77" title="UEseule::UEseule" alt="" coords="488,187,619,214"/>
+<area shape="rect" id="node5" href="$classafficheur__txt.html#a877ef7d7712c9e70c63b196f9bbaaa94" title="afficheur_txt::ecrire_ue" alt="" coords="713,78,868,105"/>
+<area shape="rect" id="node6" href="$classafficheur__txt.html#a8edadb15ca2073230ae89c8f7a7bd64b" title="afficheur_txt::exporter\l_maquette" alt="" coords="1128,129,1277,171"/>
+<area shape="rect" id="node10" href="$classafficheur__txt.html#a32965a896502c57922805e3dfbcc3d71" title="afficheur_txt::ecrire\l_ue_choix" alt="" coords="929,129,1064,171"/>
+<area shape="rect" id="node7" href="$classinterface.html#aea33c0ccf6e11398f0e7a594511b2ee7" title="interface::afficher\l_export_maquette" alt="" coords="1328,132,1455,173"/>
+<area shape="rect" id="node8" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="1503,136,1632,177"/>
+<area shape="rect" id="node9" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="1680,174,1811,201"/>
+<area shape="rect" id="node15" href="$classinterface.html#a9c2cd56bb889467a6232057963bd331f" title="interface::afficher\l_menu_modification_UEcomposee" alt="" coords="441,239,665,280"/>
+<area shape="rect" id="node18" href="$_u_ecomposee_8h.html#ae8bebb94b01e418fc0a5d2f07b665120" title="operator\&lt;\&lt;" alt="" coords="511,305,596,331"/>
+<area shape="rect" id="node16" href="$classinterface.html#a72a60ae2a88c5a4d704ef34d8f5efd7b" title="interface::afficher\l_modifier_UEcomposee" alt="" coords="916,211,1077,252"/>
+<area shape="rect" id="node17" href="$classinterface.html#a15f22ef1c474d08d3ca42e4a5c735a5d" title="interface::afficher\l_menu_UEcomposees" alt="" coords="1125,205,1280,247"/>
+<area shape="rect" id="node21" href="$_u_eseule_8h.html#a673ee63eaa9cbc107496521d5b40056c" title="operator\&lt;\&lt;" alt="" coords="511,355,596,382"/>
+</map>

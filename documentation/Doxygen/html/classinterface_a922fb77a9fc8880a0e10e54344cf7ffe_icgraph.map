@@ -1,0 +1,9 @@
+<map id="interface::afficher_liste_UE_choix" name="interface::afficher_liste_UE_choix">
+<area shape="rect" id="node2" href="$classinterface.html#a8d834b2b01050d9b2c98738e9c089b60" title="interface::afficher\l_menu_UEchoix" alt="" coords="429,52,552,93"/>
+<area shape="rect" id="node4" href="$classinterface.html#a4f100e9cbed20494c6e7c40eb563a953" title="interface::afficher\l_menu_modification_maquette" alt="" coords="176,165,375,206"/>
+<area shape="rect" id="node7" href="$classinterface.html#afa90313075fc665f7199ca52f8f370ce" title="interface::afficher\l_modifier_UE_choix" alt="" coords="206,34,345,76"/>
+<area shape="rect" id="node8" href="$classinterface.html#aea5196ed46976c8b70a1b2ac48ad8f41" title="interface::afficher\l_supprimer_UE_choix" alt="" coords="200,100,351,141"/>
+<area shape="rect" id="node3" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="784,98,915,124"/>
+<area shape="rect" id="node5" href="$classinterface.html#a53a28d190f0eb39b09f007dab5d87b52" title="interface::afficher\l_modifier_maquette" alt="" coords="423,133,559,174"/>
+<area shape="rect" id="node6" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="607,122,736,164"/>
+</map>

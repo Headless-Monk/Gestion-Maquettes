@@ -1,0 +1,7 @@
+<map id="interface::afficher_menu_formations" name="interface::afficher_menu_formations">
+<area shape="rect" id="node2" href="$classinterface.html#adbcea8713f40cc0431d2777a4bf6b030" title="interface::afficher\l_creer_formation" alt="" coords="195,5,317,47"/>
+<area shape="rect" id="node4" href="$classinterface.html#ac1582fdcc83eca35a01f0078f9e54bfd" title="interface::afficher\l_modifier_formation" alt="" coords="188,71,324,112"/>
+<area shape="rect" id="node5" href="$classinterface.html#a8833df8d384ed7fd0763489eaa208040" title="interface::afficher\l_liste_formation" alt="" coords="377,129,500,171"/>
+<area shape="rect" id="node6" href="$classinterface.html#afaf818890975ebe94ea706fdce3789a1" title="interface::afficher\l_supprimer_formation" alt="" coords="183,188,329,229"/>
+<area shape="rect" id="node3" href="$classinterface.html#a151f02f5a4a7f17cc88c7fab9d8b0eda" title="interface::afficher\l_liste_maquette" alt="" coords="377,35,500,76"/>
+</map>

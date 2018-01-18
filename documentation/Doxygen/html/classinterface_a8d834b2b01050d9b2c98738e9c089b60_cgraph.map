@@ -1,0 +1,6 @@
+<map id="interface::afficher_menu_UEchoix" name="interface::afficher_menu_UEchoix">
+<area shape="rect" id="node2" href="$classinterface.html#a783588e3cb4f59d548a716bdca89d24c" title="interface::afficher\l_creer_UE_choix" alt="" coords="190,5,313,47"/>
+<area shape="rect" id="node3" href="$classinterface.html#afa90313075fc665f7199ca52f8f370ce" title="interface::afficher\l_modifier_UE_choix" alt="" coords="182,71,321,112"/>
+<area shape="rect" id="node4" href="$classinterface.html#a922fb77a9fc8880a0e10e54344cf7ffe" title="interface::afficher\l_liste_UE_choix" alt="" coords="375,129,497,171"/>
+<area shape="rect" id="node5" href="$classinterface.html#aea5196ed46976c8b70a1b2ac48ad8f41" title="interface::afficher\l_supprimer_UE_choix" alt="" coords="176,188,327,229"/>
+</map>

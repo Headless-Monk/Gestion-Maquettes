@@ -1,0 +1,6 @@
+<map id="interface::afficher_menu_ECUEs" name="interface::afficher_menu_ECUEs">
+<area shape="rect" id="node2" href="$classinterface.html#aaad81b97707879e5b4ca02c547c2bb2c" title="interface::afficher\l_creer_ECUE" alt="" coords="180,5,303,47"/>
+<area shape="rect" id="node3" href="$classinterface.html#a5bf81254ad71d88e5817cd449792b1a5" title="interface::afficher\l_modifier_ECUE" alt="" coords="180,71,303,112"/>
+<area shape="rect" id="node4" href="$classinterface.html#a02c5529150d3906e84bb86fa545e4f6b" title="interface::afficher\l_liste_ECUE" alt="" coords="355,129,477,171"/>
+<area shape="rect" id="node5" href="$classinterface.html#aa96f86452f06cf3c1d672dd4fad36f5a" title="interface::afficher\l_supprimer_ECUE" alt="" coords="176,188,307,229"/>
+</map>

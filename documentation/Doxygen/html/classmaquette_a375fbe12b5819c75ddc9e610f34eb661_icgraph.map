@@ -1,0 +1,10 @@
+<map id="maquette::annee" name="maquette::annee">
+<area shape="rect" id="node2" href="$classmaquette.html#a71442faecd4315db9ed5c1b291db5033" title="maquette::maquette" alt="" coords="172,5,311,32"/>
+<area shape="rect" id="node3" href="$classmaquette.html#afe9a2f253ee2cd37931617fb1d156a35" title="maquette::annee" alt="" coords="182,56,301,83"/>
+<area shape="rect" id="node4" href="$classafficheur__txt.html#a335c6d9e66d6bee82aa095c3df9eb946" title="afficheur_txt::nom" alt="" coords="363,27,489,53"/>
+<area shape="rect" id="node9" href="$classafficheur__txt.html#aa7565f58ce88c4525a2a1f2eef654e00" title="afficheur_txt::ecrire\l_details_maquette" alt="" coords="359,78,493,119"/>
+<area shape="rect" id="node5" href="$classafficheur__txt.html#a8edadb15ca2073230ae89c8f7a7bd64b" title="afficheur_txt::exporter\l_maquette" alt="" coords="541,49,691,90"/>
+<area shape="rect" id="node6" href="$classinterface.html#aea33c0ccf6e11398f0e7a594511b2ee7" title="interface::afficher\l_export_maquette" alt="" coords="739,49,865,90"/>
+<area shape="rect" id="node7" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="913,49,1043,90"/>
+<area shape="rect" id="node8" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="1091,56,1221,83"/>
+</map>

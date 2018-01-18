@@ -1,0 +1,11 @@
+<map id="UEseule::duree_totale" name="UEseule::duree_totale">
+<area shape="rect" id="node2" href="$classafficheur__txt.html#a951ee7372af8cafef70c998b496ea9a0" title="afficheur_txt::ecrire\l_ue_seule" alt="" coords="204,5,339,47"/>
+<area shape="rect" id="node9" href="$class_u_eseule.html#a790396304a0a3709e8ae72baa0b34857" title="UEseule::afficher" alt="" coords="210,71,333,98"/>
+<area shape="rect" id="node3" href="$classafficheur__txt.html#a877ef7d7712c9e70c63b196f9bbaaa94" title="afficheur_txt::ecrire_ue" alt="" coords="387,13,541,39"/>
+<area shape="rect" id="node4" href="$classafficheur__txt.html#a8edadb15ca2073230ae89c8f7a7bd64b" title="afficheur_txt::exporter\l_maquette" alt="" coords="772,5,921,47"/>
+<area shape="rect" id="node8" href="$classafficheur__txt.html#a32965a896502c57922805e3dfbcc3d71" title="afficheur_txt::ecrire\l_ue_choix" alt="" coords="589,35,724,76"/>
+<area shape="rect" id="node5" href="$classinterface.html#aea33c0ccf6e11398f0e7a594511b2ee7" title="interface::afficher\l_export_maquette" alt="" coords="969,5,1096,47"/>
+<area shape="rect" id="node6" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="1144,5,1273,47"/>
+<area shape="rect" id="node7" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="1321,13,1452,39"/>
+<area shape="rect" id="node10" href="$_u_eseule_8h.html#a673ee63eaa9cbc107496521d5b40056c" title="operator\&lt;\&lt;" alt="" coords="421,71,507,98"/>
+</map>

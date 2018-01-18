@@ -1,0 +1,10 @@
+<map id="afficheur_txt::nom" name="afficheur_txt::nom">
+<area shape="rect" id="node2" href="$classmaquette.html#ae6ad143554dd334e36eb94898ae05c17" title="maquette::mention" alt="" coords="184,5,315,32"/>
+<area shape="rect" id="node4" href="$classmaquette.html#afe9a2f253ee2cd37931617fb1d156a35" title="maquette::annee" alt="" coords="190,56,309,83"/>
+<area shape="rect" id="node6" href="$classmaquette.html#aa3736ad44ab8eb82db33ac35b5f096cc" title="maquette::parcours" alt="" coords="182,107,317,133"/>
+<area shape="rect" id="node8" href="$classmaquette.html#af7a5983482e9a3dca4392198e880bac1" title="maquette::semestre" alt="" coords="180,157,319,184"/>
+<area shape="rect" id="node3" href="$classmaquette.html#accb9dd5b6df25a75e82c824a84b89798" title="maquette::mention" alt="" coords="371,5,501,32"/>
+<area shape="rect" id="node5" href="$classmaquette.html#a375fbe12b5819c75ddc9e610f34eb661" title="maquette::annee" alt="" coords="377,56,495,83"/>
+<area shape="rect" id="node7" href="$classmaquette.html#a1a3b4729c359f61edccf704fc0d9c091" title="maquette::parcours" alt="" coords="369,107,503,133"/>
+<area shape="rect" id="node9" href="$classmaquette.html#a771383cadc07d95b45901425f45de909" title="maquette::semestre" alt="" coords="367,157,505,184"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="afficheur_txt::ecrire_ecue" name="afficheur_txt::ecrire_ecue">
+<area shape="rect" id="node2" href="$classecue.html#ab57447c3b25c5ba8d9e4cca8f7bc6667" title="ecue::code" alt="" coords="244,5,331,32"/>
+<area shape="rect" id="node4" href="$classecue.html#a67125402a81e623c065879291dd5ed56" title="ecue::coefficient" alt="" coords="228,56,347,83"/>
+<area shape="rect" id="node5" href="$classecue.html#af2e367c1802272cb504c982abd981934" title="ecue::intitule" alt="" coords="239,107,335,133"/>
+<area shape="rect" id="node7" href="$classecue.html#a8fc9148d33f3cdda51ff28b9890e3f28" title="ecue::heures_cm" alt="" coords="226,157,349,184"/>
+<area shape="rect" id="node8" href="$classecue.html#afa10c40e4944dbf037e12c0263a05e74" title="ecue::heures_td" alt="" coords="230,208,345,235"/>
+<area shape="rect" id="node9" href="$classecue.html#afa9cf5cd2e64efbdff4e7e8a93c79016" title="ecue::heures_tp" alt="" coords="230,259,345,285"/>
+<area shape="rect" id="node10" href="$classecue.html#a3541b795f2449252a7b20d3a0f9927fe" title="ecue::duree_totale" alt="" coords="223,309,352,336"/>
+<area shape="rect" id="node3" href="$classecue.html#a6a25427b300a52ab4095acc61edef9b2" title="ecue::code" alt="" coords="405,5,491,32"/>
+<area shape="rect" id="node6" href="$classecue.html#a605b3b7edaab2b3a885142a6942ff655" title="ecue::intitule" alt="" coords="400,107,496,133"/>
+</map>

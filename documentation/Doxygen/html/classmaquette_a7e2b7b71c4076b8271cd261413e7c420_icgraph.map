@@ -1,0 +1,6 @@
+<map id="maquette::saisir_maquette" name="maquette::saisir_maquette">
+<area shape="rect" id="node2" href="$classinterface.html#a4f100e9cbed20494c6e7c40eb563a953" title="interface::afficher\l_menu_modification_maquette" alt="" coords="229,5,428,47"/>
+<area shape="rect" id="node3" href="$classinterface.html#a53a28d190f0eb39b09f007dab5d87b52" title="interface::afficher\l_modifier_maquette" alt="" coords="476,5,612,47"/>
+<area shape="rect" id="node4" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="660,5,789,47"/>
+<area shape="rect" id="node5" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="837,13,968,39"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="maquette.h" name="maquette.h">
+<area shape="rect" id="node2" href="$afficheur_8h.html" title="afficheur.h" alt="" coords="138,80,221,107"/>
+<area shape="rect" id="node6" href="$interface_8h.html" title="interface.h" alt="" coords="245,229,327,256"/>
+<area shape="rect" id="node9" href="$formation_8h.html" title="formation.h" alt="" coords="308,80,395,107"/>
+<area shape="rect" id="node11" href="$maquette_8cpp.html" title="maquette.cpp" alt="" coords="419,80,521,107"/>
+<area shape="rect" id="node3" href="$afficheur_8cpp.html" title="afficheur.cpp" alt="" coords="5,155,103,181"/>
+<area shape="rect" id="node4" href="$afficheur__txt_8h.html" title="afficheur_txt.h" alt="" coords="127,155,232,181"/>
+<area shape="rect" id="node5" href="$afficheur__txt_8cpp.html" title="afficheur_txt.cpp" alt="" coords="103,229,221,256"/>
+<area shape="rect" id="node7" href="$interface_8cpp.html" title="interface.cpp" alt="" coords="181,304,279,331"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title="main.cpp" alt="" coords="303,304,378,331"/>
+<area shape="rect" id="node10" href="$formation_8cpp.html" title="formation.cpp" alt="" coords="358,155,459,181"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="interface::afficher_menu_modification_maquette" name="interface::afficher_menu_modification_maquette">
+<area shape="rect" id="node2" href="$classmaquette.html#aa344955a0357ec5c50aa224d764063a7" title="maquette::afficher" alt="" coords="277,5,403,32"/>
+<area shape="rect" id="node3" href="$classmaquette.html#a7e2b7b71c4076b8271cd261413e7c420" title="maquette::saisir_maquette" alt="" coords="252,56,428,83"/>
+<area shape="rect" id="node4" href="$classinterface.html#a922fb77a9fc8880a0e10e54344cf7ffe" title="interface::afficher\l_liste_UE_choix" alt="" coords="279,107,401,149"/>
+<area shape="rect" id="node5" href="$classmaquette.html#a8ea86025821fcbe787946e66a18f4277" title="maquette::ajouter_ue" alt="" coords="268,173,412,200"/>
+<area shape="rect" id="node6" href="$classinterface.html#aff50c58002c158796b2321ed3e61ce17" title="interface::afficher\l_liste_UEseule" alt="" coords="279,225,401,266"/>
+<area shape="rect" id="node7" href="$classinterface.html#a2d677d98c27f53d4794dd159d231aebf" title="interface::afficher\l_liste_UEcomposee" alt="" coords="271,290,409,331"/>
+</map>

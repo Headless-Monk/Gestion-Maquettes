@@ -1,0 +1,6 @@
+<map id="interface::afficher_liste_maquette_entete" name="interface::afficher_liste_maquette_entete">
+<area shape="rect" id="node2" href="$classinterface.html#a53a28d190f0eb39b09f007dab5d87b52" title="interface::afficher\l_modifier_maquette" alt="" coords="216,5,352,47"/>
+<area shape="rect" id="node5" href="$classinterface.html#aab6d3bc1a175c1672ee60b7c2c4c49b8" title="interface::afficher\l_supprimer_maquette" alt="" coords="211,71,357,112"/>
+<area shape="rect" id="node3" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="405,39,535,80"/>
+<area shape="rect" id="node4" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="583,46,713,73"/>
+</map>

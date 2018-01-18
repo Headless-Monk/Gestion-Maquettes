@@ -1,0 +1,9 @@
+<map id="UEcomposee::liste_ecue" name="UEcomposee::liste_ecue">
+<area shape="rect" id="node2" href="$classafficheur__txt.html#ab5e2d22fea9d695890957982391925c1" title="afficheur_txt::ecrire\l_ue_composee" alt="" coords="221,5,356,47"/>
+<area shape="rect" id="node3" href="$classafficheur__txt.html#a877ef7d7712c9e70c63b196f9bbaaa94" title="afficheur_txt::ecrire_ue" alt="" coords="404,13,559,39"/>
+<area shape="rect" id="node4" href="$classafficheur__txt.html#a8edadb15ca2073230ae89c8f7a7bd64b" title="afficheur_txt::exporter\l_maquette" alt="" coords="789,5,939,47"/>
+<area shape="rect" id="node8" href="$classafficheur__txt.html#a32965a896502c57922805e3dfbcc3d71" title="afficheur_txt::ecrire\l_ue_choix" alt="" coords="607,35,741,76"/>
+<area shape="rect" id="node5" href="$classinterface.html#aea33c0ccf6e11398f0e7a594511b2ee7" title="interface::afficher\l_export_maquette" alt="" coords="987,5,1113,47"/>
+<area shape="rect" id="node6" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="1161,5,1291,47"/>
+<area shape="rect" id="node7" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="1339,13,1469,39"/>
+</map>

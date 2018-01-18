@@ -1,0 +1,18 @@
+<map id="interface::afficher_menu_UEcomposees" name="interface::afficher_menu_UEcomposees">
+<area shape="rect" id="node2" href="$classinterface.html#ab22bf6df195e02a3f3b2de595fd1cc1e" title="interface::afficher\l_creer_UEcomposee" alt="" coords="222,38,366,79"/>
+<area shape="rect" id="node3" href="$classinterface.html#a72a60ae2a88c5a4d704ef34d8f5efd7b" title="interface::afficher\l_modifier_UEcomposee" alt="" coords="213,221,375,262"/>
+<area shape="rect" id="node4" href="$classinterface.html#a2d677d98c27f53d4794dd159d231aebf" title="interface::afficher\l_liste_UEcomposee" alt="" coords="471,155,609,197"/>
+<area shape="rect" id="node17" href="$classinterface.html#ad7f0522b11848442a4e16758814b407e" title="interface::afficher\l_supprimer_UEcomposee" alt="" coords="208,155,380,197"/>
+<area shape="rect" id="node5" href="$classinterface.html#a9c2cd56bb889467a6232057963bd331f" title="interface::afficher\l_menu_modification_UEcomposee" alt="" coords="428,221,652,262"/>
+<area shape="rect" id="node6" href="$class_u_ecomposee.html#a55443f78ada13b3fd4f26c1f11d65dfc" title="UEcomposee::afficher" alt="" coords="726,111,878,137"/>
+<area shape="rect" id="node11" href="$class_u_ecomposee.html#a8297e10012274a7f0f7a27f0a5e42ab1" title="UEcomposee::modifier\l_entete" alt="" coords="725,45,879,86"/>
+<area shape="rect" id="node12" href="$classinterface.html#a02c5529150d3906e84bb86fa545e4f6b" title="interface::afficher\l_liste_ECUE" alt="" coords="741,162,863,203"/>
+<area shape="rect" id="node13" href="$class_u_ecomposee.html#a8b3643dcb933f3dd4025f8d08b5dfea7" title="UEcomposee::ajouter_ecue" alt="" coords="711,228,893,255"/>
+<area shape="rect" id="node14" href="$class_u_ecomposee.html#a5dc6b2127bad11900a3005f0aa45cd5e" title="UEcomposee::supprimer_ecue" alt="" coords="701,279,903,305"/>
+<area shape="rect" id="node15" href="$class_u_ecomposee.html#a71ebb62ae33aa1ccd5d91acc2624296b" title="UEcomposee::monter_ecue" alt="" coords="710,329,894,356"/>
+<area shape="rect" id="node16" href="$class_u_ecomposee.html#aa420b71e110aceed6366e58f59e7e3b1" title="UEcomposee::descendre_ecue" alt="" coords="700,380,904,407"/>
+<area shape="rect" id="node7" href="$classue.html#a8a8290d609a919a6c948c4775daccde9" title="ue::code" alt="" coords="968,107,1040,133"/>
+<area shape="rect" id="node8" href="$classue.html#aa56fffdc9461aaea79de4c322f612a4c" title="ue::coefficient" alt="" coords="952,157,1056,184"/>
+<area shape="rect" id="node9" href="$classue.html#a2efacfe649c488c75cd14959b3ca47a8" title="ue::credits" alt="" coords="963,5,1045,32"/>
+<area shape="rect" id="node10" href="$classue.html#a45365838d827f6c3c82a9885922c6699" title="ue::intitule" alt="" coords="963,56,1045,83"/>
+</map>

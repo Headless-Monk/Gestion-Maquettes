@@ -1,0 +1,7 @@
+<map id="maquette::domaine" name="maquette::domaine">
+<area shape="rect" id="node2" href="$classafficheur__txt.html#aa7565f58ce88c4525a2a1f2eef654e00" title="afficheur_txt::ecrire\l_details_maquette" alt="" coords="187,5,321,47"/>
+<area shape="rect" id="node3" href="$classafficheur__txt.html#a8edadb15ca2073230ae89c8f7a7bd64b" title="afficheur_txt::exporter\l_maquette" alt="" coords="369,5,519,47"/>
+<area shape="rect" id="node4" href="$classinterface.html#aea33c0ccf6e11398f0e7a594511b2ee7" title="interface::afficher\l_export_maquette" alt="" coords="567,5,693,47"/>
+<area shape="rect" id="node5" href="$classinterface.html#a14f9520d4f681d226ce5c4ea038ecde1" title="interface::afficher\l_menu_maquettes" alt="" coords="741,5,871,47"/>
+<area shape="rect" id="node6" href="$classinterface.html#a9b8eba3b2c34bf39c0a65ee700a6edb0" title="interface::initialiser" alt="" coords="919,13,1049,39"/>
+</map>
